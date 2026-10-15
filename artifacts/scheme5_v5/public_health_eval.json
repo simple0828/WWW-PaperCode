@@ -1,0 +1,286 @@
+{
+  "domain": "public_health",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "STREAMING/ONLINE primary: chronological train∪test; later windows use earlier experience (causal online). fuse=fixed mean@amp=1.0; pick_epoch=best. Report test_best_epoch_online vs baseline test_last_epoch_online; test_final_frozen is freeze ablation only.",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_public_health/round_5/F5_r5c1",
+  "H": 6,
+  "focus": [
+    "ili",
+    "hospitalization",
+    "vaccine",
+    "outbreak",
+    "school",
+    "variant",
+    "season",
+    "policy",
+    "flu_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "pick_epoch": "best",
+    "best_epoch": 2,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": []
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/public_health_event_ts_assoc/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "ili": {
+      "n_lessons": 20,
+      "chars": 3458,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "hospitalization": {
+      "n_lessons": 20,
+      "chars": 3803,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "vaccine": {
+      "n_lessons": 20,
+      "chars": 3370,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "outbreak": {
+      "n_lessons": 20,
+      "chars": 3149,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "school": {
+      "n_lessons": 20,
+      "chars": 3413,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "variant": {
+      "n_lessons": 20,
+      "chars": 3712,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "season": {
+      "n_lessons": 20,
+      "chars": 3505,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "policy": {
+      "n_lessons": 20,
+      "chars": 3483,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "flu_report": {
+      "n_lessons": 20,
+      "chars": 3488,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 5862,
+      "n_gated": 1816,
+      "n_rewrites": 364,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 959,
+        "active": 686,
+        "frac_active": 0.7153284671532847,
+        "mse_b0": 0.4681246807587696,
+        "mse_s5": 0.4627723718545551,
+        "rel_pct": -1.1433511464379762
+      },
+      "test": {
+        "n": 256,
+        "active": 185,
+        "frac_active": 0.72265625,
+        "mse_b0": 0.7226821011965541,
+        "mse_s5": 0.7211036787031107,
+        "rel_pct": -0.218411731912276
+      },
+      "protocol_versions": {
+        "ili": 46,
+        "hospitalization": 33,
+        "vaccine": 41,
+        "outbreak": 51,
+        "school": 15,
+        "variant": 37,
+        "season": 48,
+        "policy": 42,
+        "flu_report": 51
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 5862,
+      "n_gated": 1757,
+      "n_rewrites": 364,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 959,
+        "active": 644,
+        "frac_active": 0.6715328467153284,
+        "mse_b0": 0.4681246807587696,
+        "mse_s5": 0.46303953588543983,
+        "rel_pct": -1.0862800194784477
+      },
+      "test": {
+        "n": 256,
+        "active": 188,
+        "frac_active": 0.734375,
+        "mse_b0": 0.7226821011965541,
+        "mse_s5": 0.7203125126469441,
+        "rel_pct": -0.3278880915532077
+      },
+      "protocol_versions": {
+        "ili": 92,
+        "hospitalization": 66,
+        "vaccine": 82,
+        "outbreak": 102,
+        "school": 30,
+        "variant": 74,
+        "season": 96,
+        "policy": 84,
+        "flu_report": 102
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 959,
+    "active": 644,
+    "frac_active": 0.6715328467153284,
+    "mse_b0": 0.4681246807587696,
+    "mse_s5": 0.46303953588543983,
+    "rel_pct": -1.0862800194784477
+  },
+  "train_best_epoch": {
+    "n": 959,
+    "active": 644,
+    "frac_active": 0.6715328467153284,
+    "mse_b0": 0.4681246807587696,
+    "mse_s5": 0.46303953588543983,
+    "rel_pct": -1.0862800194784477
+  },
+  "test_last_epoch_online": {
+    "n": 256,
+    "active": 188,
+    "frac_active": 0.734375,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7203125126469441,
+    "rel_pct": -0.3278880915532077
+  },
+  "test_best_epoch_online": {
+    "n": 256,
+    "active": 188,
+    "frac_active": 0.734375,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7203125126469441,
+    "rel_pct": -0.3278880915532077
+  },
+  "test_final_frozen": {
+    "n": 256,
+    "active": 193,
+    "frac_active": 0.75390625,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7205926659743699,
+    "rel_pct": -0.2891223151541575
+  },
+  "elapsed_sec": 7828.993046998978,
+  "protocol_versions": {
+    "ili": 92,
+    "hospitalization": 66,
+    "vaccine": 82,
+    "outbreak": 102,
+    "school": 30,
+    "variant": 74,
+    "season": 96,
+    "policy": 84,
+    "flu_report": 102
+  },
+  "channel_success": {
+    "ili": {
+      "n_infer": 1446,
+      "n_success": 401
+    },
+    "hospitalization": {
+      "n_infer": 758,
+      "n_success": 38
+    },
+    "vaccine": {
+      "n_infer": 1242,
+      "n_success": 110
+    },
+    "outbreak": {
+      "n_infer": 2224,
+      "n_success": 501
+    },
+    "school": {
+      "n_infer": 228,
+      "n_success": 49
+    },
+    "variant": {
+      "n_infer": 1054,
+      "n_success": 246
+    },
+    "season": {
+      "n_infer": 1262,
+      "n_success": 53
+    },
+    "policy": {
+      "n_infer": 1226,
+      "n_success": 91
+    },
+    "flu_report": {
+      "n_infer": 2284,
+      "n_success": 346
+    }
+  }
+}

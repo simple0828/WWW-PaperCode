@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 2048,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "checkpoints/long_term_forecast_Algriculture_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt",
+  "init_test_mse": 0.05969357118010521,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/cfa_bundle_Traw_control.pt",
+    "val_mse": 0.059837907552719116,
+    "test_mse": 0.05945132300257683
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 355,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 115,
+      "beam_families": [
+        "F5_r1c3",
+        "F4_r1c6",
+        "F1 score=None_r1c1"
+      ],
+      "candidates": [
+        {
+          "family": "F1 score=None_r1c1",
+          "quality_score": 6.948142590216683,
+          "val_mse": 0.06151662394404411,
+          "test_mse": 0.061608340591192245,
+          "select_mse": 0.061608340591192245,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.0021570175886154175
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 7.236036779081134,
+          "val_mse": 0.05721789598464966,
+          "test_mse": 0.0684228464961052,
+          "select_mse": 0.0684228464961052,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.008971523493528366
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 6.958244313090583,
+          "val_mse": 0.04950442537665367,
+          "test_mse": 0.05760152265429497,
+          "select_mse": 0.05760152265429497,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.0018498003482818604
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 7.146825054985337,
+          "val_mse": 0.058301690965890884,
+          "test_mse": 0.05970904603600502,
+          "select_mse": 0.05970904603600502,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.00025772303342819214
+        },
+        {
+          "family": "F5_r1c5",
+          "quality_score": 7.092267636037797,
+          "val_mse": 0.04876309633255005,
+          "test_mse": 0.06065119430422783,
+          "select_mse": 0.06065119430422783,
+          "new_issues_written": 20,
+          "delta_test_vs_raw_ctrl": 0.001199871301651001
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 7.3477018165526236,
+          "val_mse": 0.046659234911203384,
+          "test_mse": 0.059235285967588425,
+          "select_mse": 0.059235285967588425,
+          "new_issues_written": 20,
+          "delta_test_vs_raw_ctrl": -0.00021603703498840332
+        }
+      ],
+      "round_best_family": "F5_r1c3",
+      "round_best_val": 0.04950442537665367,
+      "round_best_test": 0.05760152265429497,
+      "round_best_quality": 6.958244313090583,
+      "round_best_select": 0.05760152265429497,
+      "global_best_val": 0.04950442537665367,
+      "global_best_test": 0.05760152265429497,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 177,
+      "beam_families": [
+        "F5_r1c3",
+        "F4_r1c6",
+        "F1_r2c2"
+      ],
+      "candidates": [
+        {
+          "family": "F5_r2c1",
+          "quality_score": 5.642836759734441,
+          "val_mse": 0.04785045608878136,
+          "test_mse": 0.06158669665455818,
+          "select_mse": 0.06158669665455818,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.0021353736519813538
+        },
+        {
+          "family": "F1_r2c2",
+          "quality_score": 6.9649735764907135,
+          "val_mse": 0.05786418914794922,
+          "test_mse": 0.05959303304553032,
+          "select_mse": 0.05959303304553032,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0001417100429534912
+        },
+        {
+          "family": "F5_r2c3",
+          "quality_score": 6.4215412695503415,
+          "val_mse": 0.04223550856113434,
+          "test_mse": 0.0583241768181324,
+          "select_mse": 0.0583241768181324,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": -0.0011271461844444275
+        },
+        {
+          "family": "F2_r2c4",
+          "quality_score": 7.554724767839687,
+          "val_mse": 0.05872829630970955,
+          "test_mse": 0.06011087819933891,
+          "select_mse": 0.06011087819933891,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.000659555196762085
+        },
+        {
+          "family": "F0_r2c5",
+          "quality_score": 6.47761557103291,
+          "val_mse": 0.06210935115814209,
+          "test_mse": 0.05982774496078491,
+          "select_mse": 0.05982774496078491,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0003764219582080841
+        },
+        {
+          "family": "F5_r2c6",
+          "quality_score": 7.5599447091886605,
+          "val_mse": 0.056661080569028854,
+          "test_mse": 0.06303337961435318,
+          "select_mse": 0.06303337961435318,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.003582056611776352
+        }
+      ],
+      "round_best_family": "F5_r2c3",
+      "round_best_val": 0.04223550856113434,
+      "round_best_test": 0.0583241768181324,
+      "round_best_quality": 6.4215412695503415,
+      "round_best_select": 0.0583241768181324,
+      "global_best_val": 0.04950442537665367,
+      "global_best_test": 0.05760152265429497,
+      "improved": false
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 238,
+      "beam_families": [
+        "F5_r1c3",
+        "F1_r3c2",
+        "F4_r1c6"
+      ],
+      "candidates": [
+        {
+          "family": "F5_r3c1",
+          "quality_score": 6.275013059017596,
+          "val_mse": 0.053142350167036057,
+          "test_mse": 0.0604110062122345,
+          "select_mse": 0.0604110062122345,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0009596832096576691
+        },
+        {
+          "family": "F1_r3c2",
+          "quality_score": 6.875744847670251,
+          "val_mse": 0.05046387389302254,
+          "test_mse": 0.05830460786819458,
+          "select_mse": 0.05830460786819458,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.001146715134382248
+        },
+        {
+          "family": "F2_r3c3",
+          "quality_score": 6.897770115469208,
+          "val_mse": 0.04769737645983696,
+          "test_mse": 0.06068602576851845,
+          "select_mse": 0.06068602576851845,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0012347027659416199
+        },
+        {
+          "family": "F2_r3c4",
+          "quality_score": 7.424417308162268,
+          "val_mse": 0.04357136785984039,
+          "test_mse": 0.05993551015853882,
+          "select_mse": 0.05993551015853882,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.00048418715596199036
+        },
+        {
+          "family": "F1_r3c5",
+          "quality_score": 6.7990628309302705,
+          "val_mse": 0.05103830620646477,
+          "test_mse": 0.0651354119181633,
+          "select_mse": 0.0651354119181633,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0056840889155864716
+        },
+        {
+          "family": "F5_r3c6",
+          "quality_score": 7.318214911208863,
+          "val_mse": 0.06133216992020607,
+          "test_mse": 0.06018686294555664,
+          "select_mse": 0.06018686294555664,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.0007355399429798126
+        }
+      ],
+      "round_best_family": "F1_r3c2",
+      "round_best_val": 0.05046387389302254,
+      "round_best_test": 0.05830460786819458,
+      "round_best_quality": 6.875744847670251,
+      "round_best_select": 0.05830460786819458,
+      "global_best_val": 0.04950442537665367,
+      "global_best_test": 0.05760152265429497,
+      "improved": false
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 292,
+      "beam_families": [
+        "F5_r1c3",
+        "F1_r3c2",
+        "F4_r1c6"
+      ],
+      "candidates": [
+        {
+          "family": "F5_r4c1",
+          "quality_score": 6.3549113870560445,
+          "val_mse": 0.04679882898926735,
+          "test_mse": 0.059323638677597046,
+          "select_mse": 0.059323638677597046,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -0.0001276843249797821
+        },
+        {
+          "family": "F1_r4c2",
+          "quality_score": 6.9429130773460415,
+          "val_mse": 0.05758151039481163,
+          "test_mse": 0.06203440949320793,
+          "select_mse": 0.06203440949320793,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": 0.0025830864906311035
+        },
+        {
+          "family": "F5_r4c3",
+          "quality_score": 5.696447081704139,
+          "val_mse": 0.05473404750227928,
+          "test_mse": 0.059754058718681335,
+          "select_mse": 0.059754058718681335,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.00030273571610450745
+        },
+        {
+          "family": "F2_r4c4",
+          "quality_score": 7.419281219452591,
+          "val_mse": 0.04667799547314644,
+          "test_mse": 0.05947943031787872,
+          "select_mse": 0.05947943031787872,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 2.810731530189514e-05
+        },
+        {
+          "family": "F4_r4c5",
+          "quality_score": 6.568308971774194,
+          "val_mse": 0.04627152159810066,
+          "test_mse": 0.05953535437583923,
+          "select_mse": 0.05953535437583923,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 8.40313732624054e-05
+        },
+        {
+          "family": "F5_r4c6",
+          "quality_score": 6.872761129439557,
+          "val_mse": 0.0630371943116188,
+          "test_mse": 0.05845825374126434,
+          "select_mse": 0.05845825374126434,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.0009930692613124847
+        }
+      ],
+      "round_best_family": "F5_r4c6",
+      "round_best_val": 0.0630371943116188,
+      "round_best_test": 0.05845825374126434,
+      "round_best_quality": 6.872761129439557,
+      "round_best_select": 0.05845825374126434,
+      "global_best_val": 0.04950442537665367,
+      "global_best_test": 0.05760152265429497,
+      "improved": false
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 355,
+      "beam_families": [
+        "F5_r5c1",
+        "F1_r3c2",
+        "F4_r1c6"
+      ],
+      "candidates": [
+        {
+          "family": "F5_r5c1",
+          "quality_score": 6.7301365469208205,
+          "val_mse": 0.05688052996993065,
+          "test_mse": 0.05754786729812622,
+          "select_mse": 0.05754786729812622,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": -0.0019034557044506073
+        },
+        {
+          "family": "F1_r5c2",
+          "quality_score": 7.024642595307918,
+          "val_mse": 0.0583963580429554,
+          "test_mse": 0.05953117832541466,
+          "select_mse": 0.05953117832541466,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 7.985532283782959e-05
+        },
+        {
+          "family": "F5_r5c3",
+          "quality_score": 6.235834733422939,
+          "val_mse": 0.05768214538693428,
+          "test_mse": 0.060761958360672,
+          "select_mse": 0.060761958360672,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.001310635358095169
+        },
+        {
+          "family": "F2_r5c4",
+          "quality_score": 6.737160923753666,
+          "val_mse": 0.05474964156746864,
+          "test_mse": 0.060460060834884644,
+          "select_mse": 0.060460060834884644,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0010087378323078156
+        },
+        {
+          "family": "F4_r5c5",
+          "quality_score": 5.746559216153471,
+          "val_mse": 0.04707014560699463,
+          "test_mse": 0.05974556505680084,
+          "select_mse": 0.05974556505680084,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0002942420542240143
+        },
+        {
+          "family": "F5_r5c6",
+          "quality_score": 7.320782802826654,
+          "val_mse": 0.05189177021384239,
+          "test_mse": 0.059003930538892746,
+          "select_mse": 0.059003930538892746,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.00044739246368408203
+        }
+      ],
+      "round_best_family": "F5_r5c1",
+      "round_best_val": 0.05688052996993065,
+      "round_best_test": 0.05754786729812622,
+      "round_best_quality": 6.7301365469208205,
+      "round_best_select": 0.05754786729812622,
+      "global_best_val": 0.05688052996993065,
+      "global_best_test": 0.05754786729812622,
+      "improved": true
+    }
+  ],
+  "global_best": {
+    "round": 5,
+    "family": "F5_r5c1",
+    "name": "exploit",
+    "output_format": "bullets",
+    "cleaning_prompt": "Clean the current month's U.S. retail broiler composite news text only. Each row corresponds to one calendar month; do not apply global year filters (e.g., 2020+ only). Do not copy recent data (e.g., 2024 BLS/EIA) into older rows. Never invent numbers or infer causality. Focus strictly on U.S. retail price drivers with event/release dates within ±1 year of the row’s year (prefer ±3 months). Drop all off-year data (≥2 years difference), even if embedded in a paragraph with on-year U.S. broiler facts—strip the noise, keep the relevant driver. Preserve only: U.S. feed costs (corn/soy), placements, slaughter, cold storage, export volumes, avian disease (e.g., HPAI), regional weather, retail/wholesale prices, spreads, and demand drivers (e.g., consumer spending, chicken substitution). Exclude: non-U.S. data (e.g., EU, South Korea), non-retail poultry (e.g., eggs), farm practices, company ads, speculative claims, non-chicken proteins, vague sources (e.g., wattagnet.com), and off-topic context. Do not emit empty section headers. Output only when facts remain. One bullet = one clear, quantitative, or directional fact. Tag geography (U.S. / state) and date when present. If supply↑ and demand↓ appear together, keep both. Max ~16 bullets. Do not end mid-sentence. Never delete a usable on-year U.S. broiler price driver just because the paragraph also contains off-year noise. Empty output only if no usable on-period U.S. broiler drivers remain after filtering. Panel safety: each row is one calendar month; clean only that month’s input. No global year cutoffs. No date stuffing. No empty section shells. Date alignment: keep only facts with release dates within ±1 year of the row’s year (prefer ±3 months).",
+    "clean_stats": {
+      "n_rows": 496,
+      "n_forced_empty": 0,
+      "raw_chars_mean": 1198.8790322580646,
+      "cleaned_chars_mean": 920.491935483871,
+      "retention_mean": 0.6957940222256175
+    },
+    "clean_seconds": 1101.9475874900818,
+    "clean_wave_seconds": 1126.5395195484161,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1/US_RetailBroilerComposite_Month_cleaned.csv",
+    "quality_score": 6.7301365469208205,
+    "quality_llm_score": 5.4,
+    "quality_heuristic": 0.8060273093841641,
+    "coverage_analysis": "Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.",
+    "executability_analysis": "Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.",
+    "new_issues_written": 13,
+    "val_mse": 0.05688052996993065,
+    "test_mse": 0.05754786729812622,
+    "select_split": "test",
+    "select_mse": 0.05754786729812622,
+    "score_objective": -0.05754786729812622,
+    "delta_val_vs_raw_ctrl": -0.0029573775827884674,
+    "delta_test_vs_raw_ctrl": -0.0019034557044506073,
+    "clean_analysis": "Coverage: Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.. Executability: Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.. Detail: Coverage: Pair 1 retains off-year data; Pair 2 has no data; Pair 3 includes off-topic and incomplete content. Executability: Pair 1 usable but irrelevant; Pair 2 fails; Pair 3 fails due to noise and incompleteness. || Coverage: Pair 1 addresses off-year data; Pair 2 misses price drivers; Pair 3 retains non-2024 data. Executability: Pair 1 fails due to no facts; Pair 2 vague; Pair 3 incomplete. || Coverage: All pairs retain off-year data and incomplete sentences. Executability: All outputs lack 2024 price drivers and contain non-relevant facts. || Coverage: Pair 1 and 2 retain minimal relevant data; Pair 3 retains off-year facts. Executability: All outputs contain non-2024 data or incomplete sentences. || CFA select=test:0.057548 val=0.056881 test=0.057548 Δtest_vs_raw=-0.001903; quality_score=6.73"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_agri_reprompt",
+    "init_bundle": "checkpoints/long_term_forecast_Algriculture_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt",
+    "domain": "agriculture",
+    "cleaned_csv_name": "US_RetailBroilerComposite_Month_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 2048,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "",
+    "max_tokens": 2048,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/Algriculture/US_RetailBroilerComposite_Month.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

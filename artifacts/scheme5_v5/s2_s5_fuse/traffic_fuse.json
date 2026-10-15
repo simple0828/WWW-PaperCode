@@ -1,0 +1,83 @@
+{
+  "domain": "traffic",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 1,
+  "s5_v5_best_online_saved": -2.3265777069645184,
+  "s5_v5_final_saved": -0.318123833983797,
+  "recon_s5_online": {
+    "n": 101.0,
+    "active": 94.0,
+    "frac_active": 0.9306930693069307,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.15112858369218038,
+    "rel_pct": -2.3265777069645184
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 101.0,
+    "active": 19.0,
+    "frac_active": 0.18811881188118812,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.1563016025520372,
+    "rel_pct": 1.016710791376487
+  },
+  "val_choice": {
+    "name": "fuse_0.5_0.5",
+    "g2": 0.5,
+    "g5": 0.5,
+    "val_rel": -3.288990758542324,
+    "val_mse": 0.008379256731077565
+  },
+  "fused_online_before_fallback": {
+    "n": 101.0,
+    "active": 95.0,
+    "frac_active": 0.9405940594059405,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.1533581736336525,
+    "rel_pct": -0.8856082055413463
+  },
+  "reported_online": {
+    "n": 101.0,
+    "active": 94.0,
+    "frac_active": 0.9306930693069307,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.15112858369218038,
+    "rel_pct": -2.3265777069645184
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 101.0,
+      "active": 99.0,
+      "frac_active": 0.9801980198019802,
+      "mse_b0": 0.15472846158576392,
+      "mse_s5": 0.15423623347150314,
+      "rel_pct": -0.318123833983797
+    },
+    "fused_before_fallback": {
+      "n": 101.0,
+      "active": 99.0,
+      "frac_active": 0.9801980198019802,
+      "mse_b0": 0.15472846158576392,
+      "mse_s5": 0.15492915958706527,
+      "rel_pct": 0.12970981501687254
+    },
+    "reported": {
+      "n": 101.0,
+      "active": 99.0,
+      "frac_active": 0.9801980198019802,
+      "mse_b0": 0.15472846158576392,
+      "mse_s5": 0.15423623347150314,
+      "rel_pct": -0.318123833983797
+    },
+    "mode": "S5_fallback",
+    "delta_vs_s5_final": 0.0
+  },
+  "n_train_s2_covered": 358,
+  "n_val": 72,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/event_ts_assoc_v2/scheme2_sampled_dual_traffic_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/event_ts_assoc_v2/scheme5_infer_s5v5_improve.jsonl"
+}

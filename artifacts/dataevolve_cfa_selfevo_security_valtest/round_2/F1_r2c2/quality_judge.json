@@ -1,0 +1,87 @@
+{
+  "average_score": 5.45,
+  "heuristic_score": 0.904857369996259,
+  "quality_score": 7.249286849981296,
+  "clean_analysis": "Coverage: Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.. Executability: Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.. Detail: Coverage: Non-FEMA roles, non-disaster topics, and incomplete sentences remain. Executability: Inconsistent application of filtering rules. || Coverage: Non-FEMA roles, historical context, and unverified claims remain. Executability: Incomplete sentences, unverified figures, and non-FEMA references persist. || Coverage: Non-FEMA roles, historical context, and unverified figures not removed. Executability: Invented amounts and incomplete sentences violate prompt. || Coverage: Non-FEMA roles, foreign disasters, and historical context not removed. Executability: Incomplete sentences and unverified funding claims remain.",
+  "coverage_analysis": "Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.",
+  "executability_analysis": "Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.",
+  "new_issues_written": 8,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 5.0,
+      "comment": "Retained non-FEMA roles (USDA, CERT, local agencies) and incomplete sentences. Unverified claims and historical context not removed."
+    },
+    {
+      "pair_id": 2,
+      "score": 4.0,
+      "comment": "Retained non-disaster topics (social science, trauma care), incomplete sentence, and unverified claims. No FEMA grant-outlay focus."
+    },
+    {
+      "pair_id": 3,
+      "score": 6.0,
+      "comment": "Retained non-FEMA agencies (USGS, DHS), incomplete sentence, and non-relevant policy details. Some relevant FEMA content kept."
+    },
+    {
+      "pair_id": 1,
+      "score": 6.0,
+      "comment": "Retained non-FEMA context (COVID, dams), incomplete sentence, unverified FEMA center date, and outdated 2021 disaster reference. Incomplete source."
+    },
+    {
+      "pair_id": 2,
+      "score": 5.0,
+      "comment": "Retained historical laws without current relevance, unverified funding claims, incomplete sentences, and non-FEMA roles. No monthly FEMA outlay data."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Retained non-FEMA agencies (USDA, CISA), generic statements, unverified FEMA roles, and outdated 2017 events. No specific grant-outlay data."
+    },
+    {
+      "pair_id": 1,
+      "score": 5.0,
+      "comment": "Retained non-FEMA roles, historical context, and incomplete sentences. Unverified claims and irrelevant details remain."
+    },
+    {
+      "pair_id": 2,
+      "score": 4.0,
+      "comment": "Invented funding figures, unverified amounts, and incomplete sentences. Non-FEMA entities and off-topic content persist."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "One relevant FEMA grant retained; others dropped. Incomplete sentence and source omission remain."
+    },
+    {
+      "pair_id": 1,
+      "score": 6.0,
+      "comment": "Retains non-FEMA roles and historical context; incomplete sentence; no FEMA grant link."
+    },
+    {
+      "pair_id": 2,
+      "score": 5.0,
+      "comment": "Includes non-FEMA entities and foreign references; no verified FEMA funding."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Some relevant FEMA-linked data retained; non-U.S. events included."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Remove all non-FEMA roles and non-disaster-related emergency management content.",
+    "MEDIUM: Ensure all claims are verifiable and tied to FEMA grant-outlays.",
+    "LOW: Fix incomplete sentences and verify all monetary figures.",
+    "HIGH: Remove all non-FEMA roles and historical laws not tied to current month's outlays.",
+    "MEDIUM: Verify all funding amounts and sources; remove unverified figures.",
+    "LOW: Ensure all sentences are complete and contextually relevant to FEMA grant outlays.",
+    "HIGH: Remove all non-FEMA entities and unverified funding claims.",
+    "MEDIUM: Ensure all dates align with the target month and avoid off-topic historical context.",
+    "LOW: Fix incomplete sentences and verify all dollar amounts with source.",
+    "HIGH: Remove all non-FEMA roles and foreign disaster references.",
+    "MEDIUM: Verify all funding claims with FEMA sources.",
+    "LOW: Ensure all sentences are contextually complete and linked to FEMA outlays."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

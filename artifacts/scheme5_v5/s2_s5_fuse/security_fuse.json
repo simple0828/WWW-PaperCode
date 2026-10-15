@@ -1,0 +1,83 @@
+{
+  "domain": "security",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 2,
+  "s5_v5_best_online_saved": -0.113525762211877,
+  "s5_v5_final_saved": -0.09847091229419011,
+  "recon_s5_online": {
+    "n": 32.0,
+    "active": 32.0,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.87762808656557,
+    "rel_pct": -0.113525762211877
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 32.0,
+    "active": 11.0,
+    "frac_active": 0.34375,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.78809338824628,
+    "rel_pct": -0.19642807936220202
+  },
+  "val_choice": {
+    "name": "fuse_1_1",
+    "g2": 1.0,
+    "g5": 1.0,
+    "val_rel": -1.1214092818105696,
+    "val_mse": 1.6725116877984207
+  },
+  "fused_online_before_fallback": {
+    "n": 32.0,
+    "active": 32.0,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.66697154600428,
+    "rel_pct": -0.3085776880376091
+  },
+  "reported_online": {
+    "n": 32.0,
+    "active": 32.0,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.66697154600428,
+    "rel_pct": -0.3085776880376091
+  },
+  "reported_mode": "fuse",
+  "reported_g2": 1.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": -0.1950519258257321,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 32.0,
+      "active": 32.0,
+      "frac_active": 1.0,
+      "mse_b0": 108.00023617787713,
+      "mse_s5": 107.89388736003289,
+      "rel_pct": -0.09847091229419011
+    },
+    "fused_before_fallback": {
+      "n": 32.0,
+      "active": 32.0,
+      "frac_active": 1.0,
+      "mse_b0": 108.00023617787713,
+      "mse_s5": 107.68309936985139,
+      "rel_pct": -0.29364455046506577
+    },
+    "reported": {
+      "n": 32.0,
+      "active": 32.0,
+      "frac_active": 1.0,
+      "mse_b0": 108.00023617787713,
+      "mse_s5": 107.68309936985139,
+      "rel_pct": -0.29364455046506577
+    },
+    "mode": "fuse",
+    "delta_vs_s5_final": -0.19517363817087566
+  },
+  "n_train_s2_covered": 194,
+  "n_val": 39,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/security_event_ts_assoc/scheme2_sampled_dual_security_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/security_event_ts_assoc/scheme5_infer_s5v5_improve.jsonl"
+}

@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+*.log
+.DS_Store
+
+# large / local
+results/
+checkpoints/
+/tmp/
+*.pt.bak
+
+# runtime caches (regenerable)
+artifacts/**/scheme5_infer_*.jsonl
+artifacts/**/scheme5_rewrite_*.jsonl
+artifacts/**/scheme5_prompts_*/
+artifacts/stage2_fact_improve_ablate/
+
+# HF caches if accidentally linked
+.cache/
+hf_*/

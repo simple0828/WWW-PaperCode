@@ -1,0 +1,23 @@
+{
+  "domain": "agriculture",
+  "n_events": 948,
+  "n_months": 392,
+  "channel_counts": {
+    "demand": 276,
+    "trade": 159,
+    "supply": 116,
+    "policy": 87,
+    "feed": 76,
+    "price": 73,
+    "disease": 71,
+    "macro": 40,
+    "price_report": 38,
+    "other": 8,
+    "stocks": 4
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/agri_events_mech_reprompt/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

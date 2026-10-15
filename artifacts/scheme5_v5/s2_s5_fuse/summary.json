@@ -1,0 +1,103 @@
+{
+  "note": "Primary report = reported_online with hard fallback to S5 v5 best online. Fusion cannot hurt S5 online by construction.",
+  "rows": [
+    {
+      "domain": "traffic",
+      "s5_online": -2.3265777069645184,
+      "s2_online": 1.016710791376487,
+      "fuse_before_fb": -0.8856082055413463,
+      "reported_online": -2.3265777069645184,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "fuse_0.5_0.5",
+      "s5_final": -0.318123833983797,
+      "reported_final": -0.318123833983797,
+      "final_mode": "S5_fallback",
+      "error": null
+    },
+    {
+      "domain": "agriculture",
+      "s5_online": -3.3273481312538524,
+      "s2_online": -1.9170363874002883,
+      "fuse_before_fb": -1.9170363874002883,
+      "reported_online": -3.3273481312538524,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "S2_only",
+      "s5_final": -4.139447638688668,
+      "reported_final": -4.139447638688668,
+      "final_mode": "S5_fallback",
+      "error": null
+    },
+    {
+      "domain": "economy",
+      "s5_online": -3.853351121677162,
+      "s2_online": 7.811929866984457,
+      "fuse_before_fb": -1.907380755493198,
+      "reported_online": -3.853351121677162,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "fuse_0_0.25",
+      "s5_final": 2.4381340918577696,
+      "reported_final": -0.5584629649144357,
+      "final_mode": "fuse",
+      "error": null
+    },
+    {
+      "domain": "energy",
+      "s5_online": -3.1195135273921735,
+      "s2_online": -0.9007860439941661,
+      "fuse_before_fb": -2.777691198617962,
+      "reported_online": -3.1195135273921735,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "fuse_0.5_0.25",
+      "s5_final": -2.87867739550671,
+      "reported_final": -2.87867739550671,
+      "final_mode": "S5_fallback",
+      "error": null
+    },
+    {
+      "domain": "public_health",
+      "s5_online": -0.3278880915532077,
+      "s2_online": 0.4946095687121046,
+      "fuse_before_fb": 0.2710508412395415,
+      "reported_online": -0.3278880915532077,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "fuse_1_1",
+      "s5_final": -0.2891223151541575,
+      "reported_final": -0.2891223151541575,
+      "final_mode": "S5_fallback",
+      "error": null
+    },
+    {
+      "domain": "security",
+      "s5_online": -0.113525762211877,
+      "s2_online": -0.19642807936220202,
+      "fuse_before_fb": -0.3085776880376091,
+      "reported_online": -0.3085776880376091,
+      "mode": "fuse",
+      "delta_vs_s5": -0.1950519258257321,
+      "val_choice": "fuse_1_1",
+      "s5_final": -0.09847091229419011,
+      "reported_final": -0.29364455046506577,
+      "final_mode": "fuse",
+      "error": null
+    },
+    {
+      "domain": "social_good",
+      "s5_online": 0.701215042000678,
+      "s2_online": 1.314942442875906,
+      "fuse_before_fb": 2.091236762388846,
+      "reported_online": 0.701215042000678,
+      "mode": "S5_fallback",
+      "delta_vs_s5": 0.0,
+      "val_choice": "fuse_1_1",
+      "s5_final": 0.813798200951682,
+      "reported_final": 0.813798200951682,
+      "final_mode": "S5_fallback",
+      "error": null
+    }
+  ]
+}

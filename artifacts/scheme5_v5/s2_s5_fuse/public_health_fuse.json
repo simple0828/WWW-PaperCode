@@ -1,0 +1,83 @@
+{
+  "domain": "public_health",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 2,
+  "s5_v5_best_online_saved": -0.3278880915532077,
+  "s5_v5_final_saved": -0.2891223151541575,
+  "recon_s5_online": {
+    "n": 256.0,
+    "active": 188.0,
+    "frac_active": 0.734375,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7203125126469441,
+    "rel_pct": -0.3278880915532077
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 256.0,
+    "active": 51.0,
+    "frac_active": 0.19921875,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7262565560204419,
+    "rel_pct": 0.4946095687121046
+  },
+  "val_choice": {
+    "name": "fuse_1_1",
+    "g2": 1.0,
+    "g5": 1.0,
+    "val_rel": -2.0243755294338848,
+    "val_mse": 0.3469139293463437
+  },
+  "fused_online_before_fallback": {
+    "n": 256.0,
+    "active": 197.0,
+    "frac_active": 0.76953125,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7246409371113349,
+    "rel_pct": 0.2710508412395415
+  },
+  "reported_online": {
+    "n": 256.0,
+    "active": 188.0,
+    "frac_active": 0.734375,
+    "mse_b0": 0.7226821011965541,
+    "mse_s5": 0.7203125126469441,
+    "rel_pct": -0.3278880915532077
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 256.0,
+      "active": 193.0,
+      "frac_active": 0.75390625,
+      "mse_b0": 0.7226821011965541,
+      "mse_s5": 0.7205926659743699,
+      "rel_pct": -0.2891223151541575
+    },
+    "fused_before_fallback": {
+      "n": 256.0,
+      "active": 201.0,
+      "frac_active": 0.78515625,
+      "mse_b0": 0.7226821011965541,
+      "mse_s5": 0.7248738204725674,
+      "rel_pct": 0.3032757103551481
+    },
+    "reported": {
+      "n": 256.0,
+      "active": 193.0,
+      "frac_active": 0.75390625,
+      "mse_b0": 0.7226821011965541,
+      "mse_s5": 0.7205926659743699,
+      "rel_pct": -0.2891223151541575
+    },
+    "mode": "S5_fallback",
+    "delta_vs_s5_final": 0.0
+  },
+  "n_train_s2_covered": 959,
+  "n_val": 192,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/public_health_event_ts_assoc/scheme2_sampled_dual_public_health_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/public_health_event_ts_assoc/scheme5_infer_s5v5_improve.jsonl"
+}

@@ -1,0 +1,86 @@
+{
+  "average_score": 6.785,
+  "heuristic_score": 0.8487063853073573,
+  "quality_score": 7.636031926536787,
+  "clean_analysis": "Coverage: Pair 1 removed non-ILI content but kept generic flu stats. Pair 2 failed to remove off-topic travel and mortality. Pair 3 retained off-week data and vaccine details. None fully addressed all known issues. | Pair 1 addresses non-ILI removal and retains relevant shock. Pair 2 and 3 fail to remove historical data and off-topic content. No ILI% or burden figures provided despite availability. | Pair 1 retains non-ILI facts and fabricated data. Pair 2 includes foreign surveillance. Pair 3 keeps historical H1N1 data. None fully address all known issues. | Pair 1 removed non-ILI mouse study but kept mortality. Pair 2 retained historical data. Pair 3 kept economic burden. All missed key ILI signals.. Executability: Instructions clear but execution inconsistent. Pair 2 and 3 retained non-ILI content. Pair 1 fabricated no data but kept irrelevant generalizations. Some noise remains. | Instructions clear but execution inconsistent. Pair 2 and 3 misapply regime and retain non-ILI data. No source alignment for official prints. Risk of over-interpretation. | Instructions clear but execution fails on noise removal. Some non-ILI content remains. No ILI values reported despite source availability. | Instructions clear but execution inconsistent. Pair 2 used off-week RSV data. Pair 3 included non-ILI burden. All failed to align with current week.. Detail: Coverage: Pair 1 addressed non-ILI removal but kept generic stats. Pair 2 and 3 retained off-week and non-ILI data. Executability: Instructions followed partially; noise persists. || Coverage: Pair 1 good; 2 and 3 poor. Executability: High risk of misapplication. || Coverage: Pair 1 misses removing non-ILI data; Pair 2 retains foreign content; Pair 3 keeps historical noise. Executability: All pairs fail to fully remove off-topic items. || Coverage: All pairs retained non-ILI content. Executability: All failed to extract current ILI shocks.",
+  "coverage_analysis": "Pair 1 removed non-ILI content but kept generic flu stats. Pair 2 failed to remove off-topic travel and mortality. Pair 3 retained off-week data and vaccine details. None fully addressed all known issues. | Pair 1 addresses non-ILI removal and retains relevant shock. Pair 2 and 3 fail to remove historical data and off-topic content. No ILI% or burden figures provided despite availability. | Pair 1 retains non-ILI facts and fabricated data. Pair 2 includes foreign surveillance. Pair 3 keeps historical H1N1 data. None fully address all known issues. | Pair 1 removed non-ILI mouse study but kept mortality. Pair 2 retained historical data. Pair 3 kept economic burden. All missed key ILI signals.",
+  "executability_analysis": "Instructions clear but execution inconsistent. Pair 2 and 3 retained non-ILI content. Pair 1 fabricated no data but kept irrelevant generalizations. Some noise remains. | Instructions clear but execution inconsistent. Pair 2 and 3 misapply regime and retain non-ILI data. No source alignment for official prints. Risk of over-interpretation. | Instructions clear but execution fails on noise removal. Some non-ILI content remains. No ILI values reported despite source availability. | Instructions clear but execution inconsistent. Pair 2 used off-week RSV data. Pair 3 included non-ILI burden. All failed to align with current week.",
+  "new_issues_written": 15,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned with minimal ILI-relevant content; removed non-ILI facts but retained generic flu stats. No fabricated data."
+    },
+    {
+      "pair_id": 2,
+      "score": 5.0,
+      "comment": "Minimal usable content; kept irrelevant travel and mortality data. Failed to remove non-ILI noise."
+    },
+    {
+      "pair_id": 3,
+      "score": 6.0,
+      "comment": "Retained some relevant shocks but included off-week data and non-ILI vaccine info. Partial compliance."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned to ILI-relevant shock; removed non-ILI content. Retained oseltamivir resistance as direct ILI impact. No fabricated data. Minor noise from non-ILI treatment pipeline."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Over-claimed regime; no evidence of early ascent. Included non-ILI vaccine selection and treatment. No ILI% or burden figures. Misaligned official prints."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Incorrect regime (inter-season) without evidence. Retained historical mortality stats. No ILI% or burden. H5N1 included but not linked to ILI impact. Noise not filtered."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned with minimal ILI content; retained non-ILI noise and fabricated data. Regime correct but no official prints."
+    },
+    {
+      "pair_id": 2,
+      "score": 7.0,
+      "comment": "Some relevant shocks included, but foreign and off-topic items remain. No official ILI data."
+    },
+    {
+      "pair_id": 3,
+      "score": 6.0,
+      "comment": "Only one relevant shock retained; historical data and off-week events persist. Regime correct but weak."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned with minimal ILI shocks; retained non-ILI mouse study and mortality stats."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.5,
+      "comment": "Included off-week RSV data and historical CDC goals; misaligned with current ILI focus."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Retained non-ILI burden and surveillance text; missed direct ILI impact."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Remove all off-week and non-ILI data, even if sourced.",
+    "MEDIUM: Ensure only this week’s ILI impact is retained.",
+    "LOW: Verify all sources are from this week’s surveillance.",
+    "HIGH: Ensure all shocks are directly tied to ILI burden or reporting this week.",
+    "MEDIUM: Remove all historical flu statistics and mortality data.",
+    "LOW: Verify source alignment for official prints.",
+    "HIGH: Remove all non-ILI content, even if sourced.",
+    "MEDIUM: Ensure only current-week ILI impacts are retained.",
+    "LOW: Verify source alignment for all retained facts.",
+    "HIGH: Remove all non-ILI data, even if sourced.",
+    "LOW: Verify all dates are within ±14 days of target week."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

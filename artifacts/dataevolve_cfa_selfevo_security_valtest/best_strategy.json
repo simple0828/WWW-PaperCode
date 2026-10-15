@@ -1,0 +1,32 @@
+{
+  "round": 2,
+  "family": "F1_r2c2",
+  "name": "paradigm_catalog_F1",
+  "output_format": "plain",
+  "cleaning_prompt": "DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.\n\nFORBIDDEN: year cutoffs; date stuffing; header-only shells; inventing amounts.\nHistorical months are valid — keep their dated drivers when present.\n\nROLE: FEMA-outlay gatekeeper (strict KEEP/DROP).\nKEEP items that can move monthly FEMA grant residuals, with U.S. scope and\ndate/quantity when possible, in:\n- declarations: presidential major disaster / emergency declarations; FEMA mission assignments\n- hazards: hurricanes, tropical storms, wildfires, floods, tornado outbreaks, earthquakes,\n  severe winter storms — with federal response or damage scale\n- funding: Public Assistance, Individual Assistance, Hazard Mitigation grants/obligations;\n  DHS/FEMA appropriations; supplemental disaster relief bills\n- ops: catastrophic loss estimates, temporary housing, debris removal tied to outlays\n\nPrefer facts dated near THIS row's month (± a few months). Drop recycled hazards from\nother years with no link to this month.\n\nDROP: local crime / police blotter; foreign wars; generic \"homeland security\" opinion;\ntourism/weather lifestyle pieces without federal funding link; ads.\nEmpty source → empty output. No invented $m.\n",
+  "clean_stats": {
+    "n_rows": 297,
+    "n_forced_empty": 0,
+    "raw_chars_mean": 2113.10101010101,
+    "cleaned_chars_mean": 1252.905723905724,
+    "retention_mean": 0.5813963146187698
+  },
+  "clean_seconds": 1025.3529131412506,
+  "clean_wave_seconds": 1025.3539423942566,
+  "bundle": "artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2/cfa_bundle.pt",
+  "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2/US_FEMAGrant_Month_cleaned.csv",
+  "quality_score": 7.249286849981296,
+  "quality_llm_score": 5.45,
+  "quality_heuristic": 0.904857369996259,
+  "coverage_analysis": "Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.",
+  "executability_analysis": "Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.",
+  "new_issues_written": 8,
+  "val_mse": 2.4372782707214355,
+  "test_mse": 67.79387664794922,
+  "select_split": "val_test",
+  "select_mse": 46.55298217535019,
+  "score_objective": -46.55298217535019,
+  "delta_val_vs_raw_ctrl": -0.014530658721923828,
+  "delta_test_vs_raw_ctrl": -4.061676025390625,
+  "clean_analysis": "Coverage: Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.. Executability: Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.. Detail: Coverage: Non-FEMA roles, non-disaster topics, and incomplete sentences remain. Executability: Inconsistent application of filtering rules. || Coverage: Non-FEMA roles, historical context, and unverified claims remain. Executability: Incomplete sentences, unverified figures, and non-FEMA references persist. || Coverage: Non-FEMA roles, historical context, and unverified figures not removed. Executability: Invented amounts and incomplete sentences violate prompt. || Coverage: Non-FEMA roles, foreign disasters, and historical context not removed. Executability: Incomplete sentences and unverified funding claims remain. || CFA select=val_test:46.552982 val=2.437278 test=67.793877 Δtest_vs_raw=-4.061676; quality_score=7.25"
+}

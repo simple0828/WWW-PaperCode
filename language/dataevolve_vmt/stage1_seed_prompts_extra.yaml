@@ -1,0 +1,845 @@
+# Extra Time-MMD Stage1 domains (merged with stage1_seed_prompts.yaml).
+# Skip Environment (day-level RAR archive; not wired for monthly/weekly CFA yet).
+#
+# PANEL SAFETY (past failures that broke Stage2/Fact — every seed must honor):
+# - No global year cutoffs ("2020+ only", "older than N years → drop").
+# - No stuffing recent releases into empty/old rows (esp. social_good 2024-into-1950).
+# - No header-only empty shells (agri FS4).
+# - Prefer facts dated near the row period; drop >~1y recycled misaligned blocks (energy).
+# - Empty/NA source for a row → empty output (do not invent fill).
+
+economy:
+  display_task: "U.S. monthly goods & services trade balance forecasting"
+  apo_domain: economy
+  raw_csv: data/Economy/US_TradeBalance_Month.csv
+  cleaned_csv_name: US_TradeBalance_Month_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_TradeBalance_Month is a LONG monthly panel (~1989–2024).
+    Each row is ONE calendar month — clean THAT month's text only.
+    PAST FAILURES TO AVOID: (1) "drop older than 5 years" / "2020+ only" global cutoffs;
+    (2) stuffing recent Census/BEA releases into empty/old rows; (3) header-only shells
+    that write "## Exports | null" with no facts; (4) CURRENT: ~45% rows still keep facts whose
+    printed year is ≥5 years from the row year — that is FORBIDDEN.
+    DATE HARD RULE: keep a bullet only if its printed event/release year is within ±1 year of
+    the ROW year (prefer ±3 months). Drop multi-year encyclopedia paste; if mixed, strip
+    off-year clauses and KEEP on-year U.S. trade drivers (do not wipe a row that still has
+    an on-year FT900/tariff/FX/trade-flow fact).
+    Keep U.S. trade-balance movers dated near the row month: goods & services exports/imports,
+    bilateral balances, tariffs/quotas/sanctions with trade-flow impact, USD FX tied to trade,
+    Census FT900 / BEA International Transactions prints, commodity shipment shocks.
+    Drop generic GDP essays, domestic retail fluff, foreign politics without U.S. trade link.
+    Never invent $bn. Empty/NA source for THIS row → empty output (do not invent fill).
+  default_init_bundle: artifacts/apo_economy/runpy_cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_economy_reprompt
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_economy_reprompt
+  useful_signal_types: [exports, imports, tariff, fx_dollar, census_release, commodity_trade]
+  useful_markers:
+    [trade balance, export, import, tariff, deficit, surplus, census, bea, ft900,
+     dollar, yuan, goods, services, customs, ustr, nafta, usmca]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only (one calendar month per row).
+
+        FORBIDDEN (past failures):
+        - global recency/year cutoffs ("drop older than N years", "keep 2020+ only",
+          "if no recent data → empty")
+        - stuffing recent Census/BEA/FT900 numbers into empty or older rows
+        - header-only shells / sections filled with only "null"
+        - inventing dollar amounts or % changes
+
+        ROLE: conservative denoiser for U.S. trade-balance forecasting.
+        REMOVE only ads, site chrome, cookie banners, duplicated headlines.
+        KEEP nearly all concrete U.S. trade facts with dates or quantities for this month.
+        If source is empty/NA/useless → output EMPTY. If unsure, KEEP (do not invent).
+
+    F1:
+      name: trade_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only.
+
+        FORBIDDEN: global year/recency cutoffs; date stuffing; header-only null shells;
+        inventing figures. Historical months (pre-2020) are valid — keep their dated drivers.
+
+        ROLE: trade-balance gatekeeper (strict KEEP/DROP).
+        KEEP items that can move the U.S. goods+services trade balance, with U.S. scope and
+        date/quantity when possible, in:
+        - exports / imports: $bn, volumes, real goods vs services splits
+        - bilateral: China, EU, Mexico, Canada, Japan, oil exporters — deficit/surplus changes
+        - policy: tariffs, quotas, Section 301/232, sanctions, USMCA/NAFTA changes with flow impact
+        - FX: USD broad index / major crosses when explicitly tied to trade competitiveness
+        - commodities: oil, ag, autos, semiconductors, steel — shipment or price shocks with trade link
+        - official prints: Census FT900, BEA International Transactions, Customs releases
+
+        Prefer facts dated near THIS row's month (± a few months). Drop recycled multi-year
+        encyclopedia blocks misaligned by >~1 year.
+
+        DROP: purely domestic retail fluff; foreign politics without U.S. trade link;
+        generic "globalization" essays; ads. No invented figures.
+        Empty source → empty output.
+
+    F2:
+      name: trade_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; header-only shells.
+        Do NOT write "null" placeholders — omit empty sections entirely.
+        If no usable facts for THIS month, output EMPTY (not a blank template).
+
+        ROLE: export–import balance-sheet writer for the trade balance.
+        GOAL: compress THIS month's news into a mini balance sheet.
+
+        Output sections (include a section only if it has ≥1 real fact):
+          ## Exports (goods/services; note ↑/↓ if stated)
+          ## Imports
+          ## Bilateral / region
+          ## Policy / tariff / sanctions
+          ## FX (trade-linked only)
+          ## Official prints (Census/BEA)
+          ## Noise
+
+        Rules:
+        - One bullet = one quantitative or clearly directional fact; tag date + geography.
+        - If export↑ and import↑ appear together, keep BOTH (do not reconcile).
+        - Max ~16 bullets. No invented $bn.
+
+    F3:
+      name: agency_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing recent agency releases into old/empty rows;
+        inventing metrics not in THIS row's source.
+
+        ROLE: Census / BEA / USTR / Customs entity tracer for trade balance.
+        Prefer entities: Census Bureau (FT900), BEA, USTR, CBP/Customs, Treasury (if FX/trade),
+        major trading-partner statistical offices only when U.S. bilateral numbers are stated.
+
+        Bullet template:
+          - {date}: {entity} — {action/release} — {metric} — {balance implication if explicit}
+
+        Prefer dates near this row month. Drop marketing quotes without data.
+        Empty source → empty output. No invented metrics.
+
+    F4:
+      name: anti_recycle
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; empty shells; copy-pasting the same deficit
+        headline across many months without a new driver.
+
+        ROLE: anti-recycle filter for residual forecasting.
+        Prefer NEW exogenous drivers (tariff action, commodity shock, FX move, partner demand)
+        over restating last month's deficit headline alone.
+        Keep a headline IF paired with a dated driver near THIS month.
+        Drop multi-year history dumps with no month-specific shock.
+        Max ~12 bullets. Empty source → empty. No invented figures.
+
+    F5:
+      name: tariff_fx_pass_through
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).
+        Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; header-only shells; inventing pass-through magnitudes.
+
+        ROLE: pass-through specialist (tariffs / FX / commodity shipments → trade balance).
+        GOAL: emphasize mechanisms that dominate THIS month's balance residual.
+
+        PRIORITIZE:
+        1) Tariff/sanction/quota actions with stated trade-flow or $ impact
+        2) USD FX moves explicitly linked to export competitiveness or import costs
+        3) Large commodity shipment swings (oil, ag, autos, chips) with trade $ or volume
+        4) Official Census/BEA prints for THIS month (or adjacent release month)
+
+        DE-EMPHASIZE / DROP:
+        - generic macro commentary without trade quantities
+        - domestic retail/consumer fluff
+        - foreign politics without U.S. trade link
+        - encyclopedia-style history unrelated to this row's month
+          (do NOT drop valid older-year facts that belong to THIS row's calendar month)
+
+        When tariff and FX co-occur, KEEP both; do not invent which dominates.
+        Prefer dense paragraphs or short labeled blocks. Empty source → empty.
+
+security:
+  display_task: "U.S. monthly FEMA grant outlays forecasting"
+  apo_domain: security
+  raw_csv: data/Security/US_FEMAGrant_Month.csv
+  cleaned_csv_name: US_FEMAGrant_Month_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_FEMAGrant_Month is a LONG monthly panel of U.S. FEMA grant
+    outlays (~1999–2024). Each row is ONE calendar month — clean THAT month's text only.
+    Target series = federal disaster-grant dollars, NOT crime, NOT foreign wars, NOT generic
+    "homeland security" essays.
+    PAST FAILURES TO AVOID: global year cutoffs; stuffing recent hurricane/FEMA releases into
+    empty/old months; header-only empty shells; inventing obligation amounts; keeping Sudan/
+    Turkey/foreign relief blurbs with no U.S. FEMA outlay link (common in raw Final_Search_4).
+    DATE HARD RULE: keep a fact only if its printed event/release year is within ±1 year of the
+    ROW year (prefer ±3 months). Strip off-year hazards; KEEP on-month U.S. declarations/funding.
+    KEEP (rigorous): presidential / major disaster / emergency declarations; FEMA Public
+    Assistance, Individual Assistance, Hazard Mitigation obligations/grants with $ or scale;
+    U.S. hurricanes/wildfires/floods/tornadoes/earthquakes/winter storms with federal response;
+    DHS/FEMA appropriations and supplemental disaster bills; catastrophic U.S. loss estimates
+    explicitly tied to federal outlays.
+    DROP: local crime blotters; foreign conflicts / foreign Red Cross; firefighter fatality
+    trivia without grant link; tourism weather; recycled hazards from other years; ads.
+    Empty/NA/useless source → empty. Never invent $m. Prefer short dense bullets over wipe.
+  default_init_bundle: artifacts/apo_security/runpy_cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_security_valtest
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_security_valtest
+  useful_signal_types: [disaster_declaration, fema_funding, hurricane, wildfire, flood, appropriation]
+  useful_markers:
+    [fema, disaster, declaration, hurricane, wildfire, flood, tornado, earthquake,
+     grant, appropriation, public assistance, individual assistance, mitigation,
+     emergency, hazmat, storm, dhs, supplemental]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel (~1999–2024).
+        Clean the CURRENT row month only (one calendar month per row).
+
+        TARGET: monthly U.S. FEMA / federal disaster-grant dollars — be rigorous.
+        This is NOT a general "security news" digest.
+
+        FORBIDDEN (past failures):
+        - global year cutoffs ("keep 2020+ only", "discard pre-YYYY", "older than N years → drop")
+        - stuffing recent disaster/FEMA releases into empty or older rows
+        - header-only empty shells
+        - inventing grant / obligation dollar amounts
+        - keeping foreign disasters (Sudan, Turkey, …) or crime blotters with no U.S. FEMA outlay link
+        - keeping facts whose printed year is ≥2 years from THIS row year
+
+        ROLE: conservative but strict denoiser for U.S. FEMA grant forecasting.
+        REMOVE ads, chrome, foreign-only relief, crime, and off-year recycled hazards.
+        KEEP concrete U.S. declarations / FEMA funding / U.S. catastrophe facts with dates or $
+        for this month (year within ±1 of row year; prefer ±3 months).
+        If source is empty/NA/useless → output EMPTY. If an on-month U.S. FEMA driver remains
+        after stripping noise → KEEP it (do not over-delete to empty). Never invent $m.
+
+    F1:
+      name: fema_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; date stuffing; header-only shells; inventing amounts.
+        Historical months are valid — keep their dated drivers when present.
+
+        ROLE: FEMA-outlay gatekeeper (strict KEEP/DROP).
+        KEEP items that can move monthly FEMA grant residuals, with U.S. scope and
+        date/quantity when possible, in:
+        - declarations: presidential major disaster / emergency declarations; FEMA mission assignments
+        - hazards: hurricanes, tropical storms, wildfires, floods, tornado outbreaks, earthquakes,
+          severe winter storms — with federal response or damage scale
+        - funding: Public Assistance, Individual Assistance, Hazard Mitigation grants/obligations;
+          DHS/FEMA appropriations; supplemental disaster relief bills
+        - ops: catastrophic loss estimates, temporary housing, debris removal tied to outlays
+
+        Prefer facts dated near THIS row's month (± a few months). Drop recycled hazards from
+        other years with no link to this month.
+
+        DROP: local crime / police blotter; foreign wars; generic "homeland security" opinion;
+        tourism/weather lifestyle pieces without federal funding link; ads.
+        Empty source → empty output. No invented $m.
+
+    F2:
+      name: hazard_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; header-only shells.
+        Omit empty sections entirely (do not write "null"). If no usable facts → output EMPTY.
+
+        ROLE: hazard / funding balance-sheet writer for FEMA grants.
+        GOAL: compress THIS month's news into a mini balance sheet.
+
+        Output sections (only if ≥1 real fact):
+          ## Declarations (major / emergency)
+          ## Hazard events (type, region, severity if stated)
+          ## Funding / obligations / appropriations
+          ## Ops & recovery (housing, debris, mitigation)
+          ## Official prints
+          ## Noise
+
+        Rules:
+        - One bullet = one quantitative or clearly directional fact; tag date + state/region.
+        - If new hazard and new funding co-occur, keep BOTH.
+        - Max ~16 bullets. No invented $m.
+
+    F3:
+      name: agency_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing recent FEMA/DHS releases into old/empty rows;
+        inventing actions not in THIS row's source.
+
+        ROLE: FEMA / DHS / White House / Congress entity tracer for grant outlays.
+        Prefer entities: FEMA, DHS, White House (declarations), Congress (supplementals),
+        state emergency management when federal cost-share is stated.
+
+        Bullet template:
+          - {date}: {entity} — {action} — {metric/$ if present} — {grant-outlay implication if explicit}
+
+        Prefer dates near this row month. Drop quotes without data.
+        Empty source → empty. No invented metrics.
+
+    F4:
+      name: anti_recycle
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; empty shells; repeating last month's obligation
+        total alone without a new declaration/hazard/appropriation.
+
+        ROLE: anti-recycle filter for residual forecasting.
+        Prefer NEW declarations, landfalling storms, fire/flood complexes, or supplemental bills
+        over recycling a prior month's cumulative grant headline.
+        Keep a cumulative total IF paired with a new dated driver this month.
+        Drop multi-year disaster encyclopedias with no month-specific shock.
+        Max ~12 bullets. Empty source → empty. No invented figures.
+
+    F5:
+      name: declaration_funding_pass_through
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.
+
+        FORBIDDEN: year cutoffs; stuffing; header-only shells; inventing pass-through $ amounts.
+
+        ROLE: pass-through specialist (declarations & catastrophes → FEMA grant outlays).
+        GOAL: emphasize mechanisms that dominate THIS month's outlay residual.
+
+        PRIORITIZE:
+        1) New presidential/major disaster or emergency declarations (date + states)
+        2) Large hazard landfalls / fire complexes / flood peaks with federal response scale
+        3) FEMA PA/IA/HM obligations or DHS supplemental appropriations with $ when present
+        4) Explicit links from event → mission assignment / cost-share → outlays
+
+        DE-EMPHASIZE / DROP:
+        - crime, terrorism opinion, foreign conflicts
+        - weather lifestyle / tourism pieces without funding
+        - encyclopedia history unrelated to this row's month
+          (do NOT drop valid older-year facts that belong to THIS row's calendar month)
+
+        When declaration and appropriation co-occur, KEEP both; do not invent which dominates.
+        Prefer dense paragraphs or short labeled blocks. Empty source → empty.
+
+energy:
+  display_task: "U.S. weekly retail gasoline price forecasting"
+  apo_domain: energy
+  raw_csv: data/Energy/US_GasolinePrice_Week.csv
+  cleaned_csv_name: US_GasolinePrice_Week_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_GasolinePrice_Week is a LONG weekly panel (~1996–2024).
+    Each row is ONE week — clean THAT week's text only.
+    PAST FAILURES: (1) date drift — keeping encyclopedia blocks dated years away from the row;
+    CURRENT audit still ~35% rows with ≥5y-away year mentions — FORBIDDEN; (2) copy-pasting the
+    same historical paragraph across many weeks; (3) global year cutoffs; (4) stuffing recent
+    EIA/pump prints into older weeks; (5) header-only shells.
+    DATE HARD RULE: keep a fact only if its printed event/release year is within ±1 year of the
+    ROW week year (prefer ±8 weeks). Drop off-year crude/OPEC history; if mixed, KEEP on-week
+    EIA/gas/crude/inventory drivers and delete the rest (do not wipe the whole week).
+    Keep EIA retail/rack gasoline, crude WTI/Brent, product inventories, refining outages/margins,
+    OPEC/geopolitical supply shocks with U.S. pump link, holiday/seasonal driving demand.
+    Drop EV lifestyle ads, non-gasoline fuels (unless explicit retail-gas link), foreign pump
+    anecdotes without U.S. price link. Empty/NA source → empty. Never invent $/gal.
+  default_init_bundle: artifacts/apo_energy/runpy_cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_energy_reprompt
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_energy_reprompt
+  useful_signal_types: [eia_gas, crude, inventory, refining, opec, demand_season]
+  useful_markers:
+    [gasoline, eia, crude, wti, brent, inventory, refinery, opec, pump, gallon, diesel, rack]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only (one week per row).
+
+        FORBIDDEN (past failures):
+        - global year cutoffs ("keep 2020+ only", "drop older than N years")
+        - stuffing recent EIA/BLS/2024+ pump prints into older/empty weeks
+        - reusing the same multi-year encyclopedia paragraph across many weeks
+        - keeping facts whose primary date is >~1 year from THIS row week
+        - header-only shells; inventing $/gal
+
+        ROLE: conservative denoiser for U.S. retail gasoline forecasting.
+        REMOVE ads, chrome, cookie text, duplicated headlines.
+        KEEP concrete EIA/gas/crude/inventory facts dated near this week (±~8 weeks preferred).
+        Empty/NA/useless source → output EMPTY. If unsure, KEEP (do not invent).
+
+    F1:
+      name: gas_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only.
+
+        FORBIDDEN: year cutoffs; date stuffing; cross-week copy-paste of misaligned blocks;
+        inventing figures. Historical weeks are valid — keep THEIR near-dated drivers.
+
+        ROLE: retail-gasoline gatekeeper (strict KEEP/DROP).
+        KEEP items that can move U.S. retail/rack gasoline, with date/quantity when possible, in:
+        - EIA weekly retail / rack / wholesale gasoline price prints
+        - crude WTI/Brent moves with explicit pump/refining link
+        - gasoline/distillate inventories; SPR changes if linked to pump
+        - refinery outages, utilization, crack spreads / margins
+        - OPEC+ cuts/quotas or geopolitics with stated U.S. supply/price impact
+        - holiday / summer-driving demand or regional (PADD) shortages
+
+        DATE RULE (HARD): keep only facts whose printed year is within ±1 year of THIS row week
+        year (prefer ±8 weeks). DROP primary dates ≥2 years away (past failure: date drift).
+        If a paragraph mixes on-week and off-year text, KEEP the on-week U.S. gas/crude/EIA
+        driver and delete the rest — do not wipe the whole week.
+
+        DROP: EV marketing; ethanol/biogas/hydrogen essays without retail-gas link;
+        foreign pump anecdotes; unverified forecasts ("EIA projects…") unless paired with
+        a hard print for this week. Empty source → empty. No invented $/gal.
+
+    F2:
+      name: fuel_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; header-only shells; recycled off-date blocks.
+        Omit empty sections (no "null"). If no usable near-dated facts → output EMPTY.
+
+        ROLE: fuel balance-sheet writer for retail gasoline.
+        GOAL: compress THIS week's news into a mini balance sheet.
+
+        Output sections (only if ≥1 real near-dated fact):
+          ## Crude (WTI/Brent)
+          ## Inventories / refining
+          ## Retail / rack prints
+          ## Demand / season / PADD
+          ## Geopolitics / OPEC (U.S. pump link only)
+          ## Noise
+
+        Rules:
+        - One bullet = one quantitative or directional fact; include date when present.
+        - Drop any bullet whose date is >~1 year from this row week.
+        - Max ~16 bullets. No invented figures.
+
+    F3:
+      name: agency_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only.
+
+        FORBIDDEN: year cutoffs; stuffing recent EIA into old weeks; inventing metrics.
+
+        ROLE: EIA / DOE / OPEC entity tracer for pump prices.
+        Prefer entities: EIA (STEO/weeklies), DOE, OPEC Secretariat, AAA (national average),
+        major refiners when outage/$ impact is stated.
+
+        Bullet template:
+          - {date}: {entity} — {metric} — {pump implication if explicit}
+
+        DROP entries whose date is far from this week (>~1 year). Empty source → empty.
+
+    F4:
+      name: anti_recycle
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only.
+
+        FORBIDDEN: year cutoffs; stuffing; empty shells; week-after-week reuse of identical
+        long historical paragraphs (past failure amplifying date drift).
+
+        ROLE: anti-recycle filter for residual forecasting.
+        Prefer NEW exogenous drivers (inventory surprise, outage, OPEC action, demand spike)
+        over restating last week's national average alone.
+        Keep the average IF paired with a new dated driver near THIS week.
+        Max ~12 bullets. Empty source → empty. No invented figures.
+
+    F5:
+      name: crude_inventory_pass_through
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. weekly retail gasoline price panel (~1996–2024).
+        Clean the CURRENT row week only.
+
+        FORBIDDEN: year cutoffs; stuffing; header-only shells; inventing pass-through $/gal;
+        keeping far-misaligned encyclopedia history.
+
+        ROLE: pass-through specialist (crude + inventories/refining → retail gasoline).
+        GOAL: emphasize mechanisms that dominate THIS week's pump residual.
+
+        PRIORITIZE:
+        1) Crude WTI/Brent moves with numbers and dates near this week
+        2) Gasoline/distillate inventory prints (EIA) near this week
+        3) Refinery outages / utilization / crack spreads
+        4) Explicit retail/rack national or PADD price prints
+
+        DE-EMPHASIZE / DROP:
+        - EV lifestyle / climate opinion without pump link
+        - non-gasoline fuel essays
+        - multi-year history whose dates are >~1 year from this week
+
+        When crude↑ and inventory↑ co-occur, KEEP both; do not invent which dominates.
+        Prefer dense paragraphs or short labeled blocks. Empty source → empty.
+
+public_health:
+  display_task: "U.S. weekly influenza-like illness (ILI) ratio forecasting"
+  apo_domain: public_health
+  raw_csv: data/Public_Health/US_FLURATIO_Week.csv
+  cleaned_csv_name: US_FLURATIO_Week_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_FLURATIO_Week is a LONG weekly U.S. ILI-ratio panel
+    (~1997-09 → 2024-05, ~1400 weeks). Raw Final_Search_4 is almost never empty but is
+    often a noisy mix of CDC FluView, state health notes, foreign outbreaks, COVID essays,
+    and recycled multi-year flu history. Clean EACH row for THAT week's calendar date only.
+    Target series = U.S. outpatient ILI ratio / FluView-like burden — NOT generic "health news",
+    NOT COVID hospitalization alone unless it clearly distorts ILI reporting that week.
+    PAST FAILURE MODES TO AVOID: global year cutoffs; stuffing recent FluView into old weeks;
+    header-only empty shells; inventing ILI%; wiping a week that still has a usable on-week
+    U.S. surveillance print; keeping only encyclopedia flu history with no week-local signal.
+    DATE HARD RULE: keep a fact only if its printed event/release date is within ±14 days of
+    the ROW week (prefer same MMWR week); never keep facts ≥6 weeks off unless they are an
+    explicit "season-to-date / cumulative through this week" CDC print tied to this season.
+    Year rule: printed year must be within ±1 of the row year.
+    KEEP (rigorous): CDC FluView / ILINet ILI%; weighted ILI; outpatient visits; flu+ hospital
+    admissions / pediatric deaths when dated; dominant strain (H1N1/H3N2/B) shifts; vaccine
+    coverage or vaccine-effectiveness notes for the current season; school openings/closures
+    or holiday travel explicitly linked to ILI; state/regional outbreaks that can move the
+    national ILI residual.
+    DROP: wellness blogs; foreign-only outbreaks with no U.S. ILI link; ads; pure COVID policy
+    opinion without ILI reporting impact; far-misaligned recycled pandemic essays; lab-method
+    tutorials; single-clinic anecdotes.
+    Empty/NA/useless after stripping → empty. Never invent %. Prefer short dense dated lines
+    over wipe-or-stuff extremes.
+  default_init_bundle: artifacts/apo_public_health/runpy_cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_public_health
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_public_health
+  useful_signal_types:
+    [ili, fluview, hospitalization, vaccine, variant, school_season, pediatric_death, regional_outbreak]
+  useful_markers:
+    [influenza, flu, ili, ilinet, cdc, fluview, hospitalization, vaccine, h1n1, h3n2,
+     outbreak, mmwr, pediatric, school, respiratory]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel (~1997–2024). One row = one calendar week.
+        Clean THIS row's week only.
+
+        ROLE: conservative denoiser — remove only high-confidence noise; preserve concrete
+        U.S. flu/ILI surveillance facts that could move the national weekly ILI residual.
+
+        FORBIDDEN (past failures):
+        - global year cutoffs ("keep 2020+ only", "discard pre-YYYY")
+        - stuffing recent FluView / COVID essays into older or empty weeks
+        - header-only empty shells; inventing ILI% or visit counts
+        - wiping a week that still has an on-week U.S. CDC/state ILI print after stripping ads
+
+        REMOVE: ads, chrome, wellness pitches, foreign-only outbreak digressions with no U.S.
+        ILI link, duplicated headlines, method tutorials without numbers.
+
+        KEEP (verbatim when possible): dated U.S. FluView/ILI%, hospitalizations, pediatric
+        flu deaths, vaccine notes, strain/variant shifts, school-season ILI drivers near THIS week
+        (printed date within ~±14 days; year within ±1 of row year).
+
+        If source is empty/NA/useless → EMPTY. If unsure whether a U.S. ILI fact is on-week → KEEP.
+        Never invent %.
+
+    F1:
+      name: ili_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel. Clean the CURRENT row week only.
+
+        ROLE: national ILI-driver gatekeeper (strict KEEP/DROP for CFA residual forecasting).
+
+        FORBIDDEN: year cutoffs; stuffing recent FluView into old weeks; inventing figures;
+        over-delete to empty when an on-week U.S. surveillance print remains.
+
+        KEEP an item only if it has U.S. scope + a date near THIS week AND can move weekly
+        national ILI residuals, in at least one bucket:
+        - surveillance prints: CDC FluView / ILINet ILI%, weighted ILI, outpatient ILI visits
+        - severity: flu hospitalizations, ICU, pediatric influenza deaths (dated)
+        - virology: dominant subtype shifts (H1N1 / H3N2 / B), antiviral resistance notes
+        - prevention: season vaccine coverage / VE estimates tied to this season
+        - calendar drivers: school open/close, holiday travel, or regional outbreaks that
+          plausibly shift national ILI this week
+
+        DROP: foreign-only outbreaks; wellness/COVID opinion without ILI reporting impact;
+        single-clinic anecdotes; recycled multi-year flu encyclopedias; ads.
+
+        DATE HARD: prefer ±14 days of row week; drop facts ≥6 weeks off unless explicitly
+        "season-to-date through this week". Year within ±1 of row year.
+        Empty after legitimate strip → empty. No invented %.
+
+    F2:
+      name: ili_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel. Clean the CURRENT row week only.
+
+        ROLE: build a compact "ILI balance sheet" for THIS week (not a blog summary).
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; header-only shells; writing "null"
+        for empty sections — omit empty sections entirely. If nothing usable → output EMPTY.
+
+        Emit ONLY sections that have ≥1 dated U.S. fact near this week:
+        ## FluView / ILI prints
+        ## Severity (hosp / pediatric deaths)
+        ## Strain / variant
+        ## Vaccine / prevention
+        ## School / calendar / regional shocks
+        ## Dropped-as-noise (optional, ≤3 short notes)
+
+        Format: `- YYYY-MM-DD: {fact with number/direction when present}`.
+        Max ~14 bullets total. Prefer quantity + geography + date over adjectives.
+        DATE HARD: ±14 days preferred; year ±1. Never invent %.
+
+    F3:
+      name: agency_causal_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel. Clean the CURRENT row week only.
+
+        ROLE: agency-trace cleaner — recover WHO said WHAT metric with WHAT ILI implication.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; empty shells.
+
+        Output lines:
+        `{date}: {CDC|state health|hospital system} — {metric/event} — {ILI residual implication}`
+
+        Prefer CDC FluView / ILINet / MMWR and multi-state health departments over blogs.
+        Implication must be grounded in the source (up/down/elevated/below baseline) — do not
+        invent causal stories. Drop foreign-only and off-week recycled history.
+        Max 12 lines. Empty source / no on-week U.S. agency signal → EMPTY.
+
+    F4:
+      name: anti_recycle_shock
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel. Clean the CURRENT row week only.
+
+        ROLE: anti-recycle filter — prefer NEW surveillance shocks over repeating last week's
+        level alone or multi-year flu history dumps (common in raw Final_Search_4).
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; wiping usable on-week prints.
+
+        KEEP first: week-over-week or region-vs-baseline changes, new strain notes, new
+        hospital/pediatric alerts, new vaccine prints, school shocks — dated to THIS week.
+        KEEP second: a single official ILI% level print if it is the only on-week signal.
+        DROP: verbatim repeats of prior-week narrative; 2009 H1N1 encyclopedias in 2018+ rows
+        unless the source explicitly compares to this week; ads; foreign-only.
+
+        Max 12 dated bullets. If the source only has off-week noise → EMPTY. No invented %.
+
+    F5:
+      name: season_regime_window
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. weekly ILI-ratio panel. Clean the CURRENT row week only.
+
+        ROLE: place THIS week in its flu-season regime, then list only this-week shocks.
+
+        FORBIDDEN: year cutoffs; stuffing; header-only shells; inventing.
+
+        Output structure (omit empty sections; if nothing on-week → EMPTY):
+        ## Regime (≤2 bullets): early ascent / peak / decline / inter-season / pandemic-overlap
+        — must be supported by THIS week's source, not prior knowledge alone.
+        ## This-week shocks (primary): FluView/ILI, severity, strain, school — dated ±14 days.
+        ## Official prints: exact ILI% / visit / death figures when present.
+        ## Likely noise: foreign, wellness, off-week recycle (≤3, optional).
+
+        COVID-era rows: KEEP COVID text only when it clearly affects ILI reporting or
+        respiratory co-circulation THIS week; otherwise drop COVID-only policy essays.
+        Never invent %. Prefer dense bullets over long prose.
+
+social_good:
+  display_task: "U.S. monthly unemployment rate forecasting"
+  apo_domain: social_good
+  raw_csv: data/SocialGood/Unadj_UnemploymentRate_ALL_processed.csv
+  cleaned_csv_name: Unadj_UnemploymentRate_ALL_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): Unadj_UnemploymentRate_ALL is a VERY LONG monthly panel
+    (~1950–2024). Many early decades have EMPTY / sparse source text — that is EXPECTED and OK.
+    Each row is ONE calendar month; clean THAT month's input ONLY.
+    CRITICAL PAST FAILURE A (broke Stage2): Cleaner stuffed 2024-04 BLS unemployment JSON/prose
+    into 1950s–1990s empty rows. NEVER do that.
+    CRITICAL PAST FAILURE B (current best F3 over-deleted): ~50% rows became empty/`{}` even when
+    the source had long text with usable U.S. labor facts buried in foreign/local noise.
+    THAT IS ALSO WRONG. Empty is only for truly empty/useless sources — NOT for "strict JSON
+    purity" or "BLS-only" zealotry.
+    HARD EMPTY RULE: if THIS row's source is empty/NA/whitespace or <~40 chars of real content
+    → output MUST be empty. Do NOT invent or copy other months.
+    HARD KEEP RULE: if THIS row's source contains a U.S. national (or multi-state) unemployment
+    rate, nonfarm payrolls, jobless claims, participation, or recession/jobs indicator whose
+    printed date year is within ±1 year of the ROW year → you MUST KEEP that fact (short plain
+    text or compact JSON is fine). Strip foreign/local/demographic noise around it; do not wipe.
+    DATE HARD RULE: drop facts whose printed year is ≥2 years from the row year; never paste
+    2023–2024 BLS into pre-2000 rows.
+    Prefer plain bullets or short labeled lines over fragile empty JSON objects.
+    Drop career ads. Never invent unemployment rates.
+  default_init_bundle: artifacts/apo_social_good/runpy_cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_social_good_reprompt
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_social_good_reprompt
+  useful_signal_types: [bls_release, payrolls, claims, layoffs, participation, recession]
+  useful_markers:
+    [unemployment, bls, payroll, jobs, claims, layoff, labor force, nonfarm, recession, cps]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        CRITICAL PAST FAILURE A: pasting 2024 BLS into empty 1950–1990s rows — FORBIDDEN.
+        CRITICAL PAST FAILURE B: wiping long sources to `{}` when they still contain on-period
+        U.S. unemployment/payrolls/claims — ALSO FORBIDDEN (over-delete).
+
+        HARD EMPTY RULE: source empty/NA/whitespace/<~40 chars real content → output EMPTY.
+        HARD KEEP RULE: if source has U.S. national/multi-state UR, payrolls, claims, or
+        recession/jobs markers with printed year within ±1 of THIS row year → KEEP them
+        (strip foreign/local/demographic noise). Short plain text is better than empty JSON.
+
+        DATE HARD RULE: drop facts with printed year ≥2 years from row year.
+        FORBIDDEN: date stuffing; year cutoffs; inventing rates; header-only fake events.
+
+        ROLE: conservative denoiser. Prefer KEEP on-period U.S. labor facts; REMOVE ads.
+        Historical empty months stay empty. Non-empty months must not become empty shells.
+
+    F1:
+      name: labor_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        HARD EMPTY RULE: empty/NA/short source → output EMPTY. NEVER fill with 2020s BLS.
+        HARD KEEP RULE: do NOT return empty if THIS source still has an on-period U.S. labor
+        driver (UR/payrolls/claims/layoffs/participation/recession) within ±1 year of row year.
+        Strip foreign cities, UK/Canada-only rates, race/gender splits, ads — keep the U.S. core.
+
+        FORBIDDEN: stuffing; year cutoffs; inventing; using facts not present in THIS row's source;
+        requiring "BLS-only JSON" so aggressively that valid in-source U.S. rates are discarded.
+
+        ROLE: labor-market gatekeeper (KEEP/DROP with anti-over-delete).
+        KEEP when present on-row and near-dated (±1y, prefer ±3 months):
+        - U.S. unemployment rate / U-3–U-6 if stated (BLS preferred, other U.S. official OK)
+        - nonfarm payrolls / employment-population
+        - initial / continuing unemployment claims
+        - large layoff / hiring announcements with scale
+        - labor-force participation; recession indicators tied to jobs
+
+        DROP: career-advice ads; foreign-only labor anecdotes; off-year 2023–2024 releases when
+        the row is pre-2000. No invented rates.
+
+    F2:
+      name: labor_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        HARD EMPTY RULE: empty/NA/short source → output EMPTY (preferred over any invented fill).
+        FORBIDDEN: stuffing recent BLS into old rows; year cutoffs; header-only shells with fake events.
+        Omit empty sections (no "null").
+
+        ROLE: labor balance-sheet writer.
+        Output sections ONLY if ≥1 on-row fact:
+          ## Official BLS prints
+          ## Claims
+          ## Layoffs / hiring
+          ## Macro labor / recession
+          ## Noise
+
+        Max ~16 bullets from THIS row's source only. Tag dates. No invented rates.
+
+    F3:
+      name: agency_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        HARD EMPTY RULE: empty/NA/short source → output EMPTY.
+        FORBIDDEN: stuffing; inventing BLS/DOL releases not in THIS row's source;
+        copying 2024 Employment Situation into historical months.
+
+        ROLE: BLS / DOL entity tracer.
+        Prefer entities: BLS (Employment Situation, CPS), DOL/ETA (claims), Fed Beige Book
+        only when labor metrics for THIS month are stated in-source.
+
+        Bullet template:
+          - {date}: {entity} — {metric} — {UR implication if explicit}
+
+        Prefer dates near this row month. Empty if no on-row facts.
+
+    F4:
+      name: anti_recycle
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        HARD EMPTY RULE: empty/NA/short source → output EMPTY.
+        FORBIDDEN: stuffing; year cutoffs; empty shells; copy-pasting the same 2024 BLS
+        release across many months (past failure that raised test MSE while destroying history).
+
+        ROLE: anti-recycle filter.
+        Prefer NEW claims/layoff shocks in THIS row over restating last month's UR alone.
+        Max ~12 bullets. No invented figures.
+
+    F5:
+      name: claims_payroll_pass_through
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly unemployment-rate panel (~1950–2024).
+        Clean the CURRENT row month only.
+
+        HARD EMPTY RULE: empty/NA/short source → output EMPTY. Prefer empty over any fill.
+        FORBIDDEN: stuffing 2024 BLS into 1950–1990s; year cutoffs; header-only shells;
+        inventing pass-through magnitudes.
+
+        ROLE: pass-through specialist (claims & payrolls → unemployment rate residual).
+        PRIORITIZE when present on-row and near-dated:
+        1) Initial/continuing claims with numbers
+        2) Nonfarm payrolls / unemployment rate official prints
+        3) Large layoff announcements
+        4) Participation / recession markers tied to jobs
+
+        DROP career ads, foreign labor, and any off-month 2020s releases when the row is historical.
+        When claims and payrolls co-occur, KEEP both. Empty source → empty.

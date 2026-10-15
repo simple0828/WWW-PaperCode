@@ -1,0 +1,21 @@
+{
+  "domain": "economy",
+  "n_events": 1058,
+  "n_months": 369,
+  "channel_counts": {
+    "trade_report": 235,
+    "macro": 217,
+    "bilateral": 197,
+    "policy": 139,
+    "commodity": 78,
+    "exports": 69,
+    "imports": 64,
+    "fx": 45,
+    "tariff": 14
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/economy_events_mech/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

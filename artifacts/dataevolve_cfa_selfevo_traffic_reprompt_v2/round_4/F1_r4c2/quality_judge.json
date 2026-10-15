@@ -1,0 +1,79 @@
+{
+  "average_score": 2.75,
+  "heuristic_score": 0.8353319209039548,
+  "quality_score": 5.551659604519774,
+  "clean_analysis": "Coverage: Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.. Executability: Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.. Detail: Coverage: Zero retention of valid source facts; 100% hallucination. Executability: Prompt constraints ignored; models generated false narratives. || Coverage: None; Executability: Failed due to fabrication and truncation. || Coverage: Zero known issues addressed; all new fabrications added. Executability: Complete failure; models invented data instead of filtering. || Coverage: Missed filtering foreign/off-year facts. Executability: Hallucinated data points instead of dropping rows.",
+  "coverage_analysis": "Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.",
+  "executability_analysis": "Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.",
+  "new_issues_written": 13,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 2.0,
+      "comment": "Fabricates specific VMT data absent from source."
+    },
+    {
+      "pair_id": 2,
+      "score": 3.0,
+      "comment": "Invents dates and misclassifies regional traffic as national."
+    },
+    {
+      "pair_id": 3,
+      "score": 1.0,
+      "comment": "Hallucinates accidents, laws, and unrelated events."
+    },
+    {
+      "pair_id": 1,
+      "score": 2.0,
+      "comment": "Invents specific dates and VMT data not in source."
+    },
+    {
+      "pair_id": 2,
+      "score": 3.0,
+      "comment": "Fabricates VMT metrics and specific dates; truncates output."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Removes source dates; adds unverified 2020 recovery claims."
+    },
+    {
+      "pair_id": 1,
+      "score": 2.0,
+      "comment": "Invents tornado, HOV stats, and 2009 VMT levels."
+    },
+    {
+      "pair_id": 2,
+      "score": 3.0,
+      "comment": "Fabricates 7.5% growth, 2017 rates, and non-existent guidelines."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Adds unverified 1995/2010 dates and generic VMT claims."
+    },
+    {
+      "pair_id": 1,
+      "score": 3.0,
+      "comment": "Invents specific dates and VMT stats not in source."
+    },
+    {
+      "pair_id": 2,
+      "score": 2.0,
+      "comment": "Fabricates dates and metrics; ignores on-year constraints."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Retains generic history; invents 1981-82 air travel data."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Enforce strict 'no external knowledge' constraint to prevent hallucination.",
+    "HIGH: Enforce strict source-only extraction; ban date inference.",
+    "HIGH: Enforce strict source-only extraction; ban any date or metric not explicitly printed in the input text.",
+    "HIGH: Enforce strict 'no invention' rule to prevent hallucinated dates and stats."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

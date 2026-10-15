@@ -1,0 +1,302 @@
+{
+  "domain": "energy",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "STREAMING/ONLINE primary: chronological train∪test; later windows use earlier experience (causal online). fuse=fixed mean@amp=1.0; pick_epoch=best. Report test_best_epoch_online vs baseline test_last_epoch_online; test_final_frozen is freeze ablation only.",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4",
+  "H": 6,
+  "focus": [
+    "crude",
+    "inventory",
+    "refining",
+    "opec",
+    "demand",
+    "retail",
+    "geopolitics",
+    "policy",
+    "macro",
+    "gas_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "pick_epoch": "best",
+    "best_epoch": 1,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": []
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/energy_event_ts_assoc/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "crude": {
+      "n_lessons": 20,
+      "chars": 4278,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "inventory": {
+      "n_lessons": 20,
+      "chars": 3076,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "refining": {
+      "n_lessons": 20,
+      "chars": 3472,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "opec": {
+      "n_lessons": 20,
+      "chars": 3301,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "demand": {
+      "n_lessons": 20,
+      "chars": 3257,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "retail": {
+      "n_lessons": 20,
+      "chars": 3434,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "geopolitics": {
+      "n_lessons": 20,
+      "chars": 3589,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "policy": {
+      "n_lessons": 20,
+      "chars": 3215,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 0.9
+    },
+    "macro": {
+      "n_lessons": 20,
+      "chars": 3525,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "gas_report": {
+      "n_lessons": 20,
+      "chars": 3382,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 7947,
+      "n_gated": 4658,
+      "n_rewrites": 413,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 1022,
+        "active": 739,
+        "frac_active": 0.723091976516634,
+        "mse_b0": 0.021443485425576128,
+        "mse_s5": 0.021021735066776567,
+        "rel_pct": -1.9667994751288442
+      },
+      "test": {
+        "n": 288,
+        "active": 287,
+        "frac_active": 0.9965277777777778,
+        "mse_b0": 0.036751317408546785,
+        "mse_s5": 0.035604855090492334,
+        "rel_pct": -3.1195135273921735
+      },
+      "protocol_versions": {
+        "crude": 41,
+        "inventory": 37,
+        "refining": 40,
+        "opec": 21,
+        "demand": 46,
+        "retail": 44,
+        "geopolitics": 44,
+        "policy": 46,
+        "macro": 51,
+        "gas_report": 43
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 7947,
+      "n_gated": 4761,
+      "n_rewrites": 413,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 1022,
+        "active": 793,
+        "frac_active": 0.7759295499021527,
+        "mse_b0": 0.021443485425576128,
+        "mse_s5": 0.021251982831989587,
+        "rel_pct": -0.8930572142816448
+      },
+      "test": {
+        "n": 288,
+        "active": 287,
+        "frac_active": 0.9965277777777778,
+        "mse_b0": 0.036751317408546785,
+        "mse_s5": 0.035762804229327344,
+        "rel_pct": -2.6897353589549295
+      },
+      "protocol_versions": {
+        "crude": 82,
+        "inventory": 74,
+        "refining": 80,
+        "opec": 42,
+        "demand": 92,
+        "retail": 88,
+        "geopolitics": 88,
+        "policy": 92,
+        "macro": 102,
+        "gas_report": 86
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 1022,
+    "active": 739,
+    "frac_active": 0.723091976516634,
+    "mse_b0": 0.021443485425576128,
+    "mse_s5": 0.021021735066776567,
+    "rel_pct": -1.9667994751288442
+  },
+  "train_best_epoch": {
+    "n": 1022,
+    "active": 739,
+    "frac_active": 0.723091976516634,
+    "mse_b0": 0.021443485425576128,
+    "mse_s5": 0.021021735066776567,
+    "rel_pct": -1.9667994751288442
+  },
+  "test_last_epoch_online": {
+    "n": 288,
+    "active": 287,
+    "frac_active": 0.9965277777777778,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.035604855090492334,
+    "rel_pct": -3.1195135273921735
+  },
+  "test_best_epoch_online": {
+    "n": 288,
+    "active": 287,
+    "frac_active": 0.9965277777777778,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.035604855090492334,
+    "rel_pct": -3.1195135273921735
+  },
+  "test_final_frozen": {
+    "n": 288,
+    "active": 288,
+    "frac_active": 1.0,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.03569336554175603,
+    "rel_pct": -2.87867739550671
+  },
+  "elapsed_sec": 10200.148968696594,
+  "protocol_versions": {
+    "crude": 41,
+    "inventory": 37,
+    "refining": 40,
+    "opec": 21,
+    "demand": 46,
+    "retail": 44,
+    "geopolitics": 44,
+    "policy": 46,
+    "macro": 51,
+    "gas_report": 43
+  },
+  "channel_success": {
+    "crude": {
+      "n_infer": 1744,
+      "n_success": 694
+    },
+    "inventory": {
+      "n_infer": 1052,
+      "n_success": 342
+    },
+    "refining": {
+      "n_infer": 1378,
+      "n_success": 300
+    },
+    "opec": {
+      "n_infer": 482,
+      "n_success": 55
+    },
+    "demand": {
+      "n_infer": 1778,
+      "n_success": 378
+    },
+    "retail": {
+      "n_infer": 2016,
+      "n_success": 716
+    },
+    "geopolitics": {
+      "n_infer": 1412,
+      "n_success": 193
+    },
+    "policy": {
+      "n_infer": 1806,
+      "n_success": 394
+    },
+    "macro": {
+      "n_infer": 2304,
+      "n_success": 584
+    },
+    "gas_report": {
+      "n_infer": 1922,
+      "n_success": 648
+    }
+  }
+}

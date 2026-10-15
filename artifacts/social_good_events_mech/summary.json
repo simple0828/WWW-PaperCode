@@ -1,0 +1,22 @@
+{
+  "domain": "social_good",
+  "n_events": 1288,
+  "n_months": 503,
+  "channel_counts": {
+    "macro": 487,
+    "bls_report": 414,
+    "labor": 88,
+    "payrolls": 78,
+    "policy": 70,
+    "participation": 54,
+    "recession": 47,
+    "claims": 30,
+    "layoffs": 12,
+    "other": 8
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_social_good_reprompt/round_3/F5_r3c5/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/social_good_events_mech/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

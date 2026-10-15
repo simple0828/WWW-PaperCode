@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "val_test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 2048,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "artifacts/apo_security/runpy_cfa_bundle.pt",
+  "init_test_mse": 106.17969512939453,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_security_valtest/cfa_bundle_Traw_control.pt",
+    "val_mse": 2.4518089294433594,
+    "test_mse": 71.85555267333984
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 204,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "val_test",
+      "n_experiences": 65,
+      "beam_families": [
+        "F4_r1c6",
+        "F2_r1c2",
+        "F5_r1c5"
+      ],
+      "candidates": [
+        {
+          "family": "F1 score=None_r1c1",
+          "quality_score": 7.485826318742986,
+          "val_mse": 2.5506317615509033,
+          "test_mse": 72.69924926757812,
+          "select_mse": 49.90094857811928,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.8436965942382812
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 6.615680415263748,
+          "val_mse": 2.511690139770508,
+          "test_mse": 69.24484252929688,
+          "select_mse": 47.55656800270081,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": -2.6107101440429688
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 7.180932472876918,
+          "val_mse": 2.4212422370910645,
+          "test_mse": 72.08751678466797,
+          "select_mse": 49.44597755670547,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": 0.231964111328125
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 7.779831182192294,
+          "val_mse": 2.6411192417144775,
+          "test_mse": 73.52141571044922,
+          "select_mse": 50.48531935811043,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": 1.665863037109375
+        },
+        {
+          "family": "F5_r1c5",
+          "quality_score": 7.074275881712751,
+          "val_mse": 2.4646191596984863,
+          "test_mse": 70.95441436767578,
+          "select_mse": 48.69523092508316,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -0.9011383056640625
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 6.84013327721661,
+          "val_mse": 2.5358176231384277,
+          "test_mse": 69.14163208007812,
+          "select_mse": 47.49474238157272,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": -2.7139205932617188
+        }
+      ],
+      "round_best_family": "F4_r1c6",
+      "round_best_val": 2.5358176231384277,
+      "round_best_test": 69.14163208007812,
+      "round_best_quality": 6.84013327721661,
+      "round_best_select": 35.838724851608276,
+      "global_best_val": 2.5358176231384277,
+      "global_best_test": 69.14163208007812,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "val_test",
+      "n_experiences": 106,
+      "beam_families": [
+        "F1_r2c2",
+        "F5_r2c3",
+        "F4_r2c6"
+      ],
+      "candidates": [
+        {
+          "family": "F4_r2c1",
+          "quality_score": 6.7329539077645135,
+          "val_mse": 2.5410008430480957,
+          "test_mse": 71.07839965820312,
+          "select_mse": 48.80374504327774,
+          "new_issues_written": 2,
+          "delta_test_vs_raw_ctrl": -0.7771530151367188
+        },
+        {
+          "family": "F1_r2c2",
+          "quality_score": 7.249286849981296,
+          "val_mse": 2.4372782707214355,
+          "test_mse": 67.79387664794922,
+          "select_mse": 46.55298217535019,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -4.061676025390625
+        },
+        {
+          "family": "F5_r2c3",
+          "quality_score": 6.33665404040404,
+          "val_mse": 2.485738515853882,
+          "test_mse": 68.09626770019531,
+          "select_mse": 46.77284571528435,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -3.7592849731445312
+        },
+        {
+          "family": "F5_r2c4",
+          "quality_score": 7.664141201578071,
+          "val_mse": 2.54949951171875,
+          "test_mse": 71.59902954101562,
+          "select_mse": 49.15793228149414,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.25652313232421875
+        },
+        {
+          "family": "F5_r2c5",
+          "quality_score": 7.36073555419515,
+          "val_mse": 2.4529869556427,
+          "test_mse": 69.87712860107422,
+          "select_mse": 47.964282566308974,
+          "new_issues_written": 5,
+          "delta_test_vs_raw_ctrl": -1.978424072265625
+        },
+        {
+          "family": "F4_r2c6",
+          "quality_score": 6.884328597422032,
+          "val_mse": 2.421466112136841,
+          "test_mse": 69.24983978271484,
+          "select_mse": 47.53061833977699,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -2.605712890625
+        }
+      ],
+      "round_best_family": "F1_r2c2",
+      "round_best_val": 2.4372782707214355,
+      "round_best_test": 67.79387664794922,
+      "round_best_quality": 7.249286849981296,
+      "round_best_select": 35.11557745933533,
+      "global_best_val": 2.4372782707214355,
+      "global_best_test": 67.79387664794922,
+      "improved": true
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "val_test",
+      "n_experiences": 147,
+      "beam_families": [
+        "F1_r2c2",
+        "F5_r2c3",
+        "F4_r3c4"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r3c1",
+          "quality_score": 7.353971746080331,
+          "val_mse": 2.3959434032440186,
+          "test_mse": 68.56214141845703,
+          "select_mse": 47.0581270635128,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -3.2934112548828125
+        },
+        {
+          "family": "F2_r3c2",
+          "quality_score": 7.648905723905724,
+          "val_mse": 2.4829983711242676,
+          "test_mse": 69.70671844482422,
+          "select_mse": 47.859009420871736,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -2.148834228515625
+        },
+        {
+          "family": "F3_r3c3",
+          "quality_score": 7.594313973063972,
+          "val_mse": 2.600356340408325,
+          "test_mse": 69.26007080078125,
+          "select_mse": 47.59566360116005,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": -2.5954818725585938
+        },
+        {
+          "family": "F4_r3c4",
+          "quality_score": 7.089246632996633,
+          "val_mse": 2.501394748687744,
+          "test_mse": 68.9256820678711,
+          "select_mse": 47.3377886891365,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": -2.92987060546875
+        },
+        {
+          "family": "F4_r3c5",
+          "quality_score": 7.130550071421284,
+          "val_mse": 2.461428642272949,
+          "test_mse": 71.08299255371094,
+          "select_mse": 48.78098428249359,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.7725601196289062
+        },
+        {
+          "family": "F3_r3c6",
+          "quality_score": 7.683380564908344,
+          "val_mse": 2.4797449111938477,
+          "test_mse": 71.67350006103516,
+          "select_mse": 49.18552963733673,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.1820526123046875
+        }
+      ],
+      "round_best_family": "F1_r3c1",
+      "round_best_val": 2.3959434032440186,
+      "round_best_test": 68.56214141845703,
+      "round_best_quality": 7.353971746080331,
+      "round_best_select": 35.479042410850525,
+      "global_best_val": 2.4372782707214355,
+      "global_best_test": 67.79387664794922,
+      "improved": false
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "val_test",
+      "n_experiences": 181,
+      "beam_families": [
+        "F1_r2c2",
+        "F5_r2c3",
+        "F3_r4c3"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r4c1",
+          "quality_score": 6.040594369622147,
+          "val_mse": 2.5084638595581055,
+          "test_mse": 71.65411376953125,
+          "select_mse": 49.18177754878998,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.20143890380859375
+        },
+        {
+          "family": "F2_r4c2",
+          "quality_score": 7.871568462401796,
+          "val_mse": 2.482062816619873,
+          "test_mse": 70.95388793945312,
+          "select_mse": 48.70054477453232,
+          "new_issues_written": 5,
+          "delta_test_vs_raw_ctrl": -0.9016647338867188
+        },
+        {
+          "family": "F3_r4c3",
+          "quality_score": 7.789129850695506,
+          "val_mse": 2.4691951274871826,
+          "test_mse": 68.57489013671875,
+          "select_mse": 47.09053925871849,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -3.2806625366210938
+        },
+        {
+          "family": "F4_r4c4",
+          "quality_score": 7.292784367241438,
+          "val_mse": 2.4286134243011475,
+          "test_mse": 69.22335815429688,
+          "select_mse": 47.51506611704826,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": -2.6321945190429688
+        },
+        {
+          "family": "F4_r4c5",
+          "quality_score": 6.753878940924395,
+          "val_mse": 2.490133047103882,
+          "test_mse": 71.78423309326172,
+          "select_mse": 49.263650578260425,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.071319580078125
+        },
+        {
+          "family": "F3_r4c6",
+          "quality_score": 7.7000935278713065,
+          "val_mse": 2.4736521244049072,
+          "test_mse": 73.03195190429688,
+          "select_mse": 50.10050447583198,
+          "new_issues_written": 1,
+          "delta_test_vs_raw_ctrl": 1.1763992309570312
+        }
+      ],
+      "round_best_family": "F3_r4c3",
+      "round_best_val": 2.4691951274871826,
+      "round_best_test": 68.57489013671875,
+      "round_best_quality": 7.789129850695506,
+      "round_best_select": 35.522042632102966,
+      "global_best_val": 2.4372782707214355,
+      "global_best_test": 67.79387664794922,
+      "improved": false
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "val_test",
+      "n_experiences": 204,
+      "beam_families": [
+        "F1_r2c2",
+        "F5_r2c3",
+        "F3_r4c3"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r5c1",
+          "quality_score": 7.3204155188246105,
+          "val_mse": 2.5348386764526367,
+          "test_mse": 70.72376251220703,
+          "select_mse": 48.562362265586856,
+          "new_issues_written": 5,
+          "delta_test_vs_raw_ctrl": -1.1317901611328125
+        },
+        {
+          "family": "F2_r5c2",
+          "quality_score": 7.682234848484849,
+          "val_mse": 2.428969144821167,
+          "test_mse": 70.17029571533203,
+          "select_mse": 48.154364579916,
+          "new_issues_written": 1,
+          "delta_test_vs_raw_ctrl": -1.6852569580078125
+        },
+        {
+          "family": "F4_r5c3",
+          "quality_score": 6.6052609427609426,
+          "val_mse": 2.5054166316986084,
+          "test_mse": 69.76187133789062,
+          "select_mse": 47.90352355837822,
+          "new_issues_written": 1,
+          "delta_test_vs_raw_ctrl": -2.0936813354492188
+        },
+        {
+          "family": "F4_r5c4",
+          "quality_score": 7.434790497568276,
+          "val_mse": 2.478515625,
+          "test_mse": 72.53508758544922,
+          "select_mse": 49.76670169830322,
+          "new_issues_written": 2,
+          "delta_test_vs_raw_ctrl": 0.679534912109375
+        },
+        {
+          "family": "F3_r5c5",
+          "quality_score": 7.911366442199775,
+          "val_mse": 2.493898868560791,
+          "test_mse": 73.99333953857422,
+          "select_mse": 50.756021320819855,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 2.137786865234375
+        },
+        {
+          "family": "F0_r5c6",
+          "quality_score": 7.156563318368874,
+          "val_mse": 2.4377834796905518,
+          "test_mse": 71.58133697509766,
+          "select_mse": 49.10968208909035,
+          "new_issues_written": 5,
+          "delta_test_vs_raw_ctrl": -0.2742156982421875
+        }
+      ],
+      "round_best_family": "F4_r5c3",
+      "round_best_val": 2.5054166316986084,
+      "round_best_test": 69.76187133789062,
+      "round_best_quality": 6.6052609427609426,
+      "round_best_select": 36.13364398479462,
+      "global_best_val": 2.4372782707214355,
+      "global_best_test": 67.79387664794922,
+      "improved": false
+    }
+  ],
+  "global_best": {
+    "round": 2,
+    "family": "F1_r2c2",
+    "name": "paradigm_catalog_F1",
+    "output_format": "plain",
+    "cleaning_prompt": "DATASET: U.S. monthly FEMA grant-outlays panel. Clean the CURRENT row month only.\n\nFORBIDDEN: year cutoffs; date stuffing; header-only shells; inventing amounts.\nHistorical months are valid — keep their dated drivers when present.\n\nROLE: FEMA-outlay gatekeeper (strict KEEP/DROP).\nKEEP items that can move monthly FEMA grant residuals, with U.S. scope and\ndate/quantity when possible, in:\n- declarations: presidential major disaster / emergency declarations; FEMA mission assignments\n- hazards: hurricanes, tropical storms, wildfires, floods, tornado outbreaks, earthquakes,\n  severe winter storms — with federal response or damage scale\n- funding: Public Assistance, Individual Assistance, Hazard Mitigation grants/obligations;\n  DHS/FEMA appropriations; supplemental disaster relief bills\n- ops: catastrophic loss estimates, temporary housing, debris removal tied to outlays\n\nPrefer facts dated near THIS row's month (± a few months). Drop recycled hazards from\nother years with no link to this month.\n\nDROP: local crime / police blotter; foreign wars; generic \"homeland security\" opinion;\ntourism/weather lifestyle pieces without federal funding link; ads.\nEmpty source → empty output. No invented $m.\n",
+    "clean_stats": {
+      "n_rows": 297,
+      "n_forced_empty": 0,
+      "raw_chars_mean": 2113.10101010101,
+      "cleaned_chars_mean": 1252.905723905724,
+      "retention_mean": 0.5813963146187698
+    },
+    "clean_seconds": 1025.3529131412506,
+    "clean_wave_seconds": 1025.3539423942566,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2/US_FEMAGrant_Month_cleaned.csv",
+    "quality_score": 7.249286849981296,
+    "quality_llm_score": 5.45,
+    "quality_heuristic": 0.904857369996259,
+    "coverage_analysis": "Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.",
+    "executability_analysis": "Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.",
+    "new_issues_written": 8,
+    "val_mse": 2.4372782707214355,
+    "test_mse": 67.79387664794922,
+    "select_split": "val_test",
+    "select_mse": 46.55298217535019,
+    "score_objective": -46.55298217535019,
+    "delta_val_vs_raw_ctrl": -0.014530658721923828,
+    "delta_test_vs_raw_ctrl": -4.061676025390625,
+    "clean_analysis": "Coverage: Non-FEMA roles (USDA, CERT, state agencies) and non-disaster topics (trauma care, social science) remain. Historical context and incomplete sentences persist. | Non-relevant historical laws, generic emergency roles, and unverified funding claims persist. No focus on current month's FEMA outlays. | Only one relevant FEMA grant retained in Pair 3. Pair 1 and 2 retain non-FEMA roles, historical context, and unverified figures. Incomplete sentences and irrelevant content persist. | Non-FEMA roles (DHS, USDA, UN) and historical context (2004, 1999) remain. No verified FEMA grant amounts. Incomplete sentences persist.. Executability: Unclear filtering; non-FEMA entities and non-grant topics retained. Incomplete sentences and unverified claims reduce execution quality. | Instructions not followed: retained non-FEMA roles, unverified figures, and incomplete sentences. No monthly FEMA-specific data. | Cleaned outputs contain fabricated funding amounts, unverified claims, and incomplete sentences. Instructions not followed—funding figures invented without source. Non-FEMA roles and historical context remain. | Unclear source filtering; non-FEMA entities retained. No date-specific FEMA outlay linkage. Risk of fabricated data.. Detail: Coverage: Non-FEMA roles, non-disaster topics, and incomplete sentences remain. Executability: Inconsistent application of filtering rules. || Coverage: Non-FEMA roles, historical context, and unverified claims remain. Executability: Incomplete sentences, unverified figures, and non-FEMA references persist. || Coverage: Non-FEMA roles, historical context, and unverified figures not removed. Executability: Invented amounts and incomplete sentences violate prompt. || Coverage: Non-FEMA roles, foreign disasters, and historical context not removed. Executability: Incomplete sentences and unverified funding claims remain. || CFA select=val_test:46.552982 val=2.437278 test=67.793877 Δtest_vs_raw=-4.061676; quality_score=7.25"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_security_valtest",
+    "init_bundle": "artifacts/apo_security/runpy_cfa_bundle.pt",
+    "domain": "security",
+    "cleaned_csv_name": "US_FEMAGrant_Month_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "val_test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 2048,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "",
+    "max_tokens": 2048,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/Security/US_FEMAGrant_Month.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "domain": "energy",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 1,
+  "s5_v5_best_online_saved": -3.1195135273921735,
+  "s5_v5_final_saved": -2.87867739550671,
+  "recon_s5_online": {
+    "n": 288.0,
+    "active": 287.0,
+    "frac_active": 0.9965277777777778,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.035604855090492334,
+    "rel_pct": -3.1195135273921735
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 288.0,
+    "active": 145.0,
+    "frac_active": 0.5034722222222222,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.0364202666703466,
+    "rel_pct": -0.9007860439941661
+  },
+  "val_choice": {
+    "name": "fuse_0.5_0.25",
+    "g2": 0.5,
+    "g5": 0.25,
+    "val_rel": -1.5694546330869352,
+    "val_mse": 0.025025186169354993
+  },
+  "fused_online_before_fallback": {
+    "n": 288.0,
+    "active": 287.0,
+    "frac_active": 0.9965277777777778,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.03573047929951343,
+    "rel_pct": -2.777691198617962
+  },
+  "reported_online": {
+    "n": 288.0,
+    "active": 287.0,
+    "frac_active": 0.9965277777777778,
+    "mse_b0": 0.036751317408546785,
+    "mse_s5": 0.035604855090492334,
+    "rel_pct": -3.1195135273921735
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 288.0,
+      "active": 288.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.036751317408546785,
+      "mse_s5": 0.03569336554175603,
+      "rel_pct": -2.87867739550671
+    },
+    "fused_before_fallback": {
+      "n": 288.0,
+      "active": 288.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.036751317408546785,
+      "mse_s5": 0.035751425369893536,
+      "rel_pct": -2.720697131854972
+    },
+    "reported": {
+      "n": 288.0,
+      "active": 288.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.036751317408546785,
+      "mse_s5": 0.03569336554175603,
+      "rel_pct": -2.87867739550671
+    },
+    "mode": "S5_fallback",
+    "delta_vs_s5_final": 0.0
+  },
+  "n_train_s2_covered": 1022,
+  "n_val": 204,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/energy_event_ts_assoc/scheme2_sampled_dual_energy_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/energy_event_ts_assoc/scheme5_infer_s5v5_improve.jsonl"
+}

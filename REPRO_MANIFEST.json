@@ -1,0 +1,75 @@
+{
+  "created": "2026-10-14 17:23:21",
+  "stage1_best": {
+    "agriculture": {
+      "family": "F5_r5c1",
+      "dir": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1",
+      "bundle": "cfa_bundle.pt"
+    },
+    "economy": {
+      "family": "F2_r4c4",
+      "dir": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4",
+      "bundle": "cfa_bundle.pt"
+    },
+    "energy": {
+      "family": "F2_r3c4",
+      "dir": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4",
+      "bundle": "cfa_bundle.pt"
+    },
+    "public_health": {
+      "family": "F5_r5c1",
+      "dir": "artifacts/dataevolve_cfa_selfevo_public_health/round_5/F5_r5c1",
+      "bundle": "cfa_bundle.pt"
+    },
+    "security": {
+      "family": "F1_r2c2",
+      "dir": "artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2",
+      "bundle": "cfa_bundle.pt"
+    },
+    "social_good": {
+      "family": "F5_r3c5",
+      "dir": "artifacts/dataevolve_cfa_selfevo_social_good_reprompt/round_3/F5_r3c5",
+      "bundle": "cfa_bundle.pt"
+    },
+    "traffic": {
+      "family": "F1_r4c2",
+      "dir": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2",
+      "bundle": "cfa_bundle.pt"
+    }
+  },
+  "events": {
+    "agriculture": {
+      "path": "artifacts/agri_events_mech_reprompt/events.jsonl",
+      "bytes": 1128058
+    },
+    "economy": {
+      "path": "artifacts/economy_events_mech/events.jsonl",
+      "bytes": 1151600
+    },
+    "energy": {
+      "path": "artifacts/energy_events_mech/events.jsonl",
+      "bytes": 4108289
+    },
+    "public_health": {
+      "path": "artifacts/public_health_events_mech/events.jsonl",
+      "bytes": 2775369
+    },
+    "security": {
+      "path": "artifacts/security_events_mech/events.jsonl",
+      "bytes": 455156
+    },
+    "social_good": {
+      "path": "artifacts/social_good_events_mech/events.jsonl",
+      "bytes": 1448176
+    },
+    "traffic": {
+      "path": "artifacts/vmt_events_mech_v2/events.jsonl",
+      "bytes": 2440709
+    }
+  },
+  "reference_results": {
+    "artifacts/scheme5_v5/summary.json": true,
+    "artifacts/stage2_fact_valtest_tricks/summary_valtest_tricks.json": true,
+    "artifacts/stage2_fact_leak_tricks/summary_leak_tricks.json": true
+  }
+}

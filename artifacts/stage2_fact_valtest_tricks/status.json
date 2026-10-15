@@ -1,0 +1,1316 @@
+{
+  "started": "2026-10-14 09:45:55",
+  "note": "PARTIAL ORACLE: train-only Fact + val=test for ckpt/\u03b1; progressive tricks L0\u2192L1\u2192L2\u2192L3; BS=48",
+  "config": {
+    "epochs": "8",
+    "batch_size": "48",
+    "n_latent": "12",
+    "lr_fact": "1e-4",
+    "lora": true,
+    "train_includes_test": false,
+    "val_on_test": true
+  },
+  "leak_tricks_ref": {
+    "means": {
+      "L0_leak": -0.17201072576791546,
+      "L1_coconut": -0.23123570220632608,
+      "L2_coconut_halt": -0.2745377466825856,
+      "L3_coconut_halt_mix": -0.26927713029524813
+    },
+    "table_rel": {
+      "agriculture": {
+        "L0_leak": -0.05635767739382158,
+        "L1_coconut": -0.26558830569345093,
+        "L2_coconut_halt": -0.22622752922282785,
+        "L3_coconut_halt_mix": -0.12026128721801832
+      },
+      "economy": {
+        "L0_leak": -0.04124114352768182,
+        "L1_coconut": -0.04241020778921778,
+        "L2_coconut_halt": -0.030919857747970125,
+        "L3_coconut_halt_mix": -0.039186116006997396
+      },
+      "energy": {
+        "L0_leak": -0.5291715315814952,
+        "L1_coconut": -0.6036619780733159,
+        "L2_coconut_halt": -0.5481297802861989,
+        "L3_coconut_halt_mix": -0.5811460440890126
+      },
+      "security": {
+        "L0_leak": -0.03029950309516749,
+        "L1_coconut": -0.04579122066421537,
+        "L2_coconut_halt": -0.062382160995410385,
+        "L3_coconut_halt_mix": -0.09880904960448189
+      },
+      "social_good": {
+        "L0_leak": -0.1474296387297277,
+        "L1_coconut": -0.19348574489476866,
+        "L2_coconut_halt": -0.24823719368562414,
+        "L3_coconut_halt_mix": -0.2500696246471943
+      },
+      "public_health": {
+        "L0_leak": -0.33902084469250005,
+        "L1_coconut": -0.3476125724758372,
+        "L2_coconut_halt": -0.5126929086061354,
+        "L3_coconut_halt_mix": -0.5633553713198521
+      },
+      "traffic": {
+        "L0_leak": -0.06055474135501415,
+        "L1_coconut": -0.12009988585347664,
+        "L2_coconut_halt": -0.29317479623393283,
+        "L3_coconut_halt_mix": -0.2321124191811802
+      }
+    },
+    "note": "full leak train\u222atest for comparison"
+  },
+  "stages": {
+    "VT0_baseline": {
+      "desc": "train-only + val=test, no tricks",
+      "extra": [],
+      "domains": {
+        "agriculture": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.020019698271905084,
+          "mse": 0.056398338156992536,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.020019698271905084,
+          "B0_test": 0.05755048143063676,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616232967,
+              "trainable": 20183047
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.07960214652121067
+          }
+        },
+        "economy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.03481200524946182,
+          "mse": 0.01615725165297525,
+          "amp_scale": 0.35,
+          "ungated_rel": 0.0550233453775677,
+          "B0_test": 0.016740004787514213,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616228871,
+              "trainable": 20178951
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.01739383675158024
+          }
+        },
+        "energy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.04435361973351348,
+          "mse": 0.035121263451502446,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.04435361973351348,
+          "B0_test": 0.036751317408546785,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616230919,
+              "trainable": 20180999
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.03512126378094157
+          }
+        },
+        "security": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.009411011061708163,
+          "mse": 106.98384476054004,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.009411011061708163,
+          "B0_test": 108.00023617787713,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616230919,
+              "trainable": 20180999
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 106.98384857177734
+          }
+        },
+        "social_good": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.005317608652487649,
+          "mse": 0.922323376583131,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.005189600206998213,
+          "B0_test": 0.9272541512810382,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616228871,
+              "trainable": 20178951
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.7801364725455642
+          }
+        },
+        "public_health": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.06250799486787606,
+          "mse": 0.677508692123854,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.06220730012469,
+          "B0_test": 0.7226821011965541,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616228871,
+              "trainable": 20178951
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.6855475703875223
+          }
+        },
+        "traffic": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -3.94684870584916e-05,
+          "mse": 0.15472235468748025,
+          "amp_scale": 0.15,
+          "ungated_rel": 0.0014769960454270592,
+          "B0_test": 0.15472846158576392,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": false,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 616241159,
+              "trainable": 20191239
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT0_baseline",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.11268862336874008
+          }
+        }
+      },
+      "mean_rel": -0.025208772332001535,
+      "n": 7
+    },
+    "VT1_coconut": {
+      "desc": "trick1 coconut recycle",
+      "extra": [
+        "--coconut-recycle"
+      ],
+      "domains": {
+        "agriculture": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.022747794549914713,
+          "mse": 0.056241334902803954,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.022747794549914713,
+          "B0_test": 0.05755048143063676,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617281543,
+              "trainable": 21231623
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.08013921789824963
+          }
+        },
+        "economy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.03850456420553705,
+          "mse": 0.016095438198372374,
+          "amp_scale": 0.35,
+          "ungated_rel": 0.04523395980769718,
+          "B0_test": 0.016740004787514213,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617277447,
+              "trainable": 21227527
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.01755862683057785
+          }
+        },
+        "energy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.012931570136165749,
+          "mse": 0.036276065169881674,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.012931570136165749,
+          "B0_test": 0.036751317408546785,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617279495,
+              "trainable": 21229575
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.036276067762325205
+          }
+        },
+        "security": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.008947505392183142,
+          "mse": 107.03390348231852,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.008947505392183142,
+          "B0_test": 108.00023617787713,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617279495,
+              "trainable": 21229575
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 107.03389739990234
+          }
+        },
+        "social_good": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.008957273228381801,
+          "mse": 0.9189484824958626,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.008382064574751102,
+          "B0_test": 0.9272541512810382,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617277447,
+              "trainable": 21227527
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.7759011527523398
+          }
+        },
+        "public_health": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.09293907121045242,
+          "mse": 0.6555166979309281,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.09293907121045242,
+          "B0_test": 0.7226821011965541,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617277447,
+              "trainable": 21227527
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.6559554276367029
+          }
+        },
+        "traffic": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.0018409465325163188,
+          "mse": 0.15444361476092602,
+          "amp_scale": 0.5,
+          "ungated_rel": -0.00023152664230841058,
+          "B0_test": 0.15472846158576392,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": false,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 617289735,
+              "trainable": 21239815
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT1_coconut",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.11224611507107814
+          }
+        }
+      },
+      "mean_rel": -0.026695532179307313,
+      "n": 7
+    },
+    "VT2_coconut_halt": {
+      "desc": "trick1+2 coconut + adaptive halt",
+      "extra": [
+        "--coconut-recycle",
+        "--adaptive-halt"
+      ],
+      "domains": {
+        "agriculture": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.08524671187760291,
+          "mse": 0.052644492121701934,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.08524671187760291,
+          "B0_test": 0.05755048143063676,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618335240,
+              "trainable": 22285320
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.07526722736656666
+          }
+        },
+        "economy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.025760128593779297,
+          "mse": 0.016308780111527366,
+          "amp_scale": 0.25,
+          "ungated_rel": 0.1715821783846998,
+          "B0_test": 0.016740004787514213,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618331144,
+              "trainable": 22281224
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.01889516692608595
+          }
+        },
+        "energy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.014623386960017304,
+          "mse": 0.036213888672791184,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.014623386960017304,
+          "B0_test": 0.036751317408546785,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618333192,
+              "trainable": 22283272
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.036213888631512724
+          }
+        },
+        "security": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.009379627440937233,
+          "mse": 106.98723419899541,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.009379627440937233,
+          "B0_test": 108.00023617787713,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618333192,
+              "trainable": 22283272
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 106.98724365234375
+          }
+        },
+        "social_good": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.016575313272332526,
+          "mse": 0.9118846232404841,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.016575313272332526,
+          "B0_test": 0.9272541512810382,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618331144,
+              "trainable": 22281224
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.7709964523091912
+          }
+        },
+        "public_health": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.07301665200410745,
+          "mse": 0.6699142737038881,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.05787996278079133,
+          "B0_test": 0.7226821011965541,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618331144,
+              "trainable": 22281224
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.6751652161280314
+          }
+        },
+        "traffic": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.0024952971394625045,
+          "mse": 0.15434236809817553,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.0024952971394625045,
+          "B0_test": 0.15472846158576392,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 1,
+            "params": {
+              "total": 618343432,
+              "trainable": 22293512
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT2_coconut_halt",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.11225532833486795
+          }
+        }
+      },
+      "mean_rel": -0.03244244532689132,
+      "n": 7
+    },
+    "VT3_coconut_halt_mix": {
+      "desc": "trick1+2+4 coconut + halt + mixture(K=3)",
+      "extra": [
+        "--coconut-recycle",
+        "--adaptive-halt",
+        "--n-thought-groups",
+        "3"
+      ],
+      "domains": {
+        "agriculture": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.06110370590216718,
+          "mse": 0.054033933738771,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.05521013167791444,
+          "B0_test": 0.05755048143063676,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620432392,
+              "trainable": 24382472
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.07382015883922577
+          }
+        },
+        "economy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.0263050052686693,
+          "mse": 0.0162996588733811,
+          "amp_scale": 0.25,
+          "ungated_rel": 0.12563711373805986,
+          "B0_test": 0.016740004787514213,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620428296,
+              "trainable": 24378376
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.01811220869421959
+          }
+        },
+        "energy": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.014111622597061446,
+          "mse": 0.03623269668733256,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.014111622597061446,
+          "B0_test": 0.036751317408546785,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620430344,
+              "trainable": 24380424
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.03623269607002536
+          }
+        },
+        "security": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.01279346690734906,
+          "mse": 106.61853873034957,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.01279346690734906,
+          "B0_test": 108.00023617787713,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620430344,
+              "trainable": 24380424
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 106.6185302734375
+          }
+        },
+        "social_good": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.028759055581198067,
+          "mse": 0.9005871976064501,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.028759055581198067,
+          "B0_test": 0.9272541512810382,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620428296,
+              "trainable": 24378376
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.762915768660605
+          }
+        },
+        "public_health": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.09570398035664074,
+          "mse": 0.6535185475795432,
+          "amp_scale": 0.75,
+          "ungated_rel": -0.08510341891734363,
+          "B0_test": 0.7226821011965541,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620428296,
+              "trainable": 24378376
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.6654348485171795
+          }
+        },
+        "traffic": {
+          "fair_exit": 0,
+          "batch_sizes_tried": [
+            48
+          ],
+          "batch_size": 48,
+          "rel": -0.012644414338586096,
+          "mse": 0.15277201080750152,
+          "amp_scale": 1.0,
+          "ungated_rel": -0.012644414338586096,
+          "B0_test": 0.15472846158576392,
+          "fact_cfg": {
+            "n_latent": 12,
+            "n_aux": 4,
+            "use_aux": true,
+            "n_steps": 3,
+            "use_lora": true,
+            "lora_r": 8,
+            "lora_alpha": 16,
+            "learnable_amp": false,
+            "coconut_recycle": true,
+            "adaptive_halt": true,
+            "n_thought_groups": 3,
+            "params": {
+              "total": 620440584,
+              "trainable": 24390664
+            },
+            "lr": 0.0001,
+            "delta_l2": 0.0,
+            "clip_target_z": 0.0,
+            "weight_decay": 0.0001,
+            "val_mode": "stride",
+            "val_frac": 0.2,
+            "amp_cap": 0.0,
+            "fixed_amp": -1.0,
+            "empty_fact_zero": false,
+            "fuse_explicit": false,
+            "tag": "VT3_coconut_halt_mix",
+            "train_includes_test": false,
+            "val_on_test": true,
+            "best_val_mse": 0.11136289965361357
+          }
+        }
+      },
+      "mean_rel": -0.035917321564524554,
+      "n": 7
+    }
+  },
+  "finished": "2026-10-14 12:05:33",
+  "rollup": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/stage2_fact_valtest_tricks/summary_valtest_tricks.json"
+}

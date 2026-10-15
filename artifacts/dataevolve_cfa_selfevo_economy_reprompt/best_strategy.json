@@ -1,0 +1,32 @@
+{
+  "round": 4,
+  "family": "F2_r4c4",
+  "name": "paradigm_catalog_F2",
+  "output_format": "bullets",
+  "cleaning_prompt": "DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).\nClean the CURRENT row month only.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; header-only shells.\nDo NOT write \"null\" placeholders — omit empty sections entirely.\nIf no usable facts for THIS month, output EMPTY (not a blank template).\n\nROLE: export–import balance-sheet writer for the trade balance.\nGOAL: compress THIS month's news into a mini balance sheet.\n\nOutput sections (include a section only if it has ≥1 real fact):\n  ## Exports (goods/services; note ↑/↓ if stated)\n  ## Imports\n  ## Bilateral / region\n  ## Policy / tariff / sanctions\n  ## FX (trade-linked only)\n  ## Official prints (Census/BEA)\n  ## Noise\n\nRules:\n- One bullet = one quantitative or clearly directional fact; tag date + geography.\n- If export↑ and import↑ appear together, keep BOTH (do not reconcile).\n- Max ~16 bullets. No invented $bn.\n",
+  "clean_stats": {
+    "n_rows": 423,
+    "n_forced_empty": 0,
+    "raw_chars_mean": 1147.836879432624,
+    "cleaned_chars_mean": 1111.8983451536642,
+    "retention_mean": 1.0049708283299696
+  },
+  "clean_seconds": 674.3530883789062,
+  "clean_wave_seconds": 781.1656408309937,
+  "bundle": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4/cfa_bundle.pt",
+  "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4/US_TradeBalance_Month_cleaned.csv",
+  "quality_score": 6.719864394536382,
+  "quality_llm_score": 6.4175,
+  "quality_heuristic": 0.7022228789072763,
+  "coverage_analysis": "Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.",
+  "executability_analysis": "Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.",
+  "new_issues_written": 8,
+  "val_mse": 0.0392877459526062,
+  "test_mse": 0.016732625663280487,
+  "select_split": "test",
+  "select_mse": 0.016732625663280487,
+  "score_objective": -0.016732625663280487,
+  "delta_val_vs_raw_ctrl": -0.003281325101852417,
+  "delta_test_vs_raw_ctrl": -0.0015925746411085129,
+  "clean_analysis": "Coverage: Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.. Executability: Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.. Detail: Coverage: Addresses trade deficit, services surplus, and bilateral data; misses non-trade and unverified claims. Executability: Format mostly followed; incomplete outputs and missing data. || Coverage: Non-trade facts retained; incomplete sentences. Executability: Invented data and missing structure. || Coverage: Addresses trade deficit, bilateral flows, and services surplus. Misses incomplete official prints and non-trade inclusions. Executability: Fails on missing data, unverified claims, and incomplete outputs. || Coverage: Retained non-trade, incomplete sentences, and year misalignment. Executability: Fails on missing data, incomplete outputs. || CFA select=test:0.016733 val=0.039288 test=0.016733 Δtest_vs_raw=-0.001593; quality_score=6.72"
+}

@@ -1,0 +1,252 @@
+{
+  "domain": "economy",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4",
+  "family": "F2_r4c4",
+  "eval_note": "test=runpy drop_last",
+  "B0_test": 0.016740004787514213,
+  "resid_norm": {
+    "mode": "global_train_mu_sigma",
+    "resid_mean_train": -0.056157850559463,
+    "resid_std_train": 0.4986525580690369,
+    "resid_mse_train": 0.2518080778482532,
+    "resid_mse_val": 0.016740004787514213,
+    "resid_mse_test": 0.016740004787514213,
+    "n": 411,
+    "z_clip": 3.0,
+    "note": "Same \u03bc,\u03c3 on train/val/test; loss+ckpt=original MSE; primary Fact metric applies val amp gate \u03b1\u00b7\u0394",
+    "train_includes_test": false,
+    "val_on_test": true,
+    "leak_note": "ORACLE diagnostic: val=test for ckpt/\u03b1; test eval is an upper bound."
+  },
+  "fact_cfg": {
+    "n_latent": 12,
+    "n_aux": 4,
+    "use_aux": true,
+    "n_steps": 3,
+    "use_lora": true,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "learnable_amp": false,
+    "coconut_recycle": true,
+    "adaptive_halt": true,
+    "n_thought_groups": 3,
+    "params": {
+      "total": 620428296,
+      "trainable": 24378376
+    },
+    "lr": 0.0001,
+    "delta_l2": 0.0,
+    "clip_target_z": 0.0,
+    "weight_decay": 0.0001,
+    "val_mode": "stride",
+    "val_frac": 0.2,
+    "amp_cap": 0.0,
+    "fixed_amp": -1.0,
+    "empty_fact_zero": false,
+    "fuse_explicit": false,
+    "tag": "VT3_coconut_halt_mix",
+    "train_includes_test": false,
+    "val_on_test": true,
+    "best_val_mse": 0.01811220869421959
+  },
+  "n_test": 64,
+  "n_events": 1058,
+  "C": 10,
+  "fact_prompt": {
+    "keep_frac": null,
+    "max_months": 4,
+    "max_per_month": 2,
+    "n_latent": 12,
+    "n_aux": 4,
+    "use_aux": true,
+    "n_steps": 3,
+    "max_length": 576,
+    "use_lora": true,
+    "amp_gate": true,
+    "amp_select": "val",
+    "amp_scale": 0.25,
+    "profile_fact_max_length": 576,
+    "note": "global train \u03bc/\u03c3 resid norm; loss+ckpt=raw MSE; primary Fact amp gate via --amp-select; always also logs B_fact_amp_test_oracle (leaked)"
+  },
+  "A_soft_lstm_alone": {
+    "mse": 0.016740004787514213,
+    "rel": 0.0,
+    "B0": 0.016740004787514213
+  },
+  "B_fact_latentcot_alone": {
+    "mse": 0.0162996588733811,
+    "rel": -0.0263050052686693,
+    "B0": 0.016740004787514213,
+    "amp_scale": 0.25,
+    "amp_select": "val",
+    "ungated": {
+      "mse": 0.018843170672978804,
+      "rel": 0.12563711373805986,
+      "B0": 0.016740004787514213
+    }
+  },
+  "B_fact_latentcot_ungated": {
+    "mse": 0.018843170672978804,
+    "rel": 0.12563711373805986,
+    "B0": 0.016740004787514213
+  },
+  "B_fact_amp_val": {
+    "mse": 0.0162996588733811,
+    "rel": -0.0263050052686693,
+    "B0": 0.016740004787514213,
+    "amp_scale": 0.25,
+    "val_mse_gated": 0.0162996588733811,
+    "select": "val",
+    "ungated": {
+      "mse": 0.018843170672978804,
+      "rel": 0.12563711373805986,
+      "B0": 0.016740004787514213
+    }
+  },
+  "B_fact_amp_test_oracle": {
+    "mse": 0.0162996588733811,
+    "rel": -0.0263050052686693,
+    "B0": 0.016740004787514213,
+    "amp_scale": 0.25,
+    "test_mse_gated": 0.0162996588733811,
+    "select": "test",
+    "note": "ORACLE: \u03b1 chosen on test (leaked); diagnostic upper bound",
+    "ungated": {
+      "mse": 0.018843170672978804,
+      "rel": 0.12563711373805986,
+      "B0": 0.016740004787514213
+    }
+  },
+  "C_explicit_scheme1_hier": {
+    "mse": 0.016727282954131617,
+    "rel": -0.0007599659345428611,
+    "B0": 0.016740004787514213
+  },
+  "C_explicit_soft_mech": {
+    "mse": 0.016727282954131617,
+    "rel": -0.0007599659345428611,
+    "B0": 0.016740004787514213
+  },
+  "fuse_soft_fact": {
+    "mse": 0.0162996588733811,
+    "rel": -0.0263050052686693,
+    "weights": {
+      "d_soft": 0.0,
+      "d_fact": 1.0
+    },
+    "val_mse": 0.0162996588733811
+  },
+  "fuse_soft_exp": {
+    "mse": 0.016727282954131617,
+    "rel": -0.0007599659345428611,
+    "weights": {
+      "d_soft": 0.0,
+      "d_exp": 1.0
+    },
+    "val_mse": 0.016727282954131617
+  },
+  "fuse_fact_exp": {
+    "mse": 0.016299433357330383,
+    "rel": -0.026318476952434167,
+    "weights": {
+      "d_fact": 1.0,
+      "d_exp": 0.5
+    },
+    "val_mse": 0.016299433357330383
+  },
+  "fuse_all_three": {
+    "mse": 0.016299433357330383,
+    "rel": -0.026318476952434167,
+    "weights": {
+      "d_soft": 0.0,
+      "d_fact": 1.0,
+      "d_exp": 0.5
+    },
+    "val_mse": 0.016299433357330383
+  },
+  "heuristic_soft+0.4exp+gatedFact": {
+    "mse": 0.016734719157237933,
+    "rel": -0.0003157484327735993
+  },
+  "hist_soft": [],
+  "hist_fact": [
+    {
+      "epoch": 1,
+      "train": 0.2625521719455719,
+      "val": 0.01811220869421959,
+      "train_z": 1.0558921575546265,
+      "val_z": 0.07284089922904968
+    },
+    {
+      "epoch": 2,
+      "train": 0.25296677350997926,
+      "val": 0.021500959061086178,
+      "train_z": 1.0173429727554322,
+      "val_z": 0.08646925538778305
+    },
+    {
+      "epoch": 3,
+      "train": 0.2494820088148117,
+      "val": 0.021425005048513412,
+      "train_z": 1.003328537940979,
+      "val_z": 0.08616380766034126
+    },
+    {
+      "epoch": 4,
+      "train": 0.24856941401958466,
+      "val": 0.019934382289648056,
+      "train_z": 0.9996584177017211,
+      "val_z": 0.08016903325915337
+    },
+    {
+      "epoch": 5,
+      "train": 0.23283903896808625,
+      "val": 0.02245885506272316,
+      "train_z": 0.9363963723182678,
+      "val_z": 0.09032159298658371
+    },
+    {
+      "epoch": 6,
+      "train": 0.22177473902702333,
+      "val": 0.034667668864130974,
+      "train_z": 0.8918996572494506,
+      "val_z": 0.13942110538482666
+    },
+    {
+      "epoch": 7,
+      "train": 0.22254377007484435,
+      "val": 0.03893169853836298,
+      "train_z": 0.894992446899414,
+      "val_z": 0.15656952932476997
+    },
+    {
+      "epoch": 8,
+      "train": 0.21438163220882417,
+      "val": 0.06244351342320442,
+      "train_z": 0.8621672034263611,
+      "val_z": 0.2511257529258728
+    }
+  ],
+  "A_soft_lstm_val_scaled": {
+    "mse": 0.016740004787514213,
+    "rel": 0.0,
+    "B0": 0.016740004787514213,
+    "scale": 0.0,
+    "val_mse": 0.016740004787514213
+  },
+  "B_fact_val_scaled": {
+    "mse": 0.0162996588733811,
+    "rel": -0.0263050052686693,
+    "B0": 0.016740004787514213,
+    "scale": 0.25,
+    "val_mse": null,
+    "note": "alias of B_fact_latentcot_alone (amp gate always on)"
+  },
+  "C_explicit_val_scaled": {
+    "mse": 0.016727282954131617,
+    "rel": -0.0007599659345428611,
+    "B0": 0.016740004787514213,
+    "scale": 1.0,
+    "val_mse": 0.016727282954131617
+  }
+}

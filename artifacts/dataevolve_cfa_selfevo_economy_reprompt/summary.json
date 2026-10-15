@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 2048,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "artifacts/apo_economy/runpy_cfa_bundle.pt",
+  "init_test_mse": 0.01650151051580906,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/cfa_bundle_Traw_control.pt",
+    "val_mse": 0.04256907105445862,
+    "test_mse": 0.018325200304389
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 331,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 74,
+      "beam_families": [
+        "F1 score=None_r1c1",
+        "F5_r1c4",
+        "F2_r1c2"
+      ],
+      "candidates": [
+        {
+          "family": "F1 score=None_r1c1",
+          "quality_score": 6.312652679275019,
+          "val_mse": 0.03364884853363037,
+          "test_mse": 0.01823923923075199,
+          "select_mse": 0.01823923923075199,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": -8.596107363700867e-05
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 4.655076175466247,
+          "val_mse": 0.030906066298484802,
+          "test_mse": 0.021102136000990868,
+          "select_mse": 0.021102136000990868,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": 0.0027769356966018677
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 6.698229905437353,
+          "val_mse": 0.03778188303112984,
+          "test_mse": 0.020760053768754005,
+          "select_mse": 0.020760053768754005,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0024348534643650055
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 5.935148739164697,
+          "val_mse": 0.029850289225578308,
+          "test_mse": 0.02060018666088581,
+          "select_mse": 0.02060018666088581,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.002274986356496811
+        },
+        {
+          "family": "F5_r1c5",
+          "quality_score": 6.037470120830049,
+          "val_mse": 0.03437025472521782,
+          "test_mse": 0.021236011758446693,
+          "select_mse": 0.021236011758446693,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0029108114540576935
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 6.120239033359601,
+          "val_mse": 0.03777607902884483,
+          "test_mse": 0.023014629259705544,
+          "select_mse": 0.023014629259705544,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.004689428955316544
+        }
+      ],
+      "round_best_family": "F1 score=None_r1c1",
+      "round_best_val": 0.03364884853363037,
+      "round_best_test": 0.01823923923075199,
+      "round_best_quality": 6.312652679275019,
+      "round_best_select": 0.01823923923075199,
+      "global_best_val": 0.03364884853363037,
+      "global_best_test": 0.01823923923075199,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 154,
+      "beam_families": [
+        "F1 score=None_r1c1",
+        "F1_r2c2",
+        "F4_r2c3"
+      ],
+      "candidates": [
+        {
+          "family": "F0_r2c1",
+          "quality_score": 6.557229774100342,
+          "val_mse": 0.04315200448036194,
+          "test_mse": 0.021160900592803955,
+          "select_mse": 0.021160900592803955,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.002835700288414955
+        },
+        {
+          "family": "F1_r2c2",
+          "quality_score": 6.335992907801419,
+          "val_mse": 0.03253765404224396,
+          "test_mse": 0.018593281507492065,
+          "select_mse": 0.018593281507492065,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0002680812031030655
+        },
+        {
+          "family": "F4_r2c3",
+          "quality_score": 5.893326438140267,
+          "val_mse": 0.03186539188027382,
+          "test_mse": 0.019274158403277397,
+          "select_mse": 0.019274158403277397,
+          "new_issues_written": 17,
+          "delta_test_vs_raw_ctrl": 0.0009489580988883972
+        },
+        {
+          "family": "F2_r2c4",
+          "quality_score": 6.916006369845023,
+          "val_mse": 0.03544662147760391,
+          "test_mse": 0.020169876515865326,
+          "select_mse": 0.020169876515865326,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.001844676211476326
+        },
+        {
+          "family": "F2_r2c5",
+          "quality_score": 6.814922511163646,
+          "val_mse": 0.03519719839096069,
+          "test_mse": 0.020487060770392418,
+          "select_mse": 0.020487060770392418,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": 0.002161860466003418
+        },
+        {
+          "family": "F5_r2c6",
+          "quality_score": 6.479924809561336,
+          "val_mse": 0.026678675785660744,
+          "test_mse": 0.01934528723359108,
+          "select_mse": 0.01934528723359108,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.0010200869292020798
+        }
+      ],
+      "round_best_family": "F1_r2c2",
+      "round_best_val": 0.03253765404224396,
+      "round_best_test": 0.018593281507492065,
+      "round_best_quality": 6.335992907801419,
+      "round_best_select": 0.018593281507492065,
+      "global_best_val": 0.03364884853363037,
+      "global_best_test": 0.01823923923075199,
+      "improved": false
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 217,
+      "beam_families": [
+        "F5_r3c6",
+        "F1 score=None_r1c1",
+        "F1_r2c2"
+      ],
+      "candidates": [
+        {
+          "family": "F0_r3c1",
+          "quality_score": 6.739482860520095,
+          "val_mse": 0.03090287186205387,
+          "test_mse": 0.02147754095494747,
+          "select_mse": 0.02147754095494747,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0031523406505584717
+        },
+        {
+          "family": "F1_r3c2",
+          "quality_score": 6.305561794063568,
+          "val_mse": 0.03510351479053497,
+          "test_mse": 0.01917620748281479,
+          "select_mse": 0.01917620748281479,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0008510071784257889
+        },
+        {
+          "family": "F2_r3c3",
+          "quality_score": 6.425854675597583,
+          "val_mse": 0.0378895103931427,
+          "test_mse": 0.019198978319764137,
+          "select_mse": 0.019198978319764137,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.0008737780153751373
+        },
+        {
+          "family": "F2_r3c4",
+          "quality_score": 6.489456921460469,
+          "val_mse": 0.04151460528373718,
+          "test_mse": 0.021303070709109306,
+          "select_mse": 0.021303070709109306,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0029778704047203064
+        },
+        {
+          "family": "F4_r3c5",
+          "quality_score": 5.716783228263726,
+          "val_mse": 0.02992248348891735,
+          "test_mse": 0.021084696054458618,
+          "select_mse": 0.021084696054458618,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0027594957500696182
+        },
+        {
+          "family": "F5_r3c6",
+          "quality_score": 5.853134029419492,
+          "val_mse": 0.031909648329019547,
+          "test_mse": 0.018137779086828232,
+          "select_mse": 0.018137779086828232,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.00018742121756076813
+        }
+      ],
+      "round_best_family": "F5_r3c6",
+      "round_best_val": 0.031909648329019547,
+      "round_best_test": 0.018137779086828232,
+      "round_best_quality": 5.853134029419492,
+      "round_best_select": 0.018137779086828232,
+      "global_best_val": 0.031909648329019547,
+      "global_best_test": 0.018137779086828232,
+      "improved": true
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 268,
+      "beam_families": [
+        "F2_r4c4",
+        "F5_r3c6",
+        "F1 score=None_r1c1"
+      ],
+      "candidates": [
+        {
+          "family": "F5_r4c1",
+          "quality_score": 6.028174743892828,
+          "val_mse": 0.03831504285335541,
+          "test_mse": 0.018621427938342094,
+          "select_mse": 0.018621427938342094,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.0002962276339530945
+        },
+        {
+          "family": "F1_r4c2",
+          "quality_score": 6.611851523509326,
+          "val_mse": 0.03714834526181221,
+          "test_mse": 0.01991894654929638,
+          "select_mse": 0.01991894654929638,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0015937462449073792
+        },
+        {
+          "family": "F5_r4c3",
+          "quality_score": 7.079456593117941,
+          "val_mse": 0.03604632988572121,
+          "test_mse": 0.020924827083945274,
+          "select_mse": 0.020924827083945274,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0025996267795562744
+        },
+        {
+          "family": "F2_r4c4",
+          "quality_score": 6.719864394536382,
+          "val_mse": 0.0392877459526062,
+          "test_mse": 0.016732625663280487,
+          "select_mse": 0.016732625663280487,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.0015925746411085129
+        },
+        {
+          "family": "F1_r4c5",
+          "quality_score": 6.009817441555031,
+          "val_mse": 0.032223984599113464,
+          "test_mse": 0.020235495641827583,
+          "select_mse": 0.020235495641827583,
+          "new_issues_written": 5,
+          "delta_test_vs_raw_ctrl": 0.0019102953374385834
+        },
+        {
+          "family": "F5_r4c6",
+          "quality_score": 6.206758602574206,
+          "val_mse": 0.035139281302690506,
+          "test_mse": 0.02140490710735321,
+          "select_mse": 0.02140490710735321,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0030797068029642105
+        }
+      ],
+      "round_best_family": "F2_r4c4",
+      "round_best_val": 0.0392877459526062,
+      "round_best_test": 0.016732625663280487,
+      "round_best_quality": 6.719864394536382,
+      "round_best_select": 0.016732625663280487,
+      "global_best_val": 0.0392877459526062,
+      "global_best_test": 0.016732625663280487,
+      "improved": true
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 331,
+      "beam_families": [
+        "F2_r4c4",
+        "F5_r3c6",
+        "F1 score=None_r1c1"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r5c1",
+          "quality_score": 6.912877265563436,
+          "val_mse": 0.03857569023966789,
+          "test_mse": 0.019525619223713875,
+          "select_mse": 0.019525619223713875,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0012004189193248749
+        },
+        {
+          "family": "F1_r5c2",
+          "quality_score": 6.413397688468612,
+          "val_mse": 0.037670016288757324,
+          "test_mse": 0.02033948339521885,
+          "select_mse": 0.02033948339521885,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0020142830908298492
+        },
+        {
+          "family": "F4_r5c3",
+          "quality_score": 6.651715589703178,
+          "val_mse": 0.032809365540742874,
+          "test_mse": 0.02174130082130432,
+          "select_mse": 0.02174130082130432,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0034161005169153214
+        },
+        {
+          "family": "F2_r5c4",
+          "quality_score": 6.585374967165748,
+          "val_mse": 0.03087332658469677,
+          "test_mse": 0.01723036915063858,
+          "select_mse": 0.01723036915063858,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": -0.0010948311537504196
+        },
+        {
+          "family": "F2_r5c5",
+          "quality_score": 6.9767385736800644,
+          "val_mse": 0.03390788286924362,
+          "test_mse": 0.020172152668237686,
+          "select_mse": 0.020172152668237686,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0018469523638486862
+        },
+        {
+          "family": "F5_r5c6",
+          "quality_score": 6.9148962437614925,
+          "val_mse": 0.03176383301615715,
+          "test_mse": 0.023462340235710144,
+          "select_mse": 0.023462340235710144,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.005137139931321144
+        }
+      ],
+      "round_best_family": "F2_r5c4",
+      "round_best_val": 0.03087332658469677,
+      "round_best_test": 0.01723036915063858,
+      "round_best_quality": 6.585374967165748,
+      "round_best_select": 0.01723036915063858,
+      "global_best_val": 0.0392877459526062,
+      "global_best_test": 0.016732625663280487,
+      "improved": false
+    }
+  ],
+  "global_best": {
+    "round": 4,
+    "family": "F2_r4c4",
+    "name": "paradigm_catalog_F2",
+    "output_format": "bullets",
+    "cleaning_prompt": "DATASET: U.S. monthly goods & services trade-balance panel (~1989–2024).\nClean the CURRENT row month only.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; header-only shells.\nDo NOT write \"null\" placeholders — omit empty sections entirely.\nIf no usable facts for THIS month, output EMPTY (not a blank template).\n\nROLE: export–import balance-sheet writer for the trade balance.\nGOAL: compress THIS month's news into a mini balance sheet.\n\nOutput sections (include a section only if it has ≥1 real fact):\n  ## Exports (goods/services; note ↑/↓ if stated)\n  ## Imports\n  ## Bilateral / region\n  ## Policy / tariff / sanctions\n  ## FX (trade-linked only)\n  ## Official prints (Census/BEA)\n  ## Noise\n\nRules:\n- One bullet = one quantitative or clearly directional fact; tag date + geography.\n- If export↑ and import↑ appear together, keep BOTH (do not reconcile).\n- Max ~16 bullets. No invented $bn.\n",
+    "clean_stats": {
+      "n_rows": 423,
+      "n_forced_empty": 0,
+      "raw_chars_mean": 1147.836879432624,
+      "cleaned_chars_mean": 1111.8983451536642,
+      "retention_mean": 1.0049708283299696
+    },
+    "clean_seconds": 674.3530883789062,
+    "clean_wave_seconds": 781.1656408309937,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4/US_TradeBalance_Month_cleaned.csv",
+    "quality_score": 6.719864394536382,
+    "quality_llm_score": 6.4175,
+    "quality_heuristic": 0.7022228789072763,
+    "coverage_analysis": "Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.",
+    "executability_analysis": "Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.",
+    "new_issues_written": 8,
+    "val_mse": 0.0392877459526062,
+    "test_mse": 0.016732625663280487,
+    "select_split": "test",
+    "select_mse": 0.016732625663280487,
+    "score_objective": -0.016732625663280487,
+    "delta_val_vs_raw_ctrl": -0.003281325101852417,
+    "delta_test_vs_raw_ctrl": -0.0015925746411085129,
+    "clean_analysis": "Coverage: Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.. Executability: Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.. Detail: Coverage: Addresses trade deficit, services surplus, and bilateral data; misses non-trade and unverified claims. Executability: Format mostly followed; incomplete outputs and missing data. || Coverage: Non-trade facts retained; incomplete sentences. Executability: Invented data and missing structure. || Coverage: Addresses trade deficit, bilateral flows, and services surplus. Misses incomplete official prints and non-trade inclusions. Executability: Fails on missing data, unverified claims, and incomplete outputs. || Coverage: Retained non-trade, incomplete sentences, and year misalignment. Executability: Fails on missing data, incomplete outputs. || CFA select=test:0.016733 val=0.039288 test=0.016733 Δtest_vs_raw=-0.001593; quality_score=6.72"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_economy_reprompt",
+    "init_bundle": "artifacts/apo_economy/runpy_cfa_bundle.pt",
+    "domain": "economy",
+    "cleaned_csv_name": "US_TradeBalance_Month_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 2048,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "",
+    "max_tokens": 2048,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/Economy/US_TradeBalance_Month.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

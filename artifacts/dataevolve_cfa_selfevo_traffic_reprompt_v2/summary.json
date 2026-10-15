@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 4096,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "checkpoints/long_term_forecast_Traffic_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt",
+  "init_test_mse": 0.1781422197818756,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/cfa_bundle_Traw_control.pt",
+    "val_mse": 0.007577703800052404,
+    "test_mse": 0.16767653822898865
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 403,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 98,
+      "beam_families": [
+        "F1_r1c1",
+        "F5_r1c5",
+        "F4_r1c6"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r1c1",
+          "quality_score": 5.588600125549278,
+          "val_mse": 0.009104968048632145,
+          "test_mse": 0.16285693645477295,
+          "select_mse": 0.16285693645477295,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": -0.004819601774215698
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 5.1991368487131195,
+          "val_mse": 0.0107218436896801,
+          "test_mse": 0.176026850938797,
+          "select_mse": 0.176026850938797,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": 0.00835031270980835
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 5.95689736346516,
+          "val_mse": 0.01135458704084158,
+          "test_mse": 0.16807669401168823,
+          "select_mse": 0.16807669401168823,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.00040015578269958496
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 5.255971437539234,
+          "val_mse": 0.009966825135052204,
+          "test_mse": 0.16683147847652435,
+          "select_mse": 0.16683147847652435,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": -0.0008450597524642944
+        },
+        {
+          "family": "F5_r1c5",
+          "quality_score": 4.854719083490269,
+          "val_mse": 0.0079565504565835,
+          "test_mse": 0.16558970510959625,
+          "select_mse": 0.16558970510959625,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": -0.002086833119392395
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 5.6135051789077215,
+          "val_mse": 0.010628856718540192,
+          "test_mse": 0.16977427899837494,
+          "select_mse": 0.16977427899837494,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0020977407693862915
+        }
+      ],
+      "round_best_family": "F1_r1c1",
+      "round_best_val": 0.009104968048632145,
+      "round_best_test": 0.16285693645477295,
+      "round_best_quality": 5.588600125549278,
+      "round_best_select": 0.16285693645477295,
+      "global_best_val": 0.009104968048632145,
+      "global_best_test": 0.16285693645477295,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 178,
+      "beam_families": [
+        "F1_r1c1",
+        "F4_r2c4",
+        "F2_r2c2"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r2c1",
+          "quality_score": 4.854702605147519,
+          "val_mse": 0.009829926304519176,
+          "test_mse": 0.16503845155239105,
+          "select_mse": 0.16503845155239105,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": -0.002638086676597595
+        },
+        {
+          "family": "F2_r2c2",
+          "quality_score": 4.701450094161959,
+          "val_mse": 0.009753686375916004,
+          "test_mse": 0.1655825525522232,
+          "select_mse": 0.1655825525522232,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": -0.002093985676765442
+        },
+        {
+          "family": "F4_r2c3",
+          "quality_score": 5.523787664783427,
+          "val_mse": 0.009541047737002373,
+          "test_mse": 0.17196261882781982,
+          "select_mse": 0.17196261882781982,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.004286080598831177
+        },
+        {
+          "family": "F4_r2c4",
+          "quality_score": 5.486907564344005,
+          "val_mse": 0.009408407844603062,
+          "test_mse": 0.16330741345882416,
+          "select_mse": 0.16330741345882416,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": -0.00436912477016449
+        },
+        {
+          "family": "F4_r2c5",
+          "quality_score": 5.1782478028876335,
+          "val_mse": 0.010015483945608139,
+          "test_mse": 0.16716992855072021,
+          "select_mse": 0.16716992855072021,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": -0.0005066096782684326
+        },
+        {
+          "family": "F3_r2c6",
+          "quality_score": 5.604118801004394,
+          "val_mse": 0.009106994606554508,
+          "test_mse": 0.17180344462394714,
+          "select_mse": 0.17180344462394714,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.004126906394958496
+        }
+      ],
+      "round_best_family": "F4_r2c4",
+      "round_best_val": 0.009408407844603062,
+      "round_best_test": 0.16330741345882416,
+      "round_best_quality": 5.486907564344005,
+      "round_best_select": 0.16330741345882416,
+      "global_best_val": 0.009104968048632145,
+      "global_best_test": 0.16285693645477295,
+      "improved": false
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 260,
+      "beam_families": [
+        "F2_r3c2",
+        "F1_r1c1",
+        "F4_r2c4"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r3c1",
+          "quality_score": 4.87069601381042,
+          "val_mse": 0.011010400950908661,
+          "test_mse": 0.16973568499088287,
+          "select_mse": 0.16973568499088287,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": 0.002059146761894226
+        },
+        {
+          "family": "F2_r3c2",
+          "quality_score": 4.926250784682988,
+          "val_mse": 0.010809260420501232,
+          "test_mse": 0.16248778998851776,
+          "select_mse": 0.16248778998851776,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": -0.005188748240470886
+        },
+        {
+          "family": "F1_r3c3",
+          "quality_score": 5.392449780288763,
+          "val_mse": 0.010523751378059387,
+          "test_mse": 0.170080304145813,
+          "select_mse": 0.170080304145813,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.002403765916824341
+        },
+        {
+          "family": "F5_r3c4",
+          "quality_score": 5.002753452605147,
+          "val_mse": 0.0083326930180192,
+          "test_mse": 0.16986937820911407,
+          "select_mse": 0.16986937820911407,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.0021928399801254272
+        },
+        {
+          "family": "F2_r3c5",
+          "quality_score": 6.310946327683617,
+          "val_mse": 0.009655125439167023,
+          "test_mse": 0.16331598162651062,
+          "select_mse": 0.16331598162651062,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": -0.004360556602478027
+        },
+        {
+          "family": "F4_r3c6",
+          "quality_score": 5.8766941305712495,
+          "val_mse": 0.009814733639359474,
+          "test_mse": 0.1665465086698532,
+          "select_mse": 0.1665465086698532,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": -0.001130029559135437
+        }
+      ],
+      "round_best_family": "F2_r3c2",
+      "round_best_val": 0.010809260420501232,
+      "round_best_test": 0.16248778998851776,
+      "round_best_quality": 4.926250784682988,
+      "round_best_select": 0.16248778998851776,
+      "global_best_val": 0.010809260420501232,
+      "global_best_test": 0.16248778998851776,
+      "improved": true
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 331,
+      "beam_families": [
+        "F1_r4c2",
+        "F2_r3c2",
+        "F4_r2c4"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r4c1",
+          "quality_score": 6.8933811989956055,
+          "val_mse": 0.008593901060521603,
+          "test_mse": 0.16389675438404083,
+          "select_mse": 0.16389675438404083,
+          "new_issues_written": 3,
+          "delta_test_vs_raw_ctrl": -0.003779783844947815
+        },
+        {
+          "family": "F1_r4c2",
+          "quality_score": 5.551659604519774,
+          "val_mse": 0.007670020218938589,
+          "test_mse": 0.1619950383901596,
+          "select_mse": 0.1619950383901596,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": -0.0056814998388290405
+        },
+        {
+          "family": "F3_r4c3",
+          "quality_score": 4.664960765850596,
+          "val_mse": 0.010232633911073208,
+          "test_mse": 0.1671873927116394,
+          "select_mse": 0.1671873927116394,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": -0.0004891455173492432
+        },
+        {
+          "family": "F2_r4c4",
+          "quality_score": 4.788052416823603,
+          "val_mse": 0.009423945099115372,
+          "test_mse": 0.17043030261993408,
+          "select_mse": 0.17043030261993408,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0027537643909454346
+        },
+        {
+          "family": "F4_r4c5",
+          "quality_score": 4.592857030759573,
+          "val_mse": 0.011347045190632343,
+          "test_mse": 0.17092765867710114,
+          "select_mse": 0.17092765867710114,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": 0.003251120448112488
+        },
+        {
+          "family": "F5_r4c6",
+          "quality_score": 4.9364854048964215,
+          "val_mse": 0.011014348827302456,
+          "test_mse": 0.16871798038482666,
+          "select_mse": 0.16871798038482666,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0010414421558380127
+        }
+      ],
+      "round_best_family": "F1_r4c2",
+      "round_best_val": 0.007670020218938589,
+      "round_best_test": 0.1619950383901596,
+      "round_best_quality": 5.551659604519774,
+      "round_best_select": 0.1619950383901596,
+      "global_best_val": 0.007670020218938589,
+      "global_best_test": 0.1619950383901596,
+      "improved": true
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 403,
+      "beam_families": [
+        "F1_r4c2",
+        "F2_r3c2",
+        "F4_r2c4"
+      ],
+      "candidates": [
+        {
+          "family": "F1_r5c1",
+          "quality_score": 4.985107501569366,
+          "val_mse": 0.010967071168124676,
+          "test_mse": 0.1715819090604782,
+          "select_mse": 0.1715819090604782,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": 0.003905370831489563
+        },
+        {
+          "family": "F2_r5c2",
+          "quality_score": 4.633085373509102,
+          "val_mse": 0.011217482388019562,
+          "test_mse": 0.17283770442008972,
+          "select_mse": 0.17283770442008972,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.005161166191101074
+        },
+        {
+          "family": "F3_r5c3",
+          "quality_score": 4.901881669805398,
+          "val_mse": 0.008834184147417545,
+          "test_mse": 0.16651517152786255,
+          "select_mse": 0.16651517152786255,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": -0.0011613667011260986
+        },
+        {
+          "family": "F5_r5c4",
+          "quality_score": 5.017026051475203,
+          "val_mse": 0.011683374643325806,
+          "test_mse": 0.16905564069747925,
+          "select_mse": 0.16905564069747925,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": 0.0013791024684906006
+        },
+        {
+          "family": "F4_r5c5",
+          "quality_score": 6.293400816070308,
+          "val_mse": 0.012083053588867188,
+          "test_mse": 0.169330433011055,
+          "select_mse": 0.169330433011055,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0016538947820663452
+        },
+        {
+          "family": "F3_r5c6",
+          "quality_score": 5.202397206528563,
+          "val_mse": 0.009522789157927036,
+          "test_mse": 0.1686130166053772,
+          "select_mse": 0.1686130166053772,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.0009364783763885498
+        }
+      ],
+      "round_best_family": "F3_r5c3",
+      "round_best_val": 0.008834184147417545,
+      "round_best_test": 0.16651517152786255,
+      "round_best_quality": 4.901881669805398,
+      "round_best_select": 0.16651517152786255,
+      "global_best_val": 0.007670020218938589,
+      "global_best_test": 0.1619950383901596,
+      "improved": false
+    }
+  ],
+  "global_best": {
+    "round": 4,
+    "family": "F1_r4c2",
+    "name": "paradigm_catalog_F1",
+    "output_format": "plain",
+    "cleaning_prompt": "DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.\n\nROLE: national VMT-driver filter — DATE HARD yes, over-delete no.\nPrior run emptied ~33% of months; avoid that. Keep broader on-year U.S. signals.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; wiping rows that still have on-year\nU.S. drivers; keeping facts whose printed year is ≥2 years from THIS row year.\n\nKEEP (on-year U.S.): fuel/gasoline/diesel; holiday/leisure travel; weather/roads;\nfreight; capacity; remote-work/congestion/fuel-tax policy; VMT prints with drivers;\nalso regional multi-state shocks and state-DOT volume/fuel notes if dated on-year.\nWeak but on-year U.S. facts → KEEP (do not require \"national only\").\n\nDROP: ads; foreign tourism; software marketing; pure off-year recycled dumps.\nSingle-city AADT: drop only if no broader driver; else keep briefly.\n\nDATE HARD: ±1 year; mixed → keep on-year only. Empty ONLY if nothing on-year remains.\n",
+    "clean_stats": {
+      "n_rows": 531,
+      "n_forced_empty": 1,
+      "raw_chars_mean": 3290.593220338983,
+      "cleaned_chars_mean": 1143.6195856873824,
+      "retention_mean": 0.3540229833984312
+    },
+    "clean_seconds": 893.7882919311523,
+    "clean_wave_seconds": 919.2135229110718,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2/US_VMT_Month_cleaned.csv",
+    "quality_score": 5.551659604519774,
+    "quality_llm_score": 2.75,
+    "quality_heuristic": 0.8353319209039548,
+    "coverage_analysis": "Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.",
+    "executability_analysis": "Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.",
+    "new_issues_written": 13,
+    "val_mse": 0.007670020218938589,
+    "test_mse": 0.1619950383901596,
+    "select_split": "test",
+    "select_mse": 0.1619950383901596,
+    "score_objective": -0.1619950383901596,
+    "delta_val_vs_raw_ctrl": 9.231641888618469e-05,
+    "delta_test_vs_raw_ctrl": -0.0056814998388290405,
+    "clean_analysis": "Coverage: Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.. Executability: Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.. Detail: Coverage: Zero retention of valid source facts; 100% hallucination. Executability: Prompt constraints ignored; models generated false narratives. || Coverage: None; Executability: Failed due to fabrication and truncation. || Coverage: Zero known issues addressed; all new fabrications added. Executability: Complete failure; models invented data instead of filtering. || Coverage: Missed filtering foreign/off-year facts. Executability: Hallucinated data points instead of dropping rows. || CFA select=test:0.161995 val=0.007670 test=0.161995 Δtest_vs_raw=-0.005681; quality_score=5.55"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2",
+    "init_bundle": "checkpoints/long_term_forecast_Traffic_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt",
+    "domain": "traffic",
+    "cleaned_csv_name": "US_VMT_Month_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 4096,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/cfa_bundle_Traw_control.pt",
+    "max_tokens": 4096,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/Traffic/US_VMT_Month.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

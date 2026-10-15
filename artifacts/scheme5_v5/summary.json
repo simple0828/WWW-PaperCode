@@ -1,0 +1,63 @@
+{
+  "primary": "test_best_epoch_online.rel_pct",
+  "mean_rel_pct": -1.7667127570074475,
+  "rows": [
+    {
+      "domain": "agriculture",
+      "test_best_epoch_online_rel_pct": -3.3273481312538524,
+      "test_last_epoch_online_rel_pct": -3.3273481312538524,
+      "mse_b0": 0.05755048143063676,
+      "mse_s5": 0.055635576562226875,
+      "n": 64
+    },
+    {
+      "domain": "economy",
+      "test_best_epoch_online_rel_pct": -3.853351121677182,
+      "test_last_epoch_online_rel_pct": -3.853351121677162,
+      "mse_b0": 0.016740004787514216,
+      "mse_s5": 0.016094953625265723,
+      "n": 64
+    },
+    {
+      "domain": "energy",
+      "test_best_epoch_online_rel_pct": -3.1195135273921735,
+      "test_last_epoch_online_rel_pct": -3.1195135273921735,
+      "mse_b0": 0.036751317408546785,
+      "mse_s5": 0.035604855090492334,
+      "n": 288
+    },
+    {
+      "domain": "public_health",
+      "test_best_epoch_online_rel_pct": -0.3278880915532077,
+      "test_last_epoch_online_rel_pct": -0.3278880915532077,
+      "mse_b0": 0.7226821011965541,
+      "mse_s5": 0.7203125126469441,
+      "n": 256
+    },
+    {
+      "domain": "security",
+      "test_best_epoch_online_rel_pct": -0.113525762211877,
+      "test_last_epoch_online_rel_pct": -0.113525762211877,
+      "mse_b0": 108.00023617787713,
+      "mse_s5": 107.87762808656557,
+      "n": 32
+    },
+    {
+      "domain": "social_good",
+      "test_best_epoch_online_rel_pct": 0.701215042000678,
+      "test_last_epoch_online_rel_pct": 0.701215042000678,
+      "mse_b0": 0.9272541512810382,
+      "mse_s5": 0.9337561968673965,
+      "n": 160
+    },
+    {
+      "domain": "traffic",
+      "test_best_epoch_online_rel_pct": -2.3265777069645184,
+      "test_last_epoch_online_rel_pct": -0.9943480204093252,
+      "mse_b0": 0.15472846158576392,
+      "mse_s5": 0.15112858369218038,
+      "n": 101
+    }
+  ],
+  "note": "Scheme5 v5 --improve --pick-epoch best --fixed-amp 1.0 --dead-sr 0"
+}

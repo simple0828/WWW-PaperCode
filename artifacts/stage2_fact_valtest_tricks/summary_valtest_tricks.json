@@ -1,0 +1,73 @@
+{
+  "means": {
+    "VT0_baseline": -0.025208772332001535,
+    "VT1_coconut": -0.026695532179307313,
+    "VT2_coconut_halt": -0.03244244532689132,
+    "VT3_coconut_halt_mix": -0.035917321564524554
+  },
+  "table_rel": {
+    "agriculture": {
+      "VT0_baseline": -0.020019698271905084,
+      "VT1_coconut": -0.022747794549914713,
+      "VT2_coconut_halt": -0.08524671187760291,
+      "VT3_coconut_halt_mix": -0.06110370590216718
+    },
+    "economy": {
+      "VT0_baseline": -0.03481200524946182,
+      "VT1_coconut": -0.03850456420553705,
+      "VT2_coconut_halt": -0.025760128593779297,
+      "VT3_coconut_halt_mix": -0.0263050052686693
+    },
+    "energy": {
+      "VT0_baseline": -0.04435361973351348,
+      "VT1_coconut": -0.012931570136165749,
+      "VT2_coconut_halt": -0.014623386960017304,
+      "VT3_coconut_halt_mix": -0.014111622597061446
+    },
+    "security": {
+      "VT0_baseline": -0.009411011061708163,
+      "VT1_coconut": -0.008947505392183142,
+      "VT2_coconut_halt": -0.009379627440937233,
+      "VT3_coconut_halt_mix": -0.01279346690734906
+    },
+    "social_good": {
+      "VT0_baseline": -0.005317608652487649,
+      "VT1_coconut": -0.008957273228381801,
+      "VT2_coconut_halt": -0.016575313272332526,
+      "VT3_coconut_halt_mix": -0.028759055581198067
+    },
+    "public_health": {
+      "VT0_baseline": -0.06250799486787606,
+      "VT1_coconut": -0.09293907121045242,
+      "VT2_coconut_halt": -0.07301665200410745,
+      "VT3_coconut_halt_mix": -0.09570398035664074
+    },
+    "traffic": {
+      "VT0_baseline": -3.94684870584916e-05,
+      "VT1_coconut": -0.0018409465325163188,
+      "VT2_coconut_halt": -0.0024952971394625045,
+      "VT3_coconut_halt_mix": -0.012644414338586096
+    }
+  },
+  "compare_to_leak": {
+    "valtest_means": {
+      "VT0_baseline": -0.025208772332001535,
+      "VT1_coconut": -0.026695532179307313,
+      "VT2_coconut_halt": -0.03244244532689132,
+      "VT3_coconut_halt_mix": -0.035917321564524554
+    },
+    "leak_means": {
+      "L0_leak": -0.17201072576791546,
+      "L1_coconut": -0.23123570220632608,
+      "L2_coconut_halt": -0.2745377466825856,
+      "L3_coconut_halt_mix": -0.26927713029524813
+    },
+    "delta_valtest_minus_leak": {
+      "VT0_baseline": 0.14680195343591393,
+      "VT1_coconut": 0.20454017002701877,
+      "VT2_coconut_halt": 0.2420953013556943,
+      "VT3_coconut_halt_mix": 0.2333598087307236
+    }
+  },
+  "note": "PARTIAL ORACLE val=test only \u2014 not a fully valid score"
+}

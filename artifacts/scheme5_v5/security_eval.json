@@ -1,0 +1,302 @@
+{
+  "domain": "security",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "per-domain seed protocols + improve rewrite; fuse=fixed mean@amp=1.0; pick_epoch=best; rewrite still chronological train+test (best-epoch selection also uses leaked online test)",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2",
+  "H": 6,
+  "focus": [
+    "declaration",
+    "hurricane",
+    "wildfire",
+    "flood",
+    "tornado",
+    "funding",
+    "appropriation",
+    "mitigation",
+    "hazard",
+    "fema_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "pick_epoch": "best",
+    "best_epoch": 2,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": []
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/security_event_ts_assoc/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "declaration": {
+      "n_lessons": 20,
+      "chars": 2999,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "hurricane": {
+      "n_lessons": 20,
+      "chars": 2875,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "wildfire": {
+      "n_lessons": 20,
+      "chars": 2865,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "flood": {
+      "n_lessons": 20,
+      "chars": 3475,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "tornado": {
+      "n_lessons": 20,
+      "chars": 2997,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "funding": {
+      "n_lessons": 20,
+      "chars": 3163,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "appropriation": {
+      "n_lessons": 20,
+      "chars": 3345,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "mitigation": {
+      "n_lessons": 20,
+      "chars": 3120,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "hazard": {
+      "n_lessons": 20,
+      "chars": 3523,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "fema_report": {
+      "n_lessons": 20,
+      "chars": 4261,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 828,
+      "n_gated": 616,
+      "n_rewrites": 62,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 194,
+        "active": 183,
+        "frac_active": 0.9432989690721649,
+        "mse_b0": 0.9400043292814771,
+        "mse_s5": 0.9291240051467826,
+        "rel_pct": -1.1574759600321478
+      },
+      "test": {
+        "n": 32,
+        "active": 32,
+        "frac_active": 1.0,
+        "mse_b0": 108.00023617787713,
+        "mse_s5": 107.8782195696128,
+        "rel_pct": -0.11297809392135912
+      },
+      "protocol_versions": {
+        "declaration": 9,
+        "hurricane": 6,
+        "wildfire": 3,
+        "flood": 6,
+        "tornado": 7,
+        "funding": 10,
+        "appropriation": 2,
+        "mitigation": 7,
+        "hazard": 2,
+        "fema_report": 10
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 828,
+      "n_gated": 578,
+      "n_rewrites": 63,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 194,
+        "active": 182,
+        "frac_active": 0.9381443298969072,
+        "mse_b0": 0.9400043292814771,
+        "mse_s5": 0.9260051149349688,
+        "rel_pct": -1.4892712629535503
+      },
+      "test": {
+        "n": 32,
+        "active": 32,
+        "frac_active": 1.0,
+        "mse_b0": 108.00023617787713,
+        "mse_s5": 107.87762808656557,
+        "rel_pct": -0.113525762211877
+      },
+      "protocol_versions": {
+        "declaration": 19,
+        "hurricane": 12,
+        "wildfire": 6,
+        "flood": 12,
+        "tornado": 14,
+        "funding": 20,
+        "appropriation": 4,
+        "mitigation": 14,
+        "hazard": 4,
+        "fema_report": 20
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 194,
+    "active": 182,
+    "frac_active": 0.9381443298969072,
+    "mse_b0": 0.9400043292814771,
+    "mse_s5": 0.9260051149349688,
+    "rel_pct": -1.4892712629535503
+  },
+  "train_best_epoch": {
+    "n": 194,
+    "active": 182,
+    "frac_active": 0.9381443298969072,
+    "mse_b0": 0.9400043292814771,
+    "mse_s5": 0.9260051149349688,
+    "rel_pct": -1.4892712629535503
+  },
+  "test_last_epoch_online": {
+    "n": 32,
+    "active": 32,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.87762808656557,
+    "rel_pct": -0.113525762211877
+  },
+  "test_best_epoch_online": {
+    "n": 32,
+    "active": 32,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.87762808656557,
+    "rel_pct": -0.113525762211877
+  },
+  "test_final_frozen": {
+    "n": 32,
+    "active": 32,
+    "frac_active": 1.0,
+    "mse_b0": 108.00023617787713,
+    "mse_s5": 107.89388736003289,
+    "rel_pct": -0.09847091229419011
+  },
+  "elapsed_sec": 1117.438952445984,
+  "protocol_versions": {
+    "declaration": 19,
+    "hurricane": 12,
+    "wildfire": 6,
+    "flood": 12,
+    "tornado": 14,
+    "funding": 20,
+    "appropriation": 4,
+    "mitigation": 14,
+    "hazard": 4,
+    "fema_report": 20
+  },
+  "channel_success": {
+    "declaration": {
+      "n_infer": 362,
+      "n_success": 156
+    },
+    "hurricane": {
+      "n_infer": 100,
+      "n_success": 47
+    },
+    "wildfire": {
+      "n_infer": 34,
+      "n_success": 14
+    },
+    "flood": {
+      "n_infer": 134,
+      "n_success": 65
+    },
+    "tornado": {
+      "n_infer": 112,
+      "n_success": 64
+    },
+    "funding": {
+      "n_infer": 352,
+      "n_success": 168
+    },
+    "appropriation": {
+      "n_infer": 50,
+      "n_success": 38
+    },
+    "mitigation": {
+      "n_infer": 118,
+      "n_success": 74
+    },
+    "hazard": {
+      "n_infer": 44,
+      "n_success": 22
+    },
+    "fema_report": {
+      "n_infer": 350,
+      "n_success": 83
+    }
+  }
+}

@@ -1,0 +1,35 @@
+# Shared LLM runtime for Stage1 (DataEvolve Cleaner/Designer/Judge) and Stage2 extract.
+# Edit here once; scripts only read. Per-domain blocks override defaults.
+#
+# Context: local vLLM Qwen3.5-35B-A3B-FP8 max_model_len=10240.
+# max_tokens_* are output budgets — keep high ("顶头") to avoid length truncation.
+# Input + output must fit max_model_len; 4096 out leaves ~6k for system+prompt+doc.
+
+defaults:
+  max_model_len: 10240
+  # Cleaner / Designer / Judge generation cap (tokens).
+  max_tokens_clean: 4096
+  max_tokens_design: 4096
+  max_tokens_judge: 4096
+  # Client-side in-flight Cleaner requests (shared across parallel candidates).
+  clean_concurrency: 48
+  # Hard ceiling applied for local vLLM (zhipu uses zhipu_concurrency_cap instead).
+  vllm_concurrency_cap: 48
+  zhipu_concurrency_cap: 8
+  # Stage2 structured-event extract.
+  extract_concurrency: 48
+  max_tokens_extract: 4096
+  # Stage2 explicit schemes 1/2/5 (wave = in-flight concurrency per ask_many).
+  scheme_wave: 48
+  max_tokens_scheme: 1024
+  max_tokens_scheme_rewrite: 2048
+
+# Optional per-domain overrides (omit a key to inherit defaults).
+domains:
+  traffic: {}
+  agriculture: {}
+  economy: {}
+  energy: {}
+  security: {}
+  social_good: {}
+  public_health: {}

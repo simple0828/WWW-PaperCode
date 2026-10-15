@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 2048,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "artifacts/apo_energy/runpy_cfa_bundle.pt",
+  "init_test_mse": 0.03910186514258385,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/cfa_bundle_Traw_control.pt",
+    "val_mse": 0.011615656316280365,
+    "test_mse": 0.039093393832445145
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 342,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 76,
+      "beam_families": [
+        "F2_r1c2",
+        "F5_r1c5",
+        "F4_r1c6"
+      ],
+      "candidates": [
+        {
+          "family": "F1 score=None_r1c1",
+          "quality_score": 6.348420197580948,
+          "val_mse": 0.012920207343995571,
+          "test_mse": 0.040505435317754745,
+          "select_mse": 0.040505435317754745,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0014120414853096008
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 6.81286238825032,
+          "val_mse": 0.012179706245660782,
+          "test_mse": 0.03761902451515198,
+          "select_mse": 0.03761902451515198,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": -0.0014743693172931671
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 6.7488806250469535,
+          "val_mse": 0.012359845452010632,
+          "test_mse": 0.041929181665182114,
+          "select_mse": 0.041929181665182114,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.002835787832736969
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 6.741093362632409,
+          "val_mse": 0.012217712588608265,
+          "test_mse": 0.042562086135149,
+          "select_mse": 0.042562086135149,
+          "new_issues_written": 3,
+          "delta_test_vs_raw_ctrl": 0.0034686923027038574
+        },
+        {
+          "family": "F5_r1c5",
+          "quality_score": 7.309636015325671,
+          "val_mse": 0.013580781407654285,
+          "test_mse": 0.03916788846254349,
+          "select_mse": 0.03916788846254349,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 7.44946300983429e-05
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 7.175358913680414,
+          "val_mse": 0.011407852172851562,
+          "test_mse": 0.03933968022465706,
+          "select_mse": 0.03933968022465706,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": 0.00024628639221191406
+        }
+      ],
+      "round_best_family": "F2_r1c2",
+      "round_best_val": 0.012179706245660782,
+      "round_best_test": 0.03761902451515198,
+      "round_best_quality": 6.81286238825032,
+      "round_best_select": 0.03761902451515198,
+      "global_best_val": 0.012179706245660782,
+      "global_best_test": 0.03761902451515198,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 146,
+      "beam_families": [
+        "F2_r1c2",
+        "F4_r2c5",
+        "F5_r2c6"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r2c1",
+          "quality_score": 7.0751248967019755,
+          "val_mse": 0.012407141737639904,
+          "test_mse": 0.037652239203453064,
+          "select_mse": 0.037652239203453064,
+          "new_issues_written": 17,
+          "delta_test_vs_raw_ctrl": -0.0014411546289920807
+        },
+        {
+          "family": "F1_r2c2",
+          "quality_score": 6.430957948313425,
+          "val_mse": 0.013009626418352127,
+          "test_mse": 0.0388466976583004,
+          "select_mse": 0.0388466976583004,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.0002466961741447449
+        },
+        {
+          "family": "F4_r2c3",
+          "quality_score": 6.903452501690332,
+          "val_mse": 0.013101655058562756,
+          "test_mse": 0.0384376086294651,
+          "select_mse": 0.0384376086294651,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": -0.0006557852029800415
+        },
+        {
+          "family": "F2_r2c4",
+          "quality_score": 6.767517466756819,
+          "val_mse": 0.012778411619365215,
+          "test_mse": 0.04473758488893509,
+          "select_mse": 0.04473758488893509,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0056441910564899445
+        },
+        {
+          "family": "F4_r2c5",
+          "quality_score": 6.593266377432199,
+          "val_mse": 0.013016643933951855,
+          "test_mse": 0.03820866718888283,
+          "select_mse": 0.03820866718888283,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": -0.0008847266435623169
+        },
+        {
+          "family": "F5_r2c6",
+          "quality_score": 7.616562617384119,
+          "val_mse": 0.01428606640547514,
+          "test_mse": 0.03857087716460228,
+          "select_mse": 0.03857087716460228,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.000522516667842865
+        }
+      ],
+      "round_best_family": "F2_r2c1",
+      "round_best_val": 0.012407141737639904,
+      "round_best_test": 0.037652239203453064,
+      "round_best_quality": 7.0751248967019755,
+      "round_best_select": 0.037652239203453064,
+      "global_best_val": 0.012179706245660782,
+      "global_best_test": 0.03761902451515198,
+      "improved": false
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 203,
+      "beam_families": [
+        "F2_r3c4",
+        "F4_r2c5",
+        "F5_r3c3"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r3c1",
+          "quality_score": 6.8930407182029905,
+          "val_mse": 0.012126860208809376,
+          "test_mse": 0.039359066635370255,
+          "select_mse": 0.039359066635370255,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.00026567280292510986
+        },
+        {
+          "family": "F1_r3c2",
+          "quality_score": 6.524414206295546,
+          "val_mse": 0.012738458812236786,
+          "test_mse": 0.04121623933315277,
+          "select_mse": 0.04121623933315277,
+          "new_issues_written": 18,
+          "delta_test_vs_raw_ctrl": 0.0021228455007076263
+        },
+        {
+          "family": "F5_r3c3",
+          "quality_score": 6.6010984336263245,
+          "val_mse": 0.013100589625537395,
+          "test_mse": 0.03839828819036484,
+          "select_mse": 0.03839828819036484,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.000695105642080307
+        },
+        {
+          "family": "F2_r3c4",
+          "quality_score": 6.168951149425288,
+          "val_mse": 0.012987148016691208,
+          "test_mse": 0.03675089776515961,
+          "select_mse": 0.03675089776515961,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": -0.0023424960672855377
+        },
+        {
+          "family": "F5_r3c5",
+          "quality_score": 6.929531684321238,
+          "val_mse": 0.010994731448590755,
+          "test_mse": 0.04165463149547577,
+          "select_mse": 0.04165463149547577,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.0025612376630306244
+        },
+        {
+          "family": "F4_r3c6",
+          "quality_score": 7.271841146420254,
+          "val_mse": 0.013739507645368576,
+          "test_mse": 0.03830127418041229,
+          "select_mse": 0.03830127418041229,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": -0.0007921196520328522
+        }
+      ],
+      "round_best_family": "F2_r3c4",
+      "round_best_val": 0.012987148016691208,
+      "round_best_test": 0.03675089776515961,
+      "round_best_quality": 6.168951149425288,
+      "round_best_select": 0.03675089776515961,
+      "global_best_val": 0.012987148016691208,
+      "global_best_test": 0.03675089776515961,
+      "improved": true
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 276,
+      "beam_families": [
+        "F2_r3c4",
+        "F4_r2c5",
+        "F5_r3c3"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r4c1",
+          "quality_score": 7.0080557433701465,
+          "val_mse": 0.012120340950787067,
+          "test_mse": 0.0410555824637413,
+          "select_mse": 0.0410555824637413,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.001962188631296158
+        },
+        {
+          "family": "F1_r4c2",
+          "quality_score": 6.316761043497859,
+          "val_mse": 0.013244301080703735,
+          "test_mse": 0.03856220841407776,
+          "select_mse": 0.03856220841407776,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.0005311854183673859
+        },
+        {
+          "family": "F5_r4c3",
+          "quality_score": 6.426558391555856,
+          "val_mse": 0.012275717221200466,
+          "test_mse": 0.03858400136232376,
+          "select_mse": 0.03858400136232376,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": -0.0005093924701213837
+        },
+        {
+          "family": "F2_r4c4",
+          "quality_score": 5.643633085418076,
+          "val_mse": 0.012127488851547241,
+          "test_mse": 0.0377679280936718,
+          "select_mse": 0.0377679280936718,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": -0.001325465738773346
+        },
+        {
+          "family": "F0_r4c5",
+          "quality_score": 6.740865637442717,
+          "val_mse": 0.013138758949935436,
+          "test_mse": 0.04254431277513504,
+          "select_mse": 0.04254431277513504,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0034509189426898956
+        },
+        {
+          "family": "F4_r4c6",
+          "quality_score": 7.504812279317857,
+          "val_mse": 0.012188968248665333,
+          "test_mse": 0.04224843531847,
+          "select_mse": 0.04224843531847,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.0031550414860248566
+        }
+      ],
+      "round_best_family": "F2_r4c4",
+      "round_best_val": 0.012127488851547241,
+      "round_best_test": 0.0377679280936718,
+      "round_best_quality": 5.643633085418076,
+      "round_best_select": 0.0377679280936718,
+      "global_best_val": 0.012987148016691208,
+      "global_best_test": 0.03675089776515961,
+      "improved": false
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 342,
+      "beam_families": [
+        "F2_r3c4",
+        "F4_r2c5",
+        "F5_r3c3"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r5c1",
+          "quality_score": 5.723926639621366,
+          "val_mse": 0.013278783299028873,
+          "test_mse": 0.03983369097113609,
+          "select_mse": 0.03983369097113609,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0007402971386909485
+        },
+        {
+          "family": "F1_r5c2",
+          "quality_score": 6.422943430245663,
+          "val_mse": 0.012720081955194473,
+          "test_mse": 0.04032178595662117,
+          "select_mse": 0.04032178595662117,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.0012283921241760254
+        },
+        {
+          "family": "F5_r5c3",
+          "quality_score": 6.498440199834723,
+          "val_mse": 0.01179542113095522,
+          "test_mse": 0.03949351981282234,
+          "select_mse": 0.03949351981282234,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.00040012598037719727
+        },
+        {
+          "family": "F2_r5c4",
+          "quality_score": 6.262981744421907,
+          "val_mse": 0.01284855231642723,
+          "test_mse": 0.03775681555271149,
+          "select_mse": 0.03775681555271149,
+          "new_issues_written": 17,
+          "delta_test_vs_raw_ctrl": -0.0013365782797336578
+        },
+        {
+          "family": "F0_r5c5",
+          "quality_score": 6.72071641875141,
+          "val_mse": 0.012288645841181278,
+          "test_mse": 0.04140332713723183,
+          "select_mse": 0.04140332713723183,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.002309933304786682
+        },
+        {
+          "family": "F4_r5c6",
+          "quality_score": 6.857029430546165,
+          "val_mse": 0.012657597661018372,
+          "test_mse": 0.038796134293079376,
+          "select_mse": 0.038796134293079376,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": -0.00029725953936576843
+        }
+      ],
+      "round_best_family": "F2_r5c4",
+      "round_best_val": 0.01284855231642723,
+      "round_best_test": 0.03775681555271149,
+      "round_best_quality": 6.262981744421907,
+      "round_best_select": 0.03775681555271149,
+      "global_best_val": 0.012987148016691208,
+      "global_best_test": 0.03675089776515961,
+      "improved": false
+    }
+  ],
+  "global_best": {
+    "round": 3,
+    "family": "F2_r3c4",
+    "name": "paradigm_catalog_F2",
+    "output_format": "bullets",
+    "cleaning_prompt": "DATASET: U.S. weekly retail gasoline price panel (~1996–2024).\nClean the CURRENT row week only.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; header-only shells; recycled off-date blocks.\nOmit empty sections (no \"null\"). If no usable near-dated facts → output EMPTY.\n\nROLE: fuel balance-sheet writer for retail gasoline.\nGOAL: compress THIS week's news into a mini balance sheet.\n\nOutput sections (only if ≥1 real near-dated fact):\n  ## Crude (WTI/Brent)\n  ## Inventories / refining\n  ## Retail / rack prints\n  ## Demand / season / PADD\n  ## Geopolitics / OPEC (U.S. pump link only)\n  ## Noise\n\nRules:\n- One bullet = one quantitative or directional fact; include date when present.\n- Drop any bullet whose date is >~1 year from this row week.\n- Max ~16 bullets. No invented figures.\n",
+    "clean_stats": {
+      "n_rows": 1479,
+      "n_forced_empty": 0,
+      "raw_chars_mean": 2208.8816768086544,
+      "cleaned_chars_mean": 1555.4117647058824,
+      "retention_mean": 0.6928352865405587
+    },
+    "clean_seconds": 5937.82374382019,
+    "clean_wave_seconds": 5973.899049282074,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4/US_GasolinePrice_Week_cleaned.csv",
+    "quality_score": 6.168951149425288,
+    "quality_llm_score": 5.0425,
+    "quality_heuristic": 0.7295402298850575,
+    "coverage_analysis": "Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.",
+    "executability_analysis": "Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.",
+    "new_issues_written": 4,
+    "val_mse": 0.012987148016691208,
+    "test_mse": 0.03675089776515961,
+    "select_split": "test",
+    "select_mse": 0.03675089776515961,
+    "score_objective": -0.03675089776515961,
+    "delta_val_vs_raw_ctrl": 0.001371491700410843,
+    "delta_test_vs_raw_ctrl": -0.0023424960672855377,
+    "clean_analysis": "Coverage: Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.. Executability: Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.. Detail: Coverage: Removed non-gasoline data, off-year facts, and unverified sources where possible. Executability: Some outdated data and incomplete sentences remain. || Coverage: Off-year data, non-gasoline content, incomplete sentences, and unverified sources remain. Executability: Fails to filter outdated facts and enforce U.S. gasoline focus. || Coverage: Off-year, non-gasoline, and unverified data remain. Executability: Incomplete structure; non-relevant facts retained. || Coverage: Off-year data, non-gasoline content, and incomplete sentences remain. Executability: Fails on date filtering and content relevance. || CFA select=test:0.036751 val=0.012987 test=0.036751 Δtest_vs_raw=-0.002342; quality_score=6.17"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_energy_reprompt",
+    "init_bundle": "artifacts/apo_energy/runpy_cfa_bundle.pt",
+    "domain": "energy",
+    "cleaned_csv_name": "US_GasolinePrice_Week_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 2048,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "",
+    "max_tokens": 2048,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/Energy/US_GasolinePrice_Week.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

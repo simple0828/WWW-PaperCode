@@ -1,0 +1,81 @@
+{
+  "average_score": 5.4,
+  "heuristic_score": 0.8060273093841641,
+  "quality_score": 6.7301365469208205,
+  "clean_analysis": "Coverage: Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.. Executability: Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.. Detail: Coverage: Pair 1 retains off-year data; Pair 2 has no data; Pair 3 includes off-topic and incomplete content. Executability: Pair 1 usable but irrelevant; Pair 2 fails; Pair 3 fails due to noise and incompleteness. || Coverage: Pair 1 addresses off-year data; Pair 2 misses price drivers; Pair 3 retains non-2024 data. Executability: Pair 1 fails due to no facts; Pair 2 vague; Pair 3 incomplete. || Coverage: All pairs retain off-year data and incomplete sentences. Executability: All outputs lack 2024 price drivers and contain non-relevant facts. || Coverage: Pair 1 and 2 retain minimal relevant data; Pair 3 retains off-year facts. Executability: All outputs contain non-2024 data or incomplete sentences.",
+  "coverage_analysis": "Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.",
+  "executability_analysis": "Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.",
+  "new_issues_written": 13,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "One relevant 1983 U.S. broiler price retained; no 2024 relevance, but no off-year data removed."
+    },
+    {
+      "pair_id": 2,
+      "score": 1.0,
+      "comment": "No usable U.S. broiler price drivers; all data off-year or missing."
+    },
+    {
+      "pair_id": 3,
+      "score": 3.0,
+      "comment": "Retains general U.S. broiler facts but includes off-topic content and incomplete sentences."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned text removes off-year data and retains only relevant U.S. broiler price drivers, though no usable facts remain."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Retains regulatory and company info but lacks quantitative U.S. retail price drivers for 2006."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Includes non-2024 data and incomplete statements; no clear U.S. retail price drivers for 2012."
+    },
+    {
+      "pair_id": 1,
+      "score": 5.0,
+      "comment": "Retains off-year data and incomplete sentence; lacks 2024 relevance."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Includes off-year data and non-2024 price drivers; incomplete."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Contains outdated data and incomplete sentences; no 2024 linkage."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Only one relevant U.S. broiler fact retained; others removed. Incomplete sentence preserved."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "One 1990 U.S. broiler fact retained; others removed. No 2024 relevance. Incomplete sentence not present."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Multiple off-year facts retained; some irrelevant (e.g., 2010, 2017). Incomplete sentence remains."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Remove all off-year U.S. broiler data and incomplete sentences. Retain only 2024-relevant, quantitative U.S. retail price drivers.",
+    "HIGH: Remove all non-2024 U.S. broiler price drivers and incomplete statements.",
+    "HIGH: Remove all off-year data and incomplete sentences. Retain only 2024-relevant U.S. broiler price drivers.",
+    "HIGH: Remove all off-year U.S. broiler facts (e.g., 2010, 2017, 2018) and incomplete sentences.",
+    "MEDIUM: Ensure only 2023–2024 U.S. broiler price drivers are retained.",
+    "LOW: Verify all facts are dated within ±1 year of the target month."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

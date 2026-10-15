@@ -1,0 +1,83 @@
+{
+  "domain": "economy",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 1,
+  "s5_v5_best_online_saved": -3.853351121677182,
+  "s5_v5_final_saved": 2.4381340918577696,
+  "recon_s5_online": {
+    "n": 64.0,
+    "active": 61.0,
+    "frac_active": 0.953125,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.016094953625265723,
+    "rel_pct": -3.853351121677162
+  },
+  "recon_s5_online_minus_saved": 1.9984014443252818e-14,
+  "s2_online": {
+    "n": 64.0,
+    "active": 21.0,
+    "frac_active": 0.328125,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.018047722221244664,
+    "rel_pct": 7.811929866984457
+  },
+  "val_choice": {
+    "name": "fuse_0_0.25",
+    "g2": 0.0,
+    "g5": 0.25,
+    "val_rel": 0.08429366889931117,
+    "val_mse": 0.41233043776285333
+  },
+  "fused_online_before_fallback": {
+    "n": 64.0,
+    "active": 61.0,
+    "frac_active": 0.953125,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.016420709157728527,
+    "rel_pct": -1.907380755493198
+  },
+  "reported_online": {
+    "n": 64.0,
+    "active": 61.0,
+    "frac_active": 0.953125,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.016094953625265723,
+    "rel_pct": -3.853351121677162
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 64.0,
+      "active": 64.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.016740004787514213,
+      "mse_s5": 0.01714814855121722,
+      "rel_pct": 2.4381340918577696
+    },
+    "fused_before_fallback": {
+      "n": 64.0,
+      "active": 64.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.016740004787514213,
+      "mse_s5": 0.016646518060451043,
+      "rel_pct": -0.5584629649144357
+    },
+    "reported": {
+      "n": 64.0,
+      "active": 64.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.016740004787514213,
+      "mse_s5": 0.016646518060451043,
+      "rel_pct": -0.5584629649144357
+    },
+    "mode": "fuse",
+    "delta_vs_s5_final": -2.996597056772205
+  },
+  "n_train_s2_covered": 283,
+  "n_val": 57,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/economy_event_ts_assoc/scheme2_sampled_dual_economy_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/economy_event_ts_assoc/scheme5_infer_s5v5_improve.jsonl"
+}

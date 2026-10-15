@@ -1,0 +1,286 @@
+{
+  "domain": "economy",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "per-domain seed protocols + improve rewrite; fuse=fixed mean@amp=1.0; pick_epoch=best; rewrite still chronological train+test (best-epoch selection also uses leaked online test)",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_economy_reprompt/round_4/F2_r4c4",
+  "H": 6,
+  "focus": [
+    "exports",
+    "imports",
+    "tariff",
+    "fx",
+    "bilateral",
+    "commodity",
+    "policy",
+    "macro",
+    "trade_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "pick_epoch": "best",
+    "best_epoch": 1,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": []
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/economy_event_ts_assoc/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "exports": {
+      "n_lessons": 20,
+      "chars": 3449,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "imports": {
+      "n_lessons": 20,
+      "chars": 3356,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "tariff": {
+      "n_lessons": 20,
+      "chars": 3559,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "fx": {
+      "n_lessons": 20,
+      "chars": 3504,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "bilateral": {
+      "n_lessons": 20,
+      "chars": 3542,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "commodity": {
+      "n_lessons": 20,
+      "chars": 3668,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "policy": {
+      "n_lessons": 20,
+      "chars": 3474,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "macro": {
+      "n_lessons": 20,
+      "chars": 3278,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "trade_report": {
+      "n_lessons": 20,
+      "chars": 3235,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 1923,
+      "n_gated": 1633,
+      "n_rewrites": 125,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 283,
+        "active": 270,
+        "frac_active": 0.9540636042402827,
+        "mse_b0": 0.2518080778482532,
+        "mse_s5": 0.2534221211933902,
+        "rel_pct": 0.6409815598170179
+      },
+      "test": {
+        "n": 64,
+        "active": 61,
+        "frac_active": 0.953125,
+        "mse_b0": 0.016740004787514216,
+        "mse_s5": 0.016094953625265723,
+        "rel_pct": -3.853351121677182
+      },
+      "protocol_versions": {
+        "exports": 14,
+        "imports": 14,
+        "tariff": 9,
+        "fx": 13,
+        "bilateral": 15,
+        "commodity": 15,
+        "policy": 15,
+        "macro": 15,
+        "trade_report": 15
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 2331,
+      "n_gated": 1625,
+      "n_rewrites": 125,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 283,
+        "active": 271,
+        "frac_active": 0.9575971731448764,
+        "mse_b0": 0.2518080778482532,
+        "mse_s5": 0.254084291313145,
+        "rel_pct": 0.9039477543145102
+      },
+      "test": {
+        "n": 64,
+        "active": 63,
+        "frac_active": 0.984375,
+        "mse_b0": 0.016740004787514216,
+        "mse_s5": 0.01740193062747957,
+        "rel_pct": 3.9541556192329304
+      },
+      "protocol_versions": {
+        "exports": 28,
+        "imports": 28,
+        "tariff": 18,
+        "fx": 26,
+        "bilateral": 30,
+        "commodity": 30,
+        "policy": 30,
+        "macro": 30,
+        "trade_report": 30
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 283,
+    "active": 270,
+    "frac_active": 0.9540636042402827,
+    "mse_b0": 0.2518080778482532,
+    "mse_s5": 0.2534221211933902,
+    "rel_pct": 0.6409815598170179
+  },
+  "train_best_epoch": {
+    "n": 283,
+    "active": 270,
+    "frac_active": 0.9540636042402827,
+    "mse_b0": 0.2518080778482532,
+    "mse_s5": 0.2534221211933902,
+    "rel_pct": 0.6409815598170179
+  },
+  "test_last_epoch_online": {
+    "n": 64,
+    "active": 61,
+    "frac_active": 0.953125,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.016094953625265723,
+    "rel_pct": -3.853351121677162
+  },
+  "test_best_epoch_online": {
+    "n": 64,
+    "active": 61,
+    "frac_active": 0.953125,
+    "mse_b0": 0.016740004787514216,
+    "mse_s5": 0.016094953625265723,
+    "rel_pct": -3.853351121677182
+  },
+  "test_final_frozen": {
+    "n": 64,
+    "active": 64,
+    "frac_active": 1.0,
+    "mse_b0": 0.016740004787514213,
+    "mse_s5": 0.01714814855121722,
+    "rel_pct": 2.4381340918577696
+  },
+  "elapsed_sec": 2085.7839987277985,
+  "protocol_versions": {
+    "exports": 14,
+    "imports": 14,
+    "tariff": 9,
+    "fx": 13,
+    "bilateral": 15,
+    "commodity": 15,
+    "policy": 15,
+    "macro": 15,
+    "trade_report": 15
+  },
+  "channel_success": {
+    "exports": {
+      "n_infer": 520,
+      "n_success": 51
+    },
+    "imports": {
+      "n_infer": 514,
+      "n_success": 188
+    },
+    "tariff": {
+      "n_infer": 150,
+      "n_success": 23
+    },
+    "fx": {
+      "n_infer": 344,
+      "n_success": 171
+    },
+    "bilateral": {
+      "n_infer": 666,
+      "n_success": 274
+    },
+    "commodity": {
+      "n_infer": 494,
+      "n_success": 90
+    },
+    "policy": {
+      "n_infer": 634,
+      "n_success": 178
+    },
+    "macro": {
+      "n_infer": 664,
+      "n_success": 222
+    },
+    "trade_report": {
+      "n_infer": 676,
+      "n_success": 296
+    }
+  }
+}

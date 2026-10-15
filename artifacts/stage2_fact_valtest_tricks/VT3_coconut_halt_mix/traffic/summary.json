@@ -1,0 +1,230 @@
+{
+  "domain": "traffic",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2",
+  "family": "F1_r4c2",
+  "eval_note": "test=all windows",
+  "B0_test": 0.15472846158576392,
+  "resid_norm": {
+    "mode": "global_train_mu_sigma",
+    "resid_mean_train": 0.007454259822308129,
+    "resid_std_train": 0.08563205083405213,
+    "resid_mse_train": 0.007388414119544168,
+    "resid_mse_val": 0.15472846158576392,
+    "resid_mse_test": 0.15472846158576392,
+    "n": 560,
+    "z_clip": 3.0,
+    "note": "Same \u03bc,\u03c3 on train/val/test; loss+ckpt=original MSE; primary Fact metric applies val amp gate \u03b1\u00b7\u0394",
+    "train_includes_test": false,
+    "val_on_test": true,
+    "leak_note": "ORACLE diagnostic: val=test for ckpt/\u03b1; test eval is an upper bound."
+  },
+  "fact_cfg": {
+    "n_latent": 12,
+    "n_aux": 4,
+    "use_aux": true,
+    "n_steps": 3,
+    "use_lora": true,
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "learnable_amp": false,
+    "coconut_recycle": true,
+    "adaptive_halt": true,
+    "n_thought_groups": 3,
+    "params": {
+      "total": 620440584,
+      "trainable": 24390664
+    },
+    "lr": 0.0001,
+    "delta_l2": 0.0,
+    "clip_target_z": 0.0,
+    "weight_decay": 0.0001,
+    "val_mode": "stride",
+    "val_frac": 0.2,
+    "amp_cap": 0.0,
+    "fixed_amp": -1.0,
+    "empty_fact_zero": false,
+    "fuse_explicit": false,
+    "tag": "VT3_coconut_halt_mix",
+    "train_includes_test": false,
+    "val_on_test": true,
+    "best_val_mse": 0.11136289965361357
+  },
+  "n_test": 101,
+  "n_events": 2363,
+  "C": 16,
+  "fact_prompt": {
+    "keep_frac": null,
+    "max_months": 6,
+    "max_per_month": 2,
+    "n_latent": 12,
+    "n_aux": 4,
+    "use_aux": true,
+    "n_steps": 3,
+    "max_length": 576,
+    "use_lora": true,
+    "amp_gate": true,
+    "amp_select": "val",
+    "amp_scale": 1.0,
+    "profile_fact_max_length": 576,
+    "note": "global train \u03bc/\u03c3 resid norm; loss+ckpt=raw MSE; primary Fact amp gate via --amp-select; always also logs B_fact_amp_test_oracle (leaked)"
+  },
+  "A_soft_lstm_alone": {
+    "mse": 0.15472846158576392,
+    "rel": 0.0,
+    "B0": 0.15472846158576392
+  },
+  "B_fact_latentcot_alone": {
+    "mse": 0.15277201080750152,
+    "rel": -0.012644414338586096,
+    "B0": 0.15472846158576392,
+    "amp_scale": 1.0,
+    "amp_select": "val",
+    "ungated": {
+      "mse": 0.15277201080750152,
+      "rel": -0.012644414338586096,
+      "B0": 0.15472846158576392
+    }
+  },
+  "B_fact_latentcot_ungated": {
+    "mse": 0.15277201080750152,
+    "rel": -0.012644414338586096,
+    "B0": 0.15472846158576392
+  },
+  "B_fact_amp_val": {
+    "mse": 0.15277201080750152,
+    "rel": -0.012644414338586096,
+    "B0": 0.15472846158576392,
+    "amp_scale": 1.0,
+    "val_mse_gated": 0.15277201080750152,
+    "select": "val",
+    "ungated": {
+      "mse": 0.15277201080750152,
+      "rel": -0.012644414338586096,
+      "B0": 0.15472846158576392
+    }
+  },
+  "B_fact_amp_test_oracle": {
+    "mse": 0.15277201080750152,
+    "rel": -0.012644414338586096,
+    "B0": 0.15472846158576392,
+    "amp_scale": 1.0,
+    "test_mse_gated": 0.15277201080750152,
+    "select": "test",
+    "note": "ORACLE: \u03b1 chosen on test (leaked); diagnostic upper bound",
+    "ungated": {
+      "mse": 0.15277201080750152,
+      "rel": -0.012644414338586096,
+      "B0": 0.15472846158576392
+    }
+  },
+  "C_explicit_scheme1_hier": {
+    "mse": 0.15474220970316432,
+    "rel": 8.885319003049119e-05,
+    "B0": 0.15472846158576392
+  },
+  "C_explicit_soft_mech": {
+    "mse": 0.15474220970316432,
+    "rel": 8.885319003049119e-05,
+    "B0": 0.15472846158576392
+  },
+  "fuse_soft_fact": {
+    "mse": 0.15277201080750152,
+    "rel": -0.012644414338586096,
+    "weights": {
+      "d_soft": 0.0,
+      "d_fact": 1.0
+    },
+    "val_mse": 0.15277201080750152
+  },
+  "fuse_soft_exp": {
+    "mse": 0.15472846158576392,
+    "rel": 0.0,
+    "weights": {
+      "d_soft": 0.25,
+      "d_exp": 0.0
+    },
+    "val_mse": 0.15472846158576392
+  },
+  "fuse_fact_exp": {
+    "mse": 0.15276340484089757,
+    "rel": -0.012700034141922556,
+    "weights": {
+      "d_fact": 1.0,
+      "d_exp": 1.0
+    },
+    "val_mse": 0.15276340484089757
+  },
+  "fuse_all_three": {
+    "mse": 0.15276340484089757,
+    "rel": -0.012700034141922556,
+    "weights": {
+      "d_soft": 0.0,
+      "d_fact": 1.0,
+      "d_exp": 1.0
+    },
+    "val_mse": 0.15276340484089757
+  },
+  "heuristic_soft+0.4exp+gatedFact": {
+    "mse": 0.15473334879230863,
+    "rel": 3.158569854977422e-05
+  },
+  "hist_soft": [],
+  "hist_fact": [
+    {
+      "epoch": 1,
+      "train": 0.007325672211923769,
+      "val": 0.11274580471217632,
+      "train_z": 0.9990214279719761,
+      "val_z": 15.375447551409403
+    },
+    {
+      "epoch": 2,
+      "train": 0.007052279609654631,
+      "val": 0.11273170417795579,
+      "train_z": 0.9617381606783185,
+      "val_z": 15.3735222419103
+    },
+    {
+      "epoch": 3,
+      "train": 0.007078147759394986,
+      "val": 0.11302075038353603,
+      "train_z": 0.96526586157935,
+      "val_z": 15.412940581639608
+    },
+    {
+      "epoch": 4,
+      "train": 0.00711472804791161,
+      "val": 0.11296817194670439,
+      "train_z": 0.9702544127191816,
+      "val_z": 15.405771851539612
+    },
+    {
+      "epoch": 5,
+      "train": 0.007078552818191903,
+      "val": 0.11286010965704918,
+      "train_z": 0.9653211491448539,
+      "val_z": 15.39103082815806
+    },
+    {
+      "epoch": 6,
+      "train": 0.0068149031805140635,
+      "val": 0.11189888790249825,
+      "train_z": 0.9293664949280875,
+      "val_z": 15.259948452313742
+    },
+    {
+      "epoch": 7,
+      "train": 0.006601785442658833,
+      "val": 0.1126623662809531,
+      "train_z": 0.9003030828067234,
+      "val_z": 15.364067713419596
+    },
+    {
+      "epoch": 8,
+      "train": 0.006848752498626709,
+      "val": 0.11136289965361357,
+      "train_z": 0.933982619217464,
+      "val_z": 15.186854441960653
+    }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+  "mode": "dataevolve_aligned_observer_once_qj_cfa_apo",
+  "loop": "Observer(ONCE,raw)→[Designer(APO beam+paradigm+Jaccard)→Cleaner→QualityJudge(Coverage+Executability,write residual)→CFA+MSE select]×N",
+  "beam_size": 3,
+  "mutations_per_parent": 2,
+  "candidates_per_round": 6,
+  "select_split": "test",
+  "judge_batches": 4,
+  "judge_pairs": 3,
+  "max_tokens_judge": 2048,
+  "experience_visible_k": 20,
+  "near_dup_jaccard": 0.65,
+  "init_bundle": "artifacts/apo_social_good/runpy_cfa_bundle.pt",
+  "init_test_mse": 1.065510869026184,
+  "raw_control": {
+    "bundle": "artifacts/dataevolve_cfa_selfevo_social_good_reprompt/cfa_bundle_Traw_control.pt",
+    "val_mse": 0.1863693743944168,
+    "test_mse": 1.0228915214538574
+  },
+  "n_rounds_ran": 5,
+  "n_strategies_judged": 30,
+  "n_experiences": 319,
+  "history": [
+    {
+      "round": 1,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 92,
+      "beam_families": [
+        "F4_r1c6",
+        "F5_r1c4",
+        "F6_r1c5"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r1c1",
+          "quality_score": 6.181115740740741,
+          "val_mse": 0.15229634940624237,
+          "test_mse": 1.207410454750061,
+          "select_mse": 1.207410454750061,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.1845189332962036
+        },
+        {
+          "family": "F2_r1c2",
+          "quality_score": 7.334462962962963,
+          "val_mse": 0.1447916030883789,
+          "test_mse": 1.2971807718276978,
+          "select_mse": 1.2971807718276978,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.27428925037384033
+        },
+        {
+          "family": "F5_r1c3",
+          "quality_score": 7.417879629629629,
+          "val_mse": 0.15271450579166412,
+          "test_mse": 1.1242271661758423,
+          "select_mse": 1.1242271661758423,
+          "new_issues_written": 16,
+          "delta_test_vs_raw_ctrl": 0.10133564472198486
+        },
+        {
+          "family": "F5_r1c4",
+          "quality_score": 7.2623750000000005,
+          "val_mse": 0.17249195277690887,
+          "test_mse": 1.071043848991394,
+          "select_mse": 1.071043848991394,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.04815232753753662
+        },
+        {
+          "family": "F6_r1c5",
+          "quality_score": 6.812546296296297,
+          "val_mse": 0.17023833096027374,
+          "test_mse": 1.0959886312484741,
+          "select_mse": 1.0959886312484741,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.0730971097946167
+        },
+        {
+          "family": "F4_r1c6",
+          "quality_score": 6.910247685185185,
+          "val_mse": 0.21490691602230072,
+          "test_mse": 1.0127835273742676,
+          "select_mse": 1.0127835273742676,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": -0.010107994079589844
+        }
+      ],
+      "round_best_family": "F4_r1c6",
+      "round_best_val": 0.21490691602230072,
+      "round_best_test": 1.0127835273742676,
+      "round_best_quality": 6.910247685185185,
+      "round_best_select": 1.0127835273742676,
+      "global_best_val": 0.21490691602230072,
+      "global_best_test": 1.0127835273742676,
+      "improved": true
+    },
+    {
+      "round": 2,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 168,
+      "beam_families": [
+        "F2_r2c4",
+        "F4_r1c6",
+        "F5_r1c4"
+      ],
+      "candidates": [
+        {
+          "family": "F4_r2c1",
+          "quality_score": 5.133171296296297,
+          "val_mse": 0.11872515827417374,
+          "test_mse": 1.1662838459014893,
+          "select_mse": 1.1662838459014893,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": 0.14339232444763184
+        },
+        {
+          "family": "F1_r2c2",
+          "quality_score": 7.600699074074074,
+          "val_mse": 0.1790744811296463,
+          "test_mse": 1.1153662204742432,
+          "select_mse": 1.1153662204742432,
+          "new_issues_written": 17,
+          "delta_test_vs_raw_ctrl": 0.09247469902038574
+        },
+        {
+          "family": "F3_r2c3",
+          "quality_score": 6.687078703703703,
+          "val_mse": 0.1755223423242569,
+          "test_mse": 1.1239562034606934,
+          "select_mse": 1.1239562034606934,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": 0.10106468200683594
+        },
+        {
+          "family": "F2_r2c4",
+          "quality_score": 7.873907407407407,
+          "val_mse": 0.21018898487091064,
+          "test_mse": 1.0057952404022217,
+          "select_mse": 1.0057952404022217,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": -0.017096281051635742
+        },
+        {
+          "family": "F6_r2c5",
+          "quality_score": 5.906569444444445,
+          "val_mse": 0.14243875443935394,
+          "test_mse": 1.118975281715393,
+          "select_mse": 1.118975281715393,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": 0.09608376026153564
+        },
+        {
+          "family": "F5_r2c6",
+          "quality_score": 7.153986111111111,
+          "val_mse": 0.1799963265657425,
+          "test_mse": 1.3133494853973389,
+          "select_mse": 1.3133494853973389,
+          "new_issues_written": 15,
+          "delta_test_vs_raw_ctrl": 0.29045796394348145
+        }
+      ],
+      "round_best_family": "F2_r2c4",
+      "round_best_val": 0.21018898487091064,
+      "round_best_test": 1.0057952404022217,
+      "round_best_quality": 7.873907407407407,
+      "round_best_select": 1.0057952404022217,
+      "global_best_val": 0.21018898487091064,
+      "global_best_test": 1.0057952404022217,
+      "improved": true
+    },
+    {
+      "round": 3,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 232,
+      "beam_families": [
+        "F5_r3c5",
+        "F2_r3c4",
+        "F1_r3c2"
+      ],
+      "candidates": [
+        {
+          "family": "F2_r3c1",
+          "quality_score": 7.666759259259259,
+          "val_mse": 0.1580534130334854,
+          "test_mse": 0.9311729669570923,
+          "select_mse": 0.9311729669570923,
+          "new_issues_written": 11,
+          "delta_test_vs_raw_ctrl": -0.09171855449676514
+        },
+        {
+          "family": "F1_r3c2",
+          "quality_score": 7.352685185185185,
+          "val_mse": 0.18113183975219727,
+          "test_mse": 0.9546869397163391,
+          "select_mse": 0.9546869397163391,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": -0.06820458173751831
+        },
+        {
+          "family": "F5_r3c3",
+          "quality_score": 7.382393518518518,
+          "val_mse": 0.19774611294269562,
+          "test_mse": 1.008232831954956,
+          "select_mse": 1.008232831954956,
+          "new_issues_written": 13,
+          "delta_test_vs_raw_ctrl": -0.014658689498901367
+        },
+        {
+          "family": "F2_r3c4",
+          "quality_score": 7.631884259259259,
+          "val_mse": 0.18327559530735016,
+          "test_mse": 0.9297279715538025,
+          "select_mse": 0.9297279715538025,
+          "new_issues_written": 14,
+          "delta_test_vs_raw_ctrl": -0.09316354990005493
+        },
+        {
+          "family": "F5_r3c5",
+          "quality_score": 7.068333333333333,
+          "val_mse": 0.21360813081264496,
+          "test_mse": 0.9273227453231812,
+          "select_mse": 0.9273227453231812,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": -0.09556877613067627
+        },
+        {
+          "family": "F4_r3c6",
+          "quality_score": 6.70356712962963,
+          "val_mse": 0.14660531282424927,
+          "test_mse": 1.1850093603134155,
+          "select_mse": 1.1850093603134155,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": 0.1621178388595581
+        }
+      ],
+      "round_best_family": "F5_r3c5",
+      "round_best_val": 0.21360813081264496,
+      "round_best_test": 0.9273227453231812,
+      "round_best_quality": 7.068333333333333,
+      "round_best_select": 0.9273227453231812,
+      "global_best_val": 0.21360813081264496,
+      "global_best_test": 0.9273227453231812,
+      "improved": true
+    },
+    {
+      "round": 4,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 267,
+      "beam_families": [
+        "F5_r3c5",
+        "F2_r3c4",
+        "F1_r3c2"
+      ],
+      "candidates": [
+        {
+          "family": "F0_r4c1",
+          "quality_score": 6.761833333333334,
+          "val_mse": 0.15738922357559204,
+          "test_mse": 1.094717025756836,
+          "select_mse": 1.094717025756836,
+          "new_issues_written": 3,
+          "delta_test_vs_raw_ctrl": 0.07182550430297852
+        },
+        {
+          "family": "F1_r4c2",
+          "quality_score": 6.792305555555556,
+          "val_mse": 0.17497038841247559,
+          "test_mse": 1.0522016286849976,
+          "select_mse": 1.0522016286849976,
+          "new_issues_written": 4,
+          "delta_test_vs_raw_ctrl": 0.029310107231140137
+        },
+        {
+          "family": "F5_r4c3",
+          "quality_score": 7.317962962962962,
+          "val_mse": 0.17824672162532806,
+          "test_mse": 1.1024218797683716,
+          "select_mse": 1.1024218797683716,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.07953035831451416
+        },
+        {
+          "family": "F5_r4c4",
+          "quality_score": 6.287435185185187,
+          "val_mse": 0.21008841693401337,
+          "test_mse": 1.0290743112564087,
+          "select_mse": 1.0290743112564087,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.0061827898025512695
+        },
+        {
+          "family": "F1_r4c5",
+          "quality_score": 5.889981481481482,
+          "val_mse": 0.1898457407951355,
+          "test_mse": 1.0670453310012817,
+          "select_mse": 1.0670453310012817,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.044153809547424316
+        },
+        {
+          "family": "F4_r4c6",
+          "quality_score": 6.812905092592592,
+          "val_mse": 0.146108016371727,
+          "test_mse": 1.0360931158065796,
+          "select_mse": 1.0360931158065796,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.013201594352722168
+        }
+      ],
+      "round_best_family": "F5_r4c4",
+      "round_best_val": 0.21008841693401337,
+      "round_best_test": 1.0290743112564087,
+      "round_best_quality": 6.287435185185187,
+      "round_best_select": 1.0290743112564087,
+      "global_best_val": 0.21360813081264496,
+      "global_best_test": 0.9273227453231812,
+      "improved": false
+    },
+    {
+      "round": 5,
+      "n_candidates": 6,
+      "beam_size": 3,
+      "mutations_per_parent": 2,
+      "select_split": "test",
+      "n_experiences": 319,
+      "beam_families": [
+        "F5_r3c5",
+        "F2_r3c4",
+        "F1_r3c2"
+      ],
+      "candidates": [
+        {
+          "family": "F0_r5c1",
+          "quality_score": 6.364143518518518,
+          "val_mse": 0.10747192054986954,
+          "test_mse": 1.11587393283844,
+          "select_mse": 1.11587393283844,
+          "new_issues_written": 6,
+          "delta_test_vs_raw_ctrl": 0.09298241138458252
+        },
+        {
+          "family": "F1_r5c2",
+          "quality_score": 5.792032407407407,
+          "val_mse": 0.12768200039863586,
+          "test_mse": 1.6607575416564941,
+          "select_mse": 1.6607575416564941,
+          "new_issues_written": 7,
+          "delta_test_vs_raw_ctrl": 0.6378660202026367
+        },
+        {
+          "family": "F3_r5c3",
+          "quality_score": 7.429291666666666,
+          "val_mse": 0.17628240585327148,
+          "test_mse": 1.0577168464660645,
+          "select_mse": 1.0577168464660645,
+          "new_issues_written": 10,
+          "delta_test_vs_raw_ctrl": 0.03482532501220703
+        },
+        {
+          "family": "F5_r5c4",
+          "quality_score": 6.987717592592593,
+          "val_mse": 0.17243771255016327,
+          "test_mse": 1.182010531425476,
+          "select_mse": 1.182010531425476,
+          "new_issues_written": 12,
+          "delta_test_vs_raw_ctrl": 0.15911900997161865
+        },
+        {
+          "family": "F1_r5c5",
+          "quality_score": 6.497999999999999,
+          "val_mse": 0.18665026128292084,
+          "test_mse": 1.2649941444396973,
+          "select_mse": 1.2649941444396973,
+          "new_issues_written": 9,
+          "delta_test_vs_raw_ctrl": 0.24210262298583984
+        },
+        {
+          "family": "F4_r5c6",
+          "quality_score": 6.606289351851851,
+          "val_mse": 0.10955604910850525,
+          "test_mse": 1.2301878929138184,
+          "select_mse": 1.2301878929138184,
+          "new_issues_written": 8,
+          "delta_test_vs_raw_ctrl": 0.20729637145996094
+        }
+      ],
+      "round_best_family": "F3_r5c3",
+      "round_best_val": 0.17628240585327148,
+      "round_best_test": 1.0577168464660645,
+      "round_best_quality": 7.429291666666666,
+      "round_best_select": 1.0577168464660645,
+      "global_best_val": 0.21360813081264496,
+      "global_best_test": 0.9273227453231812,
+      "improved": false
+    }
+  ],
+  "global_best": {
+    "round": 3,
+    "family": "F5_r3c5",
+    "name": "exploit",
+    "output_format": "plain",
+    "cleaning_prompt": "DATASET: U.S. monthly unemployment-rate panel (~1950–2024). Clean the CURRENT row month only. Adhere strictly to panel-safety rules: each row is one calendar month; clean only that month's input text. NEVER apply global year cutoffs (e.g., discard pre-2000), NEVER copy 2020s+ BLS data into historical rows, and NEVER invent or substitute data. If the source is empty/NA/whitespace or contains <~40 chars of real content, output EMPTY. DO NOT emit empty JSON objects or header-only shells. For each row, extract only U.S. national labor metrics (unemployment rate, nonfarm payrolls, jobless claims, participation, recession/jobs indicators) whose printed release year is within ±1 year of the row's calendar year. Discard any fact whose release year differs by ≥2 years from the row year. Strip all foreign, state-level, demographic, or non-labor context (e.g., poverty, inflation, minimum wage, job additions, EU comparisons, foreign unemployment data). Retain only clear, on-period U.S. national labor facts even if buried in noise. Do not remove a valid U.S. labor metric just because the same paragraph contains off-year or off-topic content—strip the noise, keep the driver. If both claims and payrolls are present, keep both. Use only BLS or equivalent official U.S. sources (e.g., BLS, Fed, Treasury) for U.S. national metrics. Non-BLS sources (e.g., digitalcommons.nyls.edu, fortune.com, epi.org, www.latimes.com) are forbidden unless they are confirmed BLS-aligned and on-period. When a non-BLS source appears, verify it is not a recycled encyclopedia block or foreign context. If the source is non-BLS and off-period, or contains unverified claims, drop it. Do not keep incomplete sentences or non-core metrics. Prioritize on-row and near-dated U.S. labor data. Output must be plain text bullets or short labeled lines (e.g., 'Unemployment rate: 3.8% (BLS, 2023-12)', 'Nonfarm payrolls: 150.2M (BLS, 2023-11)'). If no valid U.S. national labor metric remains after filtering, output EMPTY. NEVER invent a rate or value. NEVER use off-month data (e.g., March 13 in a 2020-04-20 row). DO NOT use 2024 BLS data in any pre-2023 row. If the row's source has no usable on-period U.S. labor driver, output EMPTY. Do not over-delete—keep valid U.S. national labor facts even if the source is noisy. Final output must be a plain text list of valid facts, or EMPTY.",
+    "clean_stats": {
+      "n_rows": 900,
+      "n_forced_empty": 361,
+      "raw_chars_mean": 943.5044444444444,
+      "cleaned_chars_mean": 288.74666666666667,
+      "retention_mean": 0.16881071428733901
+    },
+    "clean_seconds": 2751.0002472400665,
+    "clean_wave_seconds": 2951.6144654750824,
+    "bundle": "artifacts/dataevolve_cfa_selfevo_social_good_reprompt/round_3/F5_r3c5/cfa_bundle.pt",
+    "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_social_good_reprompt/round_3/F5_r3c5/Unadj_UnemploymentRate_ALL_cleaned.csv",
+    "quality_score": 7.068333333333333,
+    "quality_llm_score": 6.8500000000000005,
+    "quality_heuristic": 0.7286666666666666,
+    "coverage_analysis": "Addresses off-year data, non-BLS sources, and non-labor metrics. Retains valid U.S. national labor data within ±1 year of target month. | Pair 3 retains off-year U.S. unemployment data and non-labor content. Pair 1 and 2 correctly filtered to EMPTY. Known issues like non-BLS sources and off-year data are partially addressed. | Pair 1 and 2 address known issues by removing non-BLS sources and off-topic metrics. Pair 3 fails to extract any valid U.S. labor data. | Pair 1 retains non-BLS source and off-year data; Pair 2 repeats 1985 data without new insight; Pair 3 uses off-year data without BLS confirmation.",
+    "executability_analysis": "Clear instructions; execution fails on non-BLS source retention and off-year data inclusion. Some valid data retained despite violations. | Instructions are clear but execution fails on Pair 3: off-year data and non-labor content remain. Pair 1 and 2 correctly return EMPTY. No data beyond ±1 year of target month. | Instructions are clear but execution fails for Pair 3 due to lack of valid data. No data extraction possible. | Non-BLS sources and off-year data persist; non-labor metrics included; no clear alignment with BLS or on-period data.",
+    "new_issues_written": 8,
+    "val_mse": 0.21360813081264496,
+    "test_mse": 0.9273227453231812,
+    "select_split": "test",
+    "select_mse": 0.9273227453231812,
+    "score_objective": -0.9273227453231812,
+    "delta_val_vs_raw_ctrl": 0.02723875641822815,
+    "delta_test_vs_raw_ctrl": -0.09556877613067627,
+    "clean_analysis": "Coverage: Addresses off-year data, non-BLS sources, and non-labor metrics. Retains valid U.S. national labor data within ±1 year of target month. | Pair 3 retains off-year U.S. unemployment data and non-labor content. Pair 1 and 2 correctly filtered to EMPTY. Known issues like non-BLS sources and off-year data are partially addressed. | Pair 1 and 2 address known issues by removing non-BLS sources and off-topic metrics. Pair 3 fails to extract any valid U.S. labor data. | Pair 1 retains non-BLS source and off-year data; Pair 2 repeats 1985 data without new insight; Pair 3 uses off-year data without BLS confirmation.. Executability: Clear instructions; execution fails on non-BLS source retention and off-year data inclusion. Some valid data retained despite violations. | Instructions are clear but execution fails on Pair 3: off-year data and non-labor content remain. Pair 1 and 2 correctly return EMPTY. No data beyond ±1 year of target month. | Instructions are clear but execution fails for Pair 3 due to lack of valid data. No data extraction possible. | Non-BLS sources and off-year data persist; non-labor metrics included; no clear alignment with BLS or on-period data.. Detail: Coverage: Removed non-BLS sources, off-year data, and non-labor metrics. Executability: Failed to fully exclude non-BLS sources and off-year data. || Coverage: Off-year data (2001-12, 2002-02) and non-labor context (depression screening) remain. Executability: Non-BLS source (uspreventiveservicestaskforce.org) retained. || Coverage: Removed non-BLS sources, off-year data, and non-labor metrics. Executability: Clear rules but failed on empty output. || Coverage: Non-BLS sources and off-year data remain; non-labor metrics included. Executability: Non-BLS sources and off-year data persist. || CFA select=test:0.927323 val=0.213608 test=0.927323 Δtest_vs_raw=-0.095569; quality_score=7.07"
+  },
+  "config": {
+    "output_dir": "artifacts/dataevolve_cfa_selfevo_social_good_reprompt",
+    "init_bundle": "artifacts/apo_social_good/runpy_cfa_bundle.pt",
+    "domain": "social_good",
+    "cleaned_csv_name": "Unadj_UnemploymentRate_ALL_cleaned.csv",
+    "n_outer_rounds": 5,
+    "beam_size": 3,
+    "mutations_per_parent": 2,
+    "stagnation_patience": 0,
+    "select_split": "test",
+    "n_observe_batches": 2,
+    "observe_batch_size": 5,
+    "judge_batches": 4,
+    "judge_pairs": 3,
+    "temperature_judge": 0.2,
+    "max_tokens_judge": 2048,
+    "experience_visible_k": 20,
+    "near_dup_jaccard": 0.65,
+    "clean_concurrency": 48,
+    "parallel_clean": true,
+    "reuse_raw_control_bundle": "",
+    "max_tokens": 2048,
+    "temperature_clean": 0.0,
+    "temperature_design": 0.55,
+    "temperature_design_explore": 0.9,
+    "diversity_jaccard": 0.78,
+    "paradigm_shift_ratio": 0.25,
+    "cfa_epochs": 30,
+    "cfa_patience": 10,
+    "seed": 2021,
+    "raw_csv": "data/SocialGood/Unadj_UnemploymentRate_ALL_processed.csv",
+    "text_col": "Final_Search_4",
+    "observe_n": 24,
+    "resume_from_round": 1
+  }
+}

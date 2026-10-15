@@ -1,0 +1,32 @@
+{
+  "round": 3,
+  "family": "F2_r3c4",
+  "name": "paradigm_catalog_F2",
+  "output_format": "bullets",
+  "cleaning_prompt": "DATASET: U.S. weekly retail gasoline price panel (~1996–2024).\nClean the CURRENT row week only.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; header-only shells; recycled off-date blocks.\nOmit empty sections (no \"null\"). If no usable near-dated facts → output EMPTY.\n\nROLE: fuel balance-sheet writer for retail gasoline.\nGOAL: compress THIS week's news into a mini balance sheet.\n\nOutput sections (only if ≥1 real near-dated fact):\n  ## Crude (WTI/Brent)\n  ## Inventories / refining\n  ## Retail / rack prints\n  ## Demand / season / PADD\n  ## Geopolitics / OPEC (U.S. pump link only)\n  ## Noise\n\nRules:\n- One bullet = one quantitative or directional fact; include date when present.\n- Drop any bullet whose date is >~1 year from this row week.\n- Max ~16 bullets. No invented figures.\n",
+  "clean_stats": {
+    "n_rows": 1479,
+    "n_forced_empty": 0,
+    "raw_chars_mean": 2208.8816768086544,
+    "cleaned_chars_mean": 1555.4117647058824,
+    "retention_mean": 0.6928352865405587
+  },
+  "clean_seconds": 5937.82374382019,
+  "clean_wave_seconds": 5973.899049282074,
+  "bundle": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4/cfa_bundle.pt",
+  "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4/US_GasolinePrice_Week_cleaned.csv",
+  "quality_score": 6.168951149425288,
+  "quality_llm_score": 5.0425,
+  "quality_heuristic": 0.7295402298850575,
+  "coverage_analysis": "Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.",
+  "executability_analysis": "Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.",
+  "new_issues_written": 4,
+  "val_mse": 0.012987148016691208,
+  "test_mse": 0.03675089776515961,
+  "select_split": "test",
+  "select_mse": 0.03675089776515961,
+  "score_objective": -0.03675089776515961,
+  "delta_val_vs_raw_ctrl": 0.001371491700410843,
+  "delta_test_vs_raw_ctrl": -0.0023424960672855377,
+  "clean_analysis": "Coverage: Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.. Executability: Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.. Detail: Coverage: Removed non-gasoline data, off-year facts, and unverified sources where possible. Executability: Some outdated data and incomplete sentences remain. || Coverage: Off-year data, non-gasoline content, incomplete sentences, and unverified sources remain. Executability: Fails to filter outdated facts and enforce U.S. gasoline focus. || Coverage: Off-year, non-gasoline, and unverified data remain. Executability: Incomplete structure; non-relevant facts retained. || Coverage: Off-year data, non-gasoline content, and incomplete sentences remain. Executability: Fails on date filtering and content relevance. || CFA select=test:0.036751 val=0.012987 test=0.036751 Δtest_vs_raw=-0.002342; quality_score=6.17"
+}

@@ -1,0 +1,80 @@
+{
+  "average_score": 6.8500000000000005,
+  "heuristic_score": 0.7286666666666666,
+  "quality_score": 7.068333333333333,
+  "clean_analysis": "Coverage: Addresses off-year data, non-BLS sources, and non-labor metrics. Retains valid U.S. national labor data within ±1 year of target month. | Pair 3 retains off-year U.S. unemployment data and non-labor content. Pair 1 and 2 correctly filtered to EMPTY. Known issues like non-BLS sources and off-year data are partially addressed. | Pair 1 and 2 address known issues by removing non-BLS sources and off-topic metrics. Pair 3 fails to extract any valid U.S. labor data. | Pair 1 retains non-BLS source and off-year data; Pair 2 repeats 1985 data without new insight; Pair 3 uses off-year data without BLS confirmation.. Executability: Clear instructions; execution fails on non-BLS source retention and off-year data inclusion. Some valid data retained despite violations. | Instructions are clear but execution fails on Pair 3: off-year data and non-labor content remain. Pair 1 and 2 correctly return EMPTY. No data beyond ±1 year of target month. | Instructions are clear but execution fails for Pair 3 due to lack of valid data. No data extraction possible. | Non-BLS sources and off-year data persist; non-labor metrics included; no clear alignment with BLS or on-period data.. Detail: Coverage: Removed non-BLS sources, off-year data, and non-labor metrics. Executability: Failed to fully exclude non-BLS sources and off-year data. || Coverage: Off-year data (2001-12, 2002-02) and non-labor context (depression screening) remain. Executability: Non-BLS source (uspreventiveservicestaskforce.org) retained. || Coverage: Removed non-BLS sources, off-year data, and non-labor metrics. Executability: Clear rules but failed on empty output. || Coverage: Non-BLS sources and off-year data remain; non-labor metrics included. Executability: Non-BLS sources and off-year data persist.",
+  "coverage_analysis": "Addresses off-year data, non-BLS sources, and non-labor metrics. Retains valid U.S. national labor data within ±1 year of target month. | Pair 3 retains off-year U.S. unemployment data and non-labor content. Pair 1 and 2 correctly filtered to EMPTY. Known issues like non-BLS sources and off-year data are partially addressed. | Pair 1 and 2 address known issues by removing non-BLS sources and off-topic metrics. Pair 3 fails to extract any valid U.S. labor data. | Pair 1 retains non-BLS source and off-year data; Pair 2 repeats 1985 data without new insight; Pair 3 uses off-year data without BLS confirmation.",
+  "executability_analysis": "Clear instructions; execution fails on non-BLS source retention and off-year data inclusion. Some valid data retained despite violations. | Instructions are clear but execution fails on Pair 3: off-year data and non-labor content remain. Pair 1 and 2 correctly return EMPTY. No data beyond ±1 year of target month. | Instructions are clear but execution fails for Pair 3 due to lack of valid data. No data extraction possible. | Non-BLS sources and off-year data persist; non-labor metrics included; no clear alignment with BLS or on-period data.",
+  "new_issues_written": 8,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Retained 2008-03 BLS data; removed off-year, non-BLS, and non-labor content."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Included 1989-06 BLS data; retained valid metrics but kept non-BLS source and off-year data."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Cleaned 1991-01 BLS data; removed foreign, non-labor, and off-year references."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned to EMPTY correctly; no valid U.S. labor data for the month."
+    },
+    {
+      "pair_id": 2,
+      "score": 8.0,
+      "comment": "Cleaned to EMPTY; no valid U.S. labor data for the month."
+    },
+    {
+      "pair_id": 3,
+      "score": 6.0,
+      "comment": "Retained off-year data (2001-12, 2002-02) and non-labor context (depression screening)."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Retained valid BLS data; removed non-BLS sources and off-topic content."
+    },
+    {
+      "pair_id": 2,
+      "score": 7.5,
+      "comment": "Correctly extracted 2002-02 BLS unemployment; removed non-labor and off-year data."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Empty output; no valid U.S. labor metric found for the month."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Retains non-BLS source (epi.org) and off-year data; includes non-labor metric (productivity)."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Includes non-BLS source (reaganlibrary.gov) and off-year data; repeats 1985 rate without new context."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Contains off-year data (1982) without BLS confirmation; includes non-labor metrics and foreign context."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Remove all non-BLS sources regardless of content.",
+    "HIGH: Remove non-labor context and off-year data; retain only BLS-aligned U.S. national labor metrics within ±1 year.",
+    "HIGH: Ensure BLS-aligned sources only; verify epi.org is acceptable for U.S. labor metrics.",
+    "MEDIUM: Clarify handling of empty outputs; require fallback to nearest valid data if possible.",
+    "HIGH: Remove non-BLS sources and off-year data; retain only BLS-aligned, on-period U.S. labor metrics."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

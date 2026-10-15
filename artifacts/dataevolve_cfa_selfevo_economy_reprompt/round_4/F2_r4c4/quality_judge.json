@@ -1,0 +1,84 @@
+{
+  "average_score": 6.4175,
+  "heuristic_score": 0.7022228789072763,
+  "quality_score": 6.719864394536382,
+  "clean_analysis": "Coverage: Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.. Executability: Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.. Detail: Coverage: Addresses trade deficit, services surplus, and bilateral data; misses non-trade and unverified claims. Executability: Format mostly followed; incomplete outputs and missing data. || Coverage: Non-trade facts retained; incomplete sentences. Executability: Invented data and missing structure. || Coverage: Addresses trade deficit, bilateral flows, and services surplus. Misses incomplete official prints and non-trade inclusions. Executability: Fails on missing data, unverified claims, and incomplete outputs. || Coverage: Retained non-trade, incomplete sentences, and year misalignment. Executability: Fails on missing data, incomplete outputs.",
+  "coverage_analysis": "Addresses trade deficit, bilateral balance, and policy impacts; omits non-trade and unverified claims. Retains some outdated or unlinked data. | Known issues like non-trade facts, incomplete sentences, and data misalignment persist. No new trade-specific facts added. | Addresses trade deficit, bilateral balances, and services surplus. Misses incomplete official prints, non-trade inclusions, and unverified 2019 data in 2021 context. | Addresses some trade data but retains non-trade elements and incomplete facts. Misses key issues like invented data and year misalignment.",
+  "executability_analysis": "Cleaned outputs mostly follow format; Pair 2 missing closing brace; incomplete official prints in Pair 3. | Cleaned outputs contain non-trade content, invented data, and incomplete sections. Execution fails on core rules. | Some outputs incomplete; non-trade facts retained; missing data sources. Execution fails on missing data and unverified claims. | Mixed: Pair 1 executable; Pair 2 and 3 fail due to incomplete output and non-trade inclusions.",
+  "new_issues_written": 8,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned relevant trade deficit and bilateral data; omitted non-trade and unverified facts."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Incomplete output; missing closing brace; limited factual depth."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Includes key deficit trends and policy factors; incomplete official prints."
+    },
+    {
+      "pair_id": 1,
+      "score": 6.0,
+      "comment": "Incomplete, non-trade context retained; missing trade-specific data."
+    },
+    {
+      "pair_id": 2,
+      "score": 5.0,
+      "comment": "Non-trade data (taxes, portfolio) included; missing closing brace."
+    },
+    {
+      "pair_id": 3,
+      "score": 4.0,
+      "comment": "Invented inflation data; non-trade disruptions retained."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned relevant facts; missing 2021-08 deficit data source and incomplete official prints."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.5,
+      "comment": "Incomplete output; missing closing brace; non-trade FDI and Vietnam trade not relevant to monthly balance."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Includes non-trade FX and policy; incomplete official prints; irrelevant global trade stats."
+    },
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned relevant facts; retained non-trade data (EU medici) and incomplete sentence."
+    },
+    {
+      "pair_id": 2,
+      "score": 5.0,
+      "comment": "Incomplete output; missing closing brace; retained non-trade facts (ethanol, Ex-Im Bank)."
+    },
+    {
+      "pair_id": 3,
+      "score": 6.0,
+      "comment": "Incomplete sentences; non-trade impacts (jobs, emerging markets) retained; no monthly data."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Fix missing closing brace in Pair 2",
+    "MEDIUM: Complete official prints section in Pair 3",
+    "HIGH: Remove all non-trade facts and invented data.",
+    "MEDIUM: Fix incomplete sentences and structural errors.",
+    "LOW: Ensure all facts are trade-specific and dated to the target month.",
+    "HIGH: Remove non-trade facts (FDI, currency manipulation) from trade balance output.",
+    "MEDIUM: Ensure all data sources are aligned with target month.",
+    "LOW: Complete official prints section and fix formatting errors.",
+    "HIGH: Remove non-trade facts (ethanol, job losses) and ensure all data aligns with the target month."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

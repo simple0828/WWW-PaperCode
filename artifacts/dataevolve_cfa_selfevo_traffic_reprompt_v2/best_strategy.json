@@ -1,0 +1,32 @@
+{
+  "round": 4,
+  "family": "F1_r4c2",
+  "name": "paradigm_catalog_F1",
+  "output_format": "plain",
+  "cleaning_prompt": "DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.\n\nROLE: national VMT-driver filter — DATE HARD yes, over-delete no.\nPrior run emptied ~33% of months; avoid that. Keep broader on-year U.S. signals.\n\nFORBIDDEN: year cutoffs; stuffing; inventing; wiping rows that still have on-year\nU.S. drivers; keeping facts whose printed year is ≥2 years from THIS row year.\n\nKEEP (on-year U.S.): fuel/gasoline/diesel; holiday/leisure travel; weather/roads;\nfreight; capacity; remote-work/congestion/fuel-tax policy; VMT prints with drivers;\nalso regional multi-state shocks and state-DOT volume/fuel notes if dated on-year.\nWeak but on-year U.S. facts → KEEP (do not require \"national only\").\n\nDROP: ads; foreign tourism; software marketing; pure off-year recycled dumps.\nSingle-city AADT: drop only if no broader driver; else keep briefly.\n\nDATE HARD: ±1 year; mixed → keep on-year only. Empty ONLY if nothing on-year remains.\n",
+  "clean_stats": {
+    "n_rows": 531,
+    "n_forced_empty": 1,
+    "raw_chars_mean": 3290.593220338983,
+    "cleaned_chars_mean": 1143.6195856873824,
+    "retention_mean": 0.3540229833984312
+  },
+  "clean_seconds": 893.7882919311523,
+  "clean_wave_seconds": 919.2135229110718,
+  "bundle": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2/cfa_bundle.pt",
+  "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2/US_VMT_Month_cleaned.csv",
+  "quality_score": 5.551659604519774,
+  "quality_llm_score": 2.75,
+  "quality_heuristic": 0.8353319209039548,
+  "coverage_analysis": "Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.",
+  "executability_analysis": "Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.",
+  "new_issues_written": 13,
+  "val_mse": 0.007670020218938589,
+  "test_mse": 0.1619950383901596,
+  "select_split": "test",
+  "select_mse": 0.1619950383901596,
+  "score_objective": -0.1619950383901596,
+  "delta_val_vs_raw_ctrl": 9.231641888618469e-05,
+  "delta_test_vs_raw_ctrl": -0.0056814998388290405,
+  "clean_analysis": "Coverage: Failed to address known fabrication issues. All pairs invented VMT metrics, dates, and events not present in source text. | Failed to keep on-year US signals; introduced hallucinated dates, VMT stats, and removed source dates. | Failed to address known fabrications. All pairs introduced new false dates, specific accident claims, and VMT metrics not in source text. | Failed to address known issues: invented dates, non-US traffic, and unverified VMT metrics. Did not filter off-year or foreign data effectively.. Executability: Execution fails completely. Models hallucinated specific data points instead of filtering existing facts or keeping valid on-year signals. | Model hallucinated specific dates and metrics; truncated output in Pair 2; failed date hard constraints. | Execution fails. Models hallucinated specific dates and metrics instead of filtering. No on-year U.S. VMT facts retained correctly. | Execution fails: models hallucinated specific dates and statistics. Violated 'DATE HARD' and 'no inventing' constraints, producing unusable noise.. Detail: Coverage: Zero retention of valid source facts; 100% hallucination. Executability: Prompt constraints ignored; models generated false narratives. || Coverage: None; Executability: Failed due to fabrication and truncation. || Coverage: Zero known issues addressed; all new fabrications added. Executability: Complete failure; models invented data instead of filtering. || Coverage: Missed filtering foreign/off-year facts. Executability: Hallucinated data points instead of dropping rows. || CFA select=test:0.161995 val=0.007670 test=0.161995 Δtest_vs_raw=-0.005681; quality_score=5.55"
+}

@@ -1,0 +1,23 @@
+{
+  "domain": "security",
+  "n_events": 314,
+  "n_months": 171,
+  "channel_counts": {
+    "declaration": 108,
+    "funding": 94,
+    "fema_report": 48,
+    "hurricane": 16,
+    "flood": 14,
+    "mitigation": 11,
+    "appropriation": 7,
+    "tornado": 7,
+    "hazard": 4,
+    "wildfire": 3,
+    "other": 2
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_security_valtest/round_2/F1_r2c2/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/security_events_mech/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

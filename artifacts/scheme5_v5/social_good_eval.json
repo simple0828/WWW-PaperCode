@@ -1,0 +1,286 @@
+{
+  "domain": "social_good",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "per-domain seed protocols + improve rewrite; fuse=fixed mean@amp=1.0; pick_epoch=best; rewrite still chronological train+test (best-epoch selection also uses leaked online test)",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_social_good_reprompt/round_3/F5_r3c5",
+  "H": 6,
+  "focus": [
+    "payrolls",
+    "claims",
+    "layoffs",
+    "participation",
+    "recession",
+    "policy",
+    "macro",
+    "labor",
+    "bls_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "pick_epoch": "best",
+    "best_epoch": 1,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": []
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/social_good_event_ts_assoc/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "payrolls": {
+      "n_lessons": 20,
+      "chars": 2657,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "claims": {
+      "n_lessons": 20,
+      "chars": 2996,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "layoffs": {
+      "n_lessons": 20,
+      "chars": 3083,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "participation": {
+      "n_lessons": 20,
+      "chars": 3459,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "recession": {
+      "n_lessons": 20,
+      "chars": 3176,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "policy": {
+      "n_lessons": 20,
+      "chars": 3224,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "macro": {
+      "n_lessons": 20,
+      "chars": 3610,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "labor": {
+      "n_lessons": 20,
+      "chars": 3261,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "bls_report": {
+      "n_lessons": 20,
+      "chars": 3782,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 2174,
+      "n_gated": 1564,
+      "n_rewrites": 137,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 617,
+        "active": 259,
+        "frac_active": 0.419773095623987,
+        "mse_b0": 0.16373137568595805,
+        "mse_s5": 0.1633762302758288,
+        "rel_pct": -0.2169073634429391
+      },
+      "test": {
+        "n": 160,
+        "active": 159,
+        "frac_active": 0.99375,
+        "mse_b0": 0.9272541512810382,
+        "mse_s5": 0.9337561968673965,
+        "rel_pct": 0.701215042000678
+      },
+      "protocol_versions": {
+        "payrolls": 16,
+        "claims": 15,
+        "layoffs": 6,
+        "participation": 15,
+        "recession": 10,
+        "policy": 19,
+        "macro": 19,
+        "labor": 18,
+        "bls_report": 19
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 2174,
+      "n_gated": 1526,
+      "n_rewrites": 137,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 617,
+        "active": 262,
+        "frac_active": 0.4246353322528363,
+        "mse_b0": 0.16373137568595805,
+        "mse_s5": 0.16432701476108832,
+        "rel_pct": 0.36379042968082465
+      },
+      "test": {
+        "n": 160,
+        "active": 160,
+        "frac_active": 1.0,
+        "mse_b0": 0.9272541512810382,
+        "mse_s5": 0.9378034422626124,
+        "rel_pct": 1.1376914265630345
+      },
+      "protocol_versions": {
+        "payrolls": 32,
+        "claims": 30,
+        "layoffs": 12,
+        "participation": 30,
+        "recession": 20,
+        "policy": 38,
+        "macro": 38,
+        "labor": 36,
+        "bls_report": 38
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 617,
+    "active": 259,
+    "frac_active": 0.419773095623987,
+    "mse_b0": 0.16373137568595805,
+    "mse_s5": 0.1633762302758288,
+    "rel_pct": -0.2169073634429391
+  },
+  "train_best_epoch": {
+    "n": 617,
+    "active": 259,
+    "frac_active": 0.419773095623987,
+    "mse_b0": 0.16373137568595805,
+    "mse_s5": 0.1633762302758288,
+    "rel_pct": -0.2169073634429391
+  },
+  "test_last_epoch_online": {
+    "n": 160,
+    "active": 159,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9337561968673965,
+    "rel_pct": 0.701215042000678
+  },
+  "test_best_epoch_online": {
+    "n": 160,
+    "active": 159,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9337561968673965,
+    "rel_pct": 0.701215042000678
+  },
+  "test_final_frozen": {
+    "n": 160,
+    "active": 159,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.934800128882413,
+    "rel_pct": 0.813798200951682
+  },
+  "elapsed_sec": 2852.6656477451324,
+  "protocol_versions": {
+    "payrolls": 16,
+    "claims": 15,
+    "layoffs": 6,
+    "participation": 15,
+    "recession": 10,
+    "policy": 19,
+    "macro": 19,
+    "labor": 18,
+    "bls_report": 19
+  },
+  "channel_success": {
+    "payrolls": {
+      "n_infer": 474,
+      "n_success": 118
+    },
+    "claims": {
+      "n_infer": 292,
+      "n_success": 26
+    },
+    "layoffs": {
+      "n_infer": 92,
+      "n_success": 21
+    },
+    "participation": {
+      "n_infer": 398,
+      "n_success": 82
+    },
+    "recession": {
+      "n_infer": 262,
+      "n_success": 114
+    },
+    "policy": {
+      "n_infer": 552,
+      "n_success": 80
+    },
+    "macro": {
+      "n_infer": 840,
+      "n_success": 281
+    },
+    "labor": {
+      "n_infer": 616,
+      "n_success": 128
+    },
+    "bls_report": {
+      "n_infer": 822,
+      "n_success": 213
+    }
+  }
+}

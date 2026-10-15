@@ -1,0 +1,84 @@
+{
+  "average_score": 5.0425,
+  "heuristic_score": 0.7295402298850575,
+  "quality_score": 6.168951149425288,
+  "clean_analysis": "Coverage: Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.. Executability: Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.. Detail: Coverage: Removed non-gasoline data, off-year facts, and unverified sources where possible. Executability: Some outdated data and incomplete sentences remain. || Coverage: Off-year data, non-gasoline content, incomplete sentences, and unverified sources remain. Executability: Fails to filter outdated facts and enforce U.S. gasoline focus. || Coverage: Off-year, non-gasoline, and unverified data remain. Executability: Incomplete structure; non-relevant facts retained. || Coverage: Off-year data, non-gasoline content, and incomplete sentences remain. Executability: Fails on date filtering and content relevance.",
+  "coverage_analysis": "Addresses incomplete sentences, off-year data, and non-gasoline content. Some unverified sources and non-relevant data remain. | Known issues like off-year data, non-gasoline content, and incomplete sentences persist. Unverified sources remain. No new relevant facts added. | Off-year data (1996–1997) and non-gasoline content retained. Unverified sources and incomplete sentences remain. No near-dated U.S. gasoline facts addressed. | Off-year data (1996–2008) and non-gasoline elements (diesel, oil tankers) remain. Unverified sources and incomplete sentences persist. No relevant 2024 data.",
+  "executability_analysis": "Clear structure with bullet points; some entries exceed one year from target week. Incomplete sentences and off-date facts reduce execution quality. | Cleaned outputs include non-relevant data and incomplete sentences. Some facts are dated >1 year prior. Execution fails on filtering and relevance. | Incomplete sections; non-gasoline data included. Some facts dated >1 year. Unverified sources and off-year data reduce execution quality. | Inconsistent fact filtering; off-year data included; incomplete sentences; non-gasoline content retained. Execution fails on relevance and date cutoff.",
+  "new_issues_written": 4,
+  "pair_evaluations": [
+    {
+      "pair_id": 1,
+      "score": 8.0,
+      "comment": "Cleaned relevant facts; removed off-year and non-gasoline data; retained only near-dated, gasoline-related items."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.5,
+      "comment": "Some off-year data retained; incomplete sentence; unverified source; non-gasoline elements remain."
+    },
+    {
+      "pair_id": 3,
+      "score": 7.0,
+      "comment": "Relevant facts retained; off-year data included; incomplete sentence remains."
+    },
+    {
+      "pair_id": 1,
+      "score": 6.0,
+      "comment": "Incomplete sentences and off-year data remain; non-gasoline elements retained; unverified sources not removed."
+    },
+    {
+      "pair_id": 2,
+      "score": 7.0,
+      "comment": "Some relevant 2020 data retained, but off-year and non-gasoline facts persist; unverified source remains."
+    },
+    {
+      "pair_id": 3,
+      "score": 5.0,
+      "comment": "Off-year data (2002) retained; non-gasoline content (natural gas, fuel cells) included; incomplete sentence remains."
+    },
+    {
+      "pair_id": 1,
+      "score": 1.0,
+      "comment": "No usable near-dated facts; off-year data retained."
+    },
+    {
+      "pair_id": 2,
+      "score": 6.0,
+      "comment": "Some near-dated facts retained but incomplete; unverified source."
+    },
+    {
+      "pair_id": 3,
+      "score": 2.0,
+      "comment": "Off-year data; non-U.S. and non-gasoline content."
+    },
+    {
+      "pair_id": 1,
+      "score": 4.0,
+      "comment": "Off-year data retained; incomplete sentences; non-gasoline elements; unverified source usage."
+    },
+    {
+      "pair_id": 2,
+      "score": 7.0,
+      "comment": "Near-dated facts included; some off-topic elements; incomplete retail data."
+    },
+    {
+      "pair_id": 3,
+      "score": 1.0,
+      "comment": "All data off-year; no usable facts; irrelevant content retained."
+    }
+  ],
+  "suggestions": [
+    "HIGH: Remove all non-gasoline data and off-year facts.",
+    "MEDIUM: Fix incomplete sentences and verify sources.",
+    "LOW: Ensure all data is within ~1 year of target week.",
+    "MEDIUM: Eliminate incomplete sentences and unverified sources.",
+    "LOW: Ensure all data is within ~1 year of current week.",
+    "HIGH: Remove all off-year data and non-gasoline content.",
+    "MEDIUM: Replace unverified sources with credible ones.",
+    "LOW: Complete incomplete sentences and ensure U.S. pump link.",
+    "LOW: Ensure only 2023–2024 data is used."
+  ],
+  "judge_batches_ok": 4,
+  "judge_batches_total": 4
+}

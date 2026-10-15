@@ -1,0 +1,22 @@
+{
+  "domain": "public_health",
+  "n_events": 1748,
+  "n_months": 319,
+  "channel_counts": {
+    "flu_report": 527,
+    "outbreak": 486,
+    "ili": 154,
+    "vaccine": 137,
+    "policy": 119,
+    "variant": 115,
+    "season": 107,
+    "hospitalization": 70,
+    "school": 19,
+    "other": 14
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_public_health/round_5/F5_r5c1/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/public_health_events_mech/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

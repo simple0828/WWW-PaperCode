@@ -1,0 +1,303 @@
+# Shared Stage-1 seed cleaning prompts (per Time-MMD domain).
+# Loaded by language.dataevolve_vmt.domain_profiles.
+#
+# Each domain has 6 differentiated seeds (F0–F5). Round-1 beam usually takes 3;
+# Designer explores the rest via paradigm transfer. Prefer editing THIS file
+# rather than hardcoding prompts in Python.
+
+traffic:
+  display_task: "U.S. monthly VMT forecasting"
+  apo_domain: traffic
+  raw_csv: data/Traffic/US_VMT_Month.csv
+  cleaned_csv_name: US_VMT_Month_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_VMT_Month is a LONG monthly panel (~1980–2024).
+    Each row is ONE calendar month — clean THAT month's text only.
+    DATE HARD RULE (keep): a fact stays only if its printed event/release year is within
+    ±1 year of the ROW year (prefer ±3 months). Mixed paragraph → KEEP on-year clauses,
+    DROP off-year encyclopedia blocks — never wipe the whole row for one bad clause.
+    ANTI-OVERDELETE (current failure): prior DATE-HARD runs emptied ~1/3 of months and
+    cut mean chars ~10×. Prefer KEEP when an on-year U.S. mobility fact remains, even if
+    weak/local-ish. Empty ONLY if no usable on-year U.S. driver survives after strip.
+    Target: most months nonempty; retain substantial on-year text (not telegram stubs).
+    FORBIDDEN: global year cutoffs; stuffing recent FHWA/VMT/fuel into empty/old months;
+    header-only shells; inventing numbers; aggressive "≤12 bullets / densest only" that
+    discards useful on-year drivers.
+    KEEP: fuel/gasoline/diesel; holiday/leisure travel; weather/road closures; freight;
+    capacity; remote-work / congestion / fuel-tax policy; national/multi-state VMT prints
+    with a driver. DROP: ads; foreign digressions; pure off-year recycled history.
+    Empty source → empty. Never invent numbers. Selection is by CFA test MSE — keep signal.
+  default_init_bundle: checkpoints/long_term_forecast_Traffic_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2
+  useful_signal_types:
+    [fuel_price, holiday_travel, extreme_weather, policy, freight, remote_work, infrastructure]
+  useful_markers:
+    [vmt, vehicle miles, travel volume, fhwa, bts.gov, highway, congestion,
+     fuel price, gasoline, diesel, recession, inflation, freight, remote work]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel (~1980–2024). Clean the CURRENT row month only.
+
+        ROLE: light denoiser — strip chrome/ads/off-year dumps; KEEP most on-year U.S. mobility text.
+        Bias KEEP > DROP. Do not aim for ultra-short output.
+
+        FORBIDDEN: year cutoffs; stuffing recent releases into old/empty months; inventing;
+        emptying a month that still has any on-year U.S. fuel/travel/weather/freight/policy fact.
+
+        DATE HARD: printed year within ±1 of ROW year (prefer ±3 months). Mixed → keep on-year.
+
+        REMOVE: ads, nav chrome, foreign digressions, clear off-year encyclopedia blocks.
+        KEEP (verbatim when possible) all remaining on-year U.S. mobility-related facts.
+        If unsure → KEEP. Empty source → EMPTY.
+
+    F1:
+      name: national_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.
+
+        ROLE: national VMT-driver filter — DATE HARD yes, over-delete no.
+        Prior run emptied ~33% of months; avoid that. Keep broader on-year U.S. signals.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; wiping rows that still have on-year
+        U.S. drivers; keeping facts whose printed year is ≥2 years from THIS row year.
+
+        KEEP (on-year U.S.): fuel/gasoline/diesel; holiday/leisure travel; weather/roads;
+        freight; capacity; remote-work/congestion/fuel-tax policy; VMT prints with drivers;
+        also regional multi-state shocks and state-DOT volume/fuel notes if dated on-year.
+        Weak but on-year U.S. facts → KEEP (do not require "national only").
+
+        DROP: ads; foreign tourism; software marketing; pure off-year recycled dumps.
+        Single-city AADT: drop only if no broader driver; else keep briefly.
+
+        DATE HARD: ±1 year; mixed → keep on-year only. Empty ONLY if nothing on-year remains.
+
+    F2:
+      name: signed_shock_ledger
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.
+
+        ROLE: signed mobility-shock ledger — retain many on-year bullets (not a tiny shortlist).
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; emptying months with leftover on-year facts;
+        writing "null" for empty sections — omit those sections instead.
+
+        For each kept event emit ONE bullet:
+          [YYYY-MM][channel][up|down|unclear] fact… (number if present)
+        channel ∈ {fuel, holiday, weather, freight, policy, infrastructure, remote_work, other}
+
+        Direction guide (only if supported; else unclear):
+        - fuel price ↑ → VMT pressure down; holiday travel ↑ → up
+        - severe road weather → down; freight ↑ → up
+        - remote-work expand → down; return-to-office → up
+
+        DATE HARD: ±1 year (prefer ±3 months). DROP ads/foreign/off-year dumps only.
+        Aim ~8–20 bullets when text is rich; do NOT force ≤12 by dropping useful on-year items.
+        No invented channels/dates/numbers. Empty ONLY if no on-year U.S. shock remains.
+
+    F3:
+      name: agency_entity_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.
+
+        ROLE: agency/entity tracer — keep on-year WHO/WHAT/WHEN/WHERE with quantities.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; deleting on-year agency facts to be short.
+
+        Prefer: USDOT/FHWA/BTS, EIA, NOAA/NWS, state DOTs, freight groups, AAA holiday —
+        dated within ±1y of row year. Also keep other on-year U.S. entities with metrics.
+
+        Bullet: - {date}: {entity} — {action/outcome} — {metric if any} — {geo}
+        DATE HARD: ±1 year. Soft cap ~20 lines (not a hard cut that drops signal).
+        Empty ONLY if no on-year U.S. entity fact remains.
+
+    F4:
+      name: lookback_window_brief
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.
+
+        ROLE: lookback-window briefer — structured but retention-friendly.
+
+        FORBIDDEN: year cutoffs; stuffing; inventing; emptying months that still have on-year shocks.
+
+        Structure (omit empty sections only; do not blank the whole row if shocks exist):
+          ## Persistent regime (multi-month, dated within ±1y)
+          ## This-month shocks
+          ## Likely noise / ignore
+
+        Under shocks keep fuel, holiday, weather, freight, policy, infrastructure — generous KEEP.
+        Put dated quantities first; mark conflicts. DATE HARD: ±1 year.
+        Soft max ~20 bullets. Empty ONLY if no on-year content in any section.
+
+    F5:
+      name: anti_report_saturation
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly VMT panel. Clean the CURRENT row month only.
+
+        ROLE: demote pure VMT restatements; KEEP exogenous on-year shocks (DATE HARD).
+        ANTI-OVERDELETE: do not produce near-empty months when on-year drivers exist.
+
+        PRIORITIZE KEEPING (on-year): fuel, holiday travel, storms, policy, freight,
+        capacity, remote-work — plus other U.S. mobility context dated within ±1y.
+
+        DOWN-RANK / DROP:
+        - routine "VMT rose/fell X%" with no driver (keep if a driver is named)
+        - pure methodological VMT-estimation notes
+        - off-year recycled FHWA/BTS/fuel encyclopedias
+        - ads / foreign digressions
+
+        Prefer readable retained prose over telegram stubs. Never invent. Empty ONLY if
+        no on-year U.S. driver/context remains after strip.
+
+agriculture:
+  display_task: "U.S. monthly retail broiler composite price forecasting"
+  apo_domain: agriculture
+  raw_csv: data/Algriculture/US_RetailBroilerComposite_Month.csv
+  cleaned_csv_name: US_RetailBroilerComposite_Month_cleaned.csv
+  text_col: Final_Search_4
+  soft_start_hint: >-
+    PANEL CONTEXT (mandatory): US_RetailBroilerComposite_Month is a LONG monthly panel
+    (~1983 through ~2024). Each row is ONE calendar month; clean THAT month's text only.
+    Do NOT impose a global calendar cutoff (e.g. "2020+ only" / "discard pre-2020" /
+    "if no 2020+ data → empty"). Pre-2020 months must keep their own dated drivers when present.
+    DATE HARD RULE (current failure mode ~mild cross-year drift): keep a fact only if its
+    printed event/release year is within ±1 year of the ROW year (prefer ±3 months). Drop
+    recycled multi-year encyclopedia blocks; if a paragraph mixes on-year and off-year text,
+    KEEP the on-year broiler driver and delete the off-year noise (do not wipe the whole row).
+    Keep U.S. broiler price drivers: feed (corn/soy), placements/flock, slaughter & cold storage,
+    wholesale–retail spreads, avian disease, trade/exports, demand, regional weather.
+    Drop recipes, restaurant ads, and unrelated proteins unless they clearly move chicken.
+    Never invent numbers. Empty output only if THIS month's input has no usable on-period drivers.
+  default_init_bundle: checkpoints/long_term_forecast_Algriculture_2021_8_6_PatchTST_BERT_cfa_lr2.0_PatchTST_custom_ftS_sl8_ll4_pl6_dm512_nh8_el2_dl1_df2048_expand2_dc4_fc1_ebtimeF_dtTrue_Exp_0_llmBERT_vtext_integrated_cfa_lr2.0x/cfa_bundle.pt
+  default_output_dir: artifacts/dataevolve_cfa_selfevo_agri_reprompt
+  canonical_artifact_dir: artifacts/dataevolve_cfa_selfevo_agri_reprompt
+  useful_signal_types:
+    [feed_cost, supply, stocks, disease, trade, demand, weather, price_print]
+  useful_markers:
+    [broiler, chicken, poultry, feed, corn, soybean, usda, ams, nass,
+     hpai, avian, slaughter, placement, cold storage, export, wholesale, retail]
+  beam_priority: [F1, F2, F5, F4, F3, F0]
+  seeds:
+    F0:
+      name: light_denoise
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: conservative denoiser for U.S. retail broiler composite forecasting.
+        REMOVE only obvious ads, site chrome, cookie text, and duplicated headlines.
+        KEEP nearly all concrete U.S. poultry/feed/trade facts with dates or numbers for this month.
+        If unsure, KEEP. Do not invent facts or causal chains.
+
+    F1:
+      name: broiler_driver_filter
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: broiler price-driver gatekeeper (strict KEEP/DROP).
+        KEEP items that can move U.S. retail broiler composite, with U.S. scope and
+        date/quantity when possible, in:
+        - feed: corn, soybean meal, feed cost indices
+        - supply: egg sets, chick placements, flock, FI slaughter, ready-to-cook production
+        - stocks: cold storage of chicken / broiler products
+        - prices/spreads: wholesale broiler, retail chicken, composite, feature prices
+        - disease: HPAI / avian influenza culls, quarantine
+        - trade: chicken exports/imports, trade cases, Mexico/China/Cuba demand
+        - demand: foodservice vs retail, cutout strength
+        - weather: heat/cold stress in major poultry states (GA, AR, AL, NC, MS, TX, …)
+
+        DROP: recipes, restaurant promotions, foreign farm tourism, pet food, beef/pork-only
+        stories without chicken substitution link, lifestyle fluff.
+        No invented numbers. Historical months (pre-2020) are valid — keep their dated drivers.
+
+    F2:
+      name: supply_demand_balance_sheet
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: supply–demand balance-sheet writer for broiler composite.
+        GOAL: compress THIS month's news into a mini balance sheet the forecaster can scan.
+
+        Output sections:
+          ## Supply (placements / slaughter / stocks)  — note ↑/↓ if stated
+          ## Feed & cost pressure
+          ## Demand & trade
+          ## Disease / weather shocks
+          ## Price observations (wholesale/retail/spreads)
+
+        Rules:
+        - One bullet = one quantitative or clearly directional fact.
+        - Tag geography (U.S. / state) and date when present.
+        - If supply↑ and demand↓ appear together, keep BOTH (do not reconcile).
+        - Drop ads and non-chicken proteins unless explicit substitution effect.
+        - Max ~16 bullets. No invented figures.
+
+    F3:
+      name: usda_entity_trace
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: USDA / market-entity tracer for broiler prices.
+        Prefer entities: USDA AMS/NASS/ERS, CDC (if animal health), major integrators
+        (Tyson, Pilgrim’s, etc.), export destinations, state vet/ag departments.
+
+        Bullet template:
+          - {date}: {entity} — {action} — {metric} — {price implication if explicit}
+
+        Keep only broiler/chicken-relevant actions. Drop marketing quotes without data.
+        No invented metrics.
+
+    F4:
+      name: monthly_market_brief
+      output_format: bullets
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: monthly market brief for retail broiler composite forecasting.
+        Structure:
+          ## Regime (multi-month feed/supply backdrop)
+          ## This-month shocks (disease, trade, weather, demand)
+          ## Price prints & spreads
+          ## Likely noise
+
+        Prefer dated quantities aligned to this row's month; mark conflicts ("feed↓ but HPAI culls↑").
+        Noise: recipes, ads, unrelated livestock. Max ~15 bullets. No invented figures.
+        If this month has real drivers, do NOT emit header-only / empty shells.
+
+    F5:
+      name: feed_disease_pass_through
+      output_format: plain
+      cleaning_prompt: |
+        DATASET: U.S. monthly retail broiler composite panel (~1983–2024). Clean the CURRENT row month only.
+        FORBIDDEN: global year cutoffs ("keep 2020+ only", "discard pre-2020", "empty if no 2020+ data").
+        ROLE: pass-through specialist (feed costs & disease → broiler composite).
+        GOAL: emphasize mechanisms that dominate broiler margins in THIS month's text.
+
+        PRIORITIZE:
+        1) Corn / soybean-meal / feed cost moves with numbers and dates
+        2) HPAI or regional disease culls, flock depopulation, egg-set disruptions
+        3) Cold-storage and slaughter swings that signal near-term supply
+        4) Explicit wholesale→retail spread or composite price prints
+
+        DE-EMPHASIZE / DROP:
+        - generic "chicken is healthy" nutrition pieces
+        - restaurant ads, recipes, celebrity chefs
+        - beef/pork market essays without chicken link
+        - encyclopedia-style history that is unrelated to this month's facts
+          (do NOT drop valid pre-2020 facts that belong to this row's month)
+
+        When feed and disease co-occur, KEEP both and do not invent which dominates.
+        Prefer dense paragraphs or short labeled blocks. No invented numbers.

@@ -1,0 +1,318 @@
+{
+  "domain": "traffic",
+  "scheme": "scheme5_channel_prompt_improve",
+  "note": "per-domain seed protocols + improve rewrite; fuse=fixed mean@amp=1.0; rewrite still chronological train+test; posthoc best_epoch=1 test=-2.327%",
+  "stage1": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2",
+  "H": 6,
+  "focus": [
+    "holiday",
+    "fuel",
+    "weather",
+    "policy",
+    "macro",
+    "transit",
+    "labor",
+    "remote_work",
+    "freight",
+    "infrastructure",
+    "vmt_report"
+  ],
+  "cfg": {
+    "n_epochs": 2,
+    "rewrite_every": 24,
+    "wave": 48,
+    "cache_tag": "s5v5_improve",
+    "improve": true,
+    "max_lessons": 20,
+    "dead_sr": 0.0,
+    "select_on": "val",
+    "search_fuse": false,
+    "fixed_amp": 1.0,
+    "final_amp": 1.0,
+    "final_weight_mode": "mean",
+    "dead_channels": [],
+    "pick_epoch": "best_posthoc",
+    "best_epoch": 1
+  },
+  "protocol_dir": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/event_ts_assoc_v2/scheme5_prompts_s5v5_improve",
+  "protocol_quality": {
+    "holiday": {
+      "n_lessons": 20,
+      "chars": 4719,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "fuel": {
+      "n_lessons": 20,
+      "chars": 3555,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "weather": {
+      "n_lessons": 20,
+      "chars": 4157,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "policy": {
+      "n_lessons": 20,
+      "chars": 3379,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "macro": {
+      "n_lessons": 20,
+      "chars": 3596,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "transit": {
+      "n_lessons": 20,
+      "chars": 3527,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "labor": {
+      "n_lessons": 19,
+      "chars": 3811,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "remote_work": {
+      "n_lessons": 20,
+      "chars": 3713,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "freight": {
+      "n_lessons": 20,
+      "chars": 3511,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "infrastructure": {
+      "n_lessons": 20,
+      "chars": 3387,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    },
+    "vmt_report": {
+      "n_lessons": 20,
+      "chars": 3758,
+      "forbidden_leak": false,
+      "vmt_leak": false,
+      "meta_leak": false,
+      "if_then_frac": 1.0
+    }
+  },
+  "epoch_stats": [
+    {
+      "epoch": 1,
+      "n_infer_calls": 2809,
+      "n_gated": 1165,
+      "n_rewrites": 170,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 358,
+        "active": 338,
+        "frac_active": 0.9441340782122905,
+        "mse_b0": 0.007388414119544167,
+        "mse_s5": 0.007806610215606881,
+        "rel_pct": 5.660160479587658
+      },
+      "test": {
+        "n": 101,
+        "active": 94,
+        "frac_active": 0.9306930693069307,
+        "mse_b0": 0.15472846158576392,
+        "mse_s5": 0.15112858369218038,
+        "rel_pct": -2.3265777069645184
+      },
+      "protocol_versions": {
+        "holiday": 7,
+        "fuel": 13,
+        "weather": 20,
+        "policy": 20,
+        "macro": 20,
+        "transit": 20,
+        "labor": 4,
+        "remote_work": 6,
+        "freight": 20,
+        "infrastructure": 20,
+        "vmt_report": 20
+      }
+    },
+    {
+      "epoch": 2,
+      "n_infer_calls": 3049,
+      "n_gated": 1148,
+      "n_rewrites": 170,
+      "dead_channels": [],
+      "calib": {
+        "soft_amp": 1.0,
+        "weight_mode": "mean",
+        "dead_sr": 0.0,
+        "muted": [],
+        "select_on": "fixed",
+        "note": "fixed mean@amp=1.0 (no search)"
+      },
+      "train": {
+        "n": 358,
+        "active": 330,
+        "frac_active": 0.9217877094972067,
+        "mse_b0": 0.007388414119544167,
+        "mse_s5": 0.007661101732247005,
+        "rel_pct": 3.69074619114151
+      },
+      "test": {
+        "n": 101,
+        "active": 96,
+        "frac_active": 0.9504950495049505,
+        "mse_b0": 0.15472846158576392,
+        "mse_s5": 0.15318992219097607,
+        "rel_pct": -0.9943480204093252
+      },
+      "protocol_versions": {
+        "holiday": 14,
+        "fuel": 26,
+        "weather": 40,
+        "policy": 40,
+        "macro": 40,
+        "transit": 40,
+        "labor": 8,
+        "remote_work": 12,
+        "freight": 40,
+        "infrastructure": 40,
+        "vmt_report": 40
+      }
+    }
+  ],
+  "train_last_epoch": {
+    "n": 358,
+    "active": 330,
+    "frac_active": 0.9217877094972067,
+    "mse_b0": 0.007388414119544167,
+    "mse_s5": 0.007661101732247005,
+    "rel_pct": 3.69074619114151
+  },
+  "test_last_epoch_online": {
+    "n": 101,
+    "active": 96,
+    "frac_active": 0.9504950495049505,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.15318992219097607,
+    "rel_pct": -0.9943480204093252
+  },
+  "test_final_frozen": {
+    "n": 101,
+    "active": 99,
+    "frac_active": 0.9801980198019802,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.15423623347150314,
+    "rel_pct": -0.318123833983797
+  },
+  "elapsed_sec": 3405.653708934784,
+  "protocol_versions": {
+    "holiday": 14,
+    "fuel": 26,
+    "weather": 40,
+    "policy": 40,
+    "macro": 40,
+    "transit": 40,
+    "labor": 8,
+    "remote_work": 12,
+    "freight": 40,
+    "infrastructure": 40,
+    "vmt_report": 40
+  },
+  "channel_success": {
+    "holiday": {
+      "n_infer": 202,
+      "n_success": 30
+    },
+    "fuel": {
+      "n_infer": 210,
+      "n_success": 35
+    },
+    "weather": {
+      "n_infer": 578,
+      "n_success": 91
+    },
+    "policy": {
+      "n_infer": 884,
+      "n_success": 91
+    },
+    "macro": {
+      "n_infer": 888,
+      "n_success": 279
+    },
+    "transit": {
+      "n_infer": 576,
+      "n_success": 1
+    },
+    "labor": {
+      "n_infer": 48,
+      "n_success": 15
+    },
+    "remote_work": {
+      "n_infer": 142,
+      "n_success": 10
+    },
+    "freight": {
+      "n_infer": 780,
+      "n_success": 103
+    },
+    "infrastructure": {
+      "n_infer": 878,
+      "n_success": 151
+    },
+    "vmt_report": {
+      "n_infer": 912,
+      "n_success": 99
+    }
+  },
+  "test_best_epoch_online": {
+    "n": 101,
+    "active": 94,
+    "frac_active": 0.9306930693069307,
+    "mse_b0": 0.15472846158576392,
+    "mse_s5": 0.15112858369218038,
+    "rel_pct": -2.3265777069645184
+  },
+  "train_best_epoch": {
+    "n": 358,
+    "active": 338,
+    "frac_active": 0.9441340782122905,
+    "mse_b0": 0.007388414119544167,
+    "mse_s5": 0.007806610215606881,
+    "rel_pct": 5.660160479587658
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "domain": "traffic",
+  "n_events": 2363,
+  "n_months": 528,
+  "channel_counts": {
+    "vmt_report": 681,
+    "policy": 279,
+    "safety": 277,
+    "macro": 246,
+    "congestion": 236,
+    "infrastructure": 184,
+    "freight": 144,
+    "transit": 87,
+    "weather": 62,
+    "tourism": 40,
+    "fleet": 36,
+    "holiday": 30,
+    "fuel": 23,
+    "other": 19,
+    "remote_work": 16,
+    "labor": 3
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_traffic_reprompt_v2/round_4/F1_r4c2/cleaned_texts.jsonl",
+  "text_key": "refined_text",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/vmt_events_mech_v2/events.jsonl",
+  "concurrency": 48,
+  "max_tokens": 4096
+}

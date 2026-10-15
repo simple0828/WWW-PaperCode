@@ -1,0 +1,83 @@
+{
+  "domain": "social_good",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 1,
+  "s5_v5_best_online_saved": 0.701215042000678,
+  "s5_v5_final_saved": 0.813798200951682,
+  "recon_s5_online": {
+    "n": 160.0,
+    "active": 159.0,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9337561968673965,
+    "rel_pct": 0.701215042000678
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 160.0,
+    "active": 38.0,
+    "frac_active": 0.2375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9394470096695613,
+    "rel_pct": 1.314942442875906
+  },
+  "val_choice": {
+    "name": "fuse_1_1",
+    "g2": 1.0,
+    "g5": 1.0,
+    "val_rel": -5.034498045426491,
+    "val_mse": 0.06652626339315186
+  },
+  "fused_online_before_fallback": {
+    "n": 160.0,
+    "active": 159.0,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9466452309734039,
+    "rel_pct": 2.091236762388846
+  },
+  "reported_online": {
+    "n": 160.0,
+    "active": 159.0,
+    "frac_active": 0.99375,
+    "mse_b0": 0.9272541512810382,
+    "mse_s5": 0.9337561968673965,
+    "rel_pct": 0.701215042000678
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 160.0,
+      "active": 159.0,
+      "frac_active": 0.99375,
+      "mse_b0": 0.9272541512810382,
+      "mse_s5": 0.934800128882413,
+      "rel_pct": 0.813798200951682
+    },
+    "fused_before_fallback": {
+      "n": 160.0,
+      "active": 160.0,
+      "frac_active": 1.0,
+      "mse_b0": 0.9272541512810382,
+      "mse_s5": 0.947649305847705,
+      "rel_pct": 2.199521516133429
+    },
+    "reported": {
+      "n": 160.0,
+      "active": 159.0,
+      "frac_active": 0.99375,
+      "mse_b0": 0.9272541512810382,
+      "mse_s5": 0.934800128882413,
+      "rel_pct": 0.813798200951682
+    },
+    "mode": "S5_fallback",
+    "delta_vs_s5_final": 0.0
+  },
+  "n_train_s2_covered": 617,
+  "n_val": 123,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/social_good_event_ts_assoc/scheme2_sampled_dual_social_good_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/social_good_event_ts_assoc/scheme5_infer_s5v5_improve.jsonl"
+}

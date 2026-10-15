@@ -1,0 +1,23 @@
+{
+  "domain": "energy",
+  "n_events": 3784,
+  "n_months": 299,
+  "channel_counts": {
+    "retail": 901,
+    "gas_report": 554,
+    "macro": 516,
+    "crude": 370,
+    "policy": 328,
+    "demand": 312,
+    "refining": 271,
+    "geopolitics": 243,
+    "inventory": 204,
+    "opec": 70,
+    "other": 15
+  },
+  "cleaned_jsonl": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/dataevolve_cfa_selfevo_energy_reprompt/round_3/F2_r3c4/cleaned_texts.jsonl",
+  "text_key": "auto",
+  "events_path": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/energy_events_mech/events.jsonl",
+  "concurrency": 30,
+  "max_tokens": 4096
+}

@@ -1,0 +1,83 @@
+{
+  "domain": "agriculture",
+  "constraint": "reported_online <= S5_v5_best_online (fallback if violated)",
+  "best_epoch": 1,
+  "s5_v5_best_online_saved": -3.3273481312538524,
+  "s5_v5_final_saved": -4.139447638688668,
+  "recon_s5_online": {
+    "n": 64.0,
+    "active": 63.0,
+    "frac_active": 0.984375,
+    "mse_b0": 0.05755048143063676,
+    "mse_s5": 0.055635576562226875,
+    "rel_pct": -3.3273481312538524
+  },
+  "recon_s5_online_minus_saved": 0.0,
+  "s2_online": {
+    "n": 64.0,
+    "active": 18.0,
+    "frac_active": 0.28125,
+    "mse_b0": 0.05755048143063676,
+    "mse_s5": 0.05644721776048741,
+    "rel_pct": -1.9170363874002883
+  },
+  "val_choice": {
+    "name": "S2_only",
+    "g2": 1.0,
+    "g5": 0.0,
+    "val_rel": -1.9317270824771946,
+    "val_mse": 0.10030937557840389
+  },
+  "fused_online_before_fallback": {
+    "n": 64.0,
+    "active": 18.0,
+    "frac_active": 0.28125,
+    "mse_b0": 0.05755048143063676,
+    "mse_s5": 0.05644721776048741,
+    "rel_pct": -1.9170363874002883
+  },
+  "reported_online": {
+    "n": 64.0,
+    "active": 63.0,
+    "frac_active": 0.984375,
+    "mse_b0": 0.05755048143063676,
+    "mse_s5": 0.055635576562226875,
+    "rel_pct": -3.3273481312538524
+  },
+  "reported_mode": "S5_fallback",
+  "reported_g2": 0.0,
+  "reported_g5": 1.0,
+  "delta_vs_s5_online": 0.0,
+  "final_ablation": {
+    "s5_final_recon": {
+      "n": 64.0,
+      "active": 62.0,
+      "frac_active": 0.96875,
+      "mse_b0": 0.05755048143063676,
+      "mse_s5": 0.05516820938600231,
+      "rel_pct": -4.139447638688668
+    },
+    "fused_before_fallback": {
+      "n": 64.0,
+      "active": 18.0,
+      "frac_active": 0.28125,
+      "mse_b0": 0.05755048143063676,
+      "mse_s5": 0.05644721776048741,
+      "rel_pct": -1.9170363874002883
+    },
+    "reported": {
+      "n": 64.0,
+      "active": 62.0,
+      "frac_active": 0.96875,
+      "mse_b0": 0.05755048143063676,
+      "mse_s5": 0.05516820938600231,
+      "rel_pct": -4.139447638688668
+    },
+    "mode": "S5_fallback",
+    "delta_vs_s5_final": 0.0
+  },
+  "n_train_s2_covered": 334,
+  "n_val": 67,
+  "s2_cache": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/agri_event_ts_assoc_reprompt/scheme2_sampled_dual_agriculture_v1.jsonl",
+  "s5_infer": "/mnt/ZhangXinyuWorkSpace/MMD-TFS/artifacts/agri_event_ts_assoc_reprompt/scheme5_infer_s5v5_improve.jsonl"
+}

@@ -1,0 +1,32 @@
+{
+  "round": 5,
+  "family": "F5_r5c1",
+  "name": "exploit",
+  "output_format": "bullets",
+  "cleaning_prompt": "Clean the current month's U.S. retail broiler composite news text only. Each row corresponds to one calendar month; do not apply global year filters (e.g., 2020+ only). Do not copy recent data (e.g., 2024 BLS/EIA) into older rows. Never invent numbers or infer causality. Focus strictly on U.S. retail price drivers with event/release dates within ±1 year of the row’s year (prefer ±3 months). Drop all off-year data (≥2 years difference), even if embedded in a paragraph with on-year U.S. broiler facts—strip the noise, keep the relevant driver. Preserve only: U.S. feed costs (corn/soy), placements, slaughter, cold storage, export volumes, avian disease (e.g., HPAI), regional weather, retail/wholesale prices, spreads, and demand drivers (e.g., consumer spending, chicken substitution). Exclude: non-U.S. data (e.g., EU, South Korea), non-retail poultry (e.g., eggs), farm practices, company ads, speculative claims, non-chicken proteins, vague sources (e.g., wattagnet.com), and off-topic context. Do not emit empty section headers. Output only when facts remain. One bullet = one clear, quantitative, or directional fact. Tag geography (U.S. / state) and date when present. If supply↑ and demand↓ appear together, keep both. Max ~16 bullets. Do not end mid-sentence. Never delete a usable on-year U.S. broiler price driver just because the paragraph also contains off-year noise. Empty output only if no usable on-period U.S. broiler drivers remain after filtering. Panel safety: each row is one calendar month; clean only that month’s input. No global year cutoffs. No date stuffing. No empty section shells. Date alignment: keep only facts with release dates within ±1 year of the row’s year (prefer ±3 months).",
+  "clean_stats": {
+    "n_rows": 496,
+    "n_forced_empty": 0,
+    "raw_chars_mean": 1198.8790322580646,
+    "cleaned_chars_mean": 920.491935483871,
+    "retention_mean": 0.6957940222256175
+  },
+  "clean_seconds": 1101.9475874900818,
+  "clean_wave_seconds": 1126.5395195484161,
+  "bundle": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1/cfa_bundle.pt",
+  "cleaned_csv": "artifacts/dataevolve_cfa_selfevo_agri_reprompt/round_5/F5_r5c1/US_RetailBroilerComposite_Month_cleaned.csv",
+  "quality_score": 6.7301365469208205,
+  "quality_llm_score": 5.4,
+  "quality_heuristic": 0.8060273093841641,
+  "coverage_analysis": "Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.",
+  "executability_analysis": "Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.",
+  "new_issues_written": 13,
+  "val_mse": 0.05688052996993065,
+  "test_mse": 0.05754786729812622,
+  "select_split": "test",
+  "select_mse": 0.05754786729812622,
+  "score_objective": -0.05754786729812622,
+  "delta_val_vs_raw_ctrl": -0.0029573775827884674,
+  "delta_test_vs_raw_ctrl": -0.0019034557044506073,
+  "clean_analysis": "Coverage: Pair 1 retains one off-year U.S. price; Pair 2 has no relevant data; Pair 3 includes non-2024 U.S. broiler facts and incomplete sentences. No on-year price drivers preserved. | Pair 1 removes off-year data and incomplete facts. Pair 2 retains non-price regulatory content. Pair 3 includes non-2024 organic demand and feed cost data without 2012 price linkage. | Pair 1 retains 2009 data and incomplete sentence; Pair 2 includes 2012 data without 2024 relevance; Pair 3 uses 2004 data and incomplete text. None address 2024 price drivers. | Pair 1 retains one U.S. broiler fact; Pair 2 keeps one 1990 Salmonella finding; Pair 3 retains several off-year U.S. broiler facts. No 2024 price drivers. Incomplete sentences remain in Pair 3.. Executability: Pair 1: usable but off-year; Pair 2: empty; Pair 3: incomplete, non-specific, and contains irrelevant content. No clear 2024 price drivers. | Pair 1: executable with no facts. Pair 2: vague, includes non-driver company info. Pair 3: incomplete, includes off-year data and speculative claims. | All pairs include off-year data, incomplete sentences, and non-2024 U.S. broiler facts. No clear, on-year U.S. price drivers remain. | Cleaned outputs lack 2024 relevance. Pair 3 includes non-2024 data. Incomplete sentences persist. No clear price drivers. Execution fails on relevance and completeness.. Detail: Coverage: Pair 1 retains off-year data; Pair 2 has no data; Pair 3 includes off-topic and incomplete content. Executability: Pair 1 usable but irrelevant; Pair 2 fails; Pair 3 fails due to noise and incompleteness. || Coverage: Pair 1 addresses off-year data; Pair 2 misses price drivers; Pair 3 retains non-2024 data. Executability: Pair 1 fails due to no facts; Pair 2 vague; Pair 3 incomplete. || Coverage: All pairs retain off-year data and incomplete sentences. Executability: All outputs lack 2024 price drivers and contain non-relevant facts. || Coverage: Pair 1 and 2 retain minimal relevant data; Pair 3 retains off-year facts. Executability: All outputs contain non-2024 data or incomplete sentences. || CFA select=test:0.057548 val=0.056881 test=0.057548 Δtest_vs_raw=-0.001903; quality_score=6.73"
+}
